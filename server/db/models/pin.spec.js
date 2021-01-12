@@ -2,7 +2,7 @@ const {expect} = require('chai')
 const db = require('../index')
 const Pin = db.model('pin')
 
-describe.only('Pin model', () => {
+describe('Pin model', () => {
   beforeEach(() => {
     return db.sync({force: true})
   })
