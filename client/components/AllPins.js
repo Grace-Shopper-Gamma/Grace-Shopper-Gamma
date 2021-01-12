@@ -1,7 +1,18 @@
 import React from 'react'
 
-function allPins() {
-  return <div />
+class AllPins extends React.Component {
+  componentDidMount() {
+    this.props.getPins()
+  }
+  catch(err) {
+    console.log(err)
+  }
+
+  render() {
+    const {pins} = this.props
+
+    return <div>{pins.map(pin => <PinCard key={pin.id} pin={pin} />)}</div>
+  }
 }
 
-export default allPins
+export default AllPins
