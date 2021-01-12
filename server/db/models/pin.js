@@ -8,11 +8,12 @@ const Pin = db.define('pin', {
     allowNull: false
   },
   description: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
+    defaultValue: 'What a lovely pin!'
   },
   imageUrl: {
     type: Sequelize.STRING,
-    default:
+    defaultValue:
       'https://www.flaticon.com/svg/vstatic/svg/891/891448.svg?token=exp=1610479981~hmac=02dd2421d9afc0aadfa973d68ce812bb'
   },
   rating: {
@@ -21,14 +22,14 @@ const Pin = db.define('pin', {
       min: 0,
       max: 5
     },
-    default: 0
+    defaultValue: 0
   },
   stock: {
     type: Sequelize.INTEGER,
     validate: {
       min: 0
     },
-    default: 1
+    defaultValue: 1
   }
 })
 
