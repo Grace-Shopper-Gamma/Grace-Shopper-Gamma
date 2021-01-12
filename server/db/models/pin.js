@@ -16,6 +16,13 @@ const Pin = db.define('pin', {
     defaultValue:
       'https://www.flaticon.com/svg/vstatic/svg/891/891448.svg?token=exp=1610479981~hmac=02dd2421d9afc0aadfa973d68ce812bb'
   },
+  price: {
+    type: Sequelize.FLOAT,
+    validate: {
+      min: 0
+    },
+    defaultValue: 0
+  },
   rating: {
     type: Sequelize.FLOAT,
     validate: {

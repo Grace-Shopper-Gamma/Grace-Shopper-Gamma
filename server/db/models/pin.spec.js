@@ -15,7 +15,8 @@ describe.only('Pin model', () => {
         imageUrl:
           'https://pbs.twimg.com/profile_images/1145685694238605312/q4JCNy_X_400x400.jpg',
         rating: 5,
-        stock: 9001
+        stock: 9001,
+        price: 18000
       })
       expect(pin.name).to.be.equal('FSA')
       expect(pin.description).to.be.equal('Fullstack Academy')
@@ -24,6 +25,7 @@ describe.only('Pin model', () => {
       )
       expect(pin.rating).to.be.equal(5)
       expect(pin.stock).to.be.equal(9001)
+      expect(pin.price).to.be.equal(18000)
     })
 
     it('can create a pin instance with default values', async () => {
@@ -37,6 +39,7 @@ describe.only('Pin model', () => {
       )
       expect(pin.rating).to.be.equal(0)
       expect(pin.stock).to.be.equal(1)
+      expect(pin.price).to.be.equal(0)
     })
   })
 })
