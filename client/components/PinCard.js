@@ -1,14 +1,14 @@
 import React from 'react'
 
 const PinCard = props => {
-  const {name, desc, image, price, quantity} = props
+  const {name, description, imageURL, price, rating} = props
   return (
     <div>
       {name}
-      {desc}
-      {image}
+      {description}
+      {imageURL}
       {price}
-      {quantity}
+      {rating}
     </div>
   )
 }
