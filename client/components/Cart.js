@@ -5,6 +5,7 @@ import DeleteCartItem from './DeleteCartItem'
 const Cart = ({cartItems}) => {
   return (
     <div id="cart">
+      <h1>Hello from the cart</h1>
       {cartItems.map(cartItem => {
         return (
           <div key={cartItem.id}>

@@ -14,6 +14,10 @@ const Cart = require('./cart')
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
+
+Cart.belongsTo(User)
+User.hasMany(Cart)
+
 module.exports = {
   User,
   Cart
