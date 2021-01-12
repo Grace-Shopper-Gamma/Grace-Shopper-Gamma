@@ -2,7 +2,6 @@ const User = require('./user')
 const Pin = require('./pin')
 const Cart = require('./cart')
 
-
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
@@ -22,7 +21,6 @@ User.hasMany(Cart)
 
 module.exports = {
   User,
-  Pin
+  Pin,
   Cart
-
 }
