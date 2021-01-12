@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
+import PinCard from './PinCard'
+import {connect} from 'react-redux'
+import {getPins} from '../store/pins'
 
-class AllPins extends React.Component {
+class AllPins extends Component {
   componentDidMount() {
     this.props.getPins()
   }
@@ -15,4 +18,10 @@ class AllPins extends React.Component {
   }
 }
 
-export default AllPins
+const mapState = state => ({pins: state.pins})
+
+const mapDispatch = dispatch => ({
+  getPins: () => dispatch(getPins())
+})
+
+export default connect(mapState, mapDispatch)(AllPins)
