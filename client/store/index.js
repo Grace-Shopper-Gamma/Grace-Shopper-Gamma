@@ -4,10 +4,12 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import cartReducer from './cart'
+import pinsReducer from './pins'
 
 const reducer = combineReducers({
   user,
-  cart: cartReducer
+  cart: cartReducer,
+  pins: pinsReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
