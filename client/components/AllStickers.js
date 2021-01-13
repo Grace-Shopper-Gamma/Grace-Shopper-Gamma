@@ -4,8 +4,12 @@ import StickerCard from './StickerCard'
 import {getStickers} from '../store/stickers'
 
 class AllStickers extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   componentDidMount() {
     this.props.getStickers()
+    console.log('WHATTTUP')
   }
   catch(err) {
     console.log(err)
@@ -13,6 +17,9 @@ class AllStickers extends React.Component {
 
   render() {
     const {stickers} = this.props
+    console.log('props', this.props)
+    console.log('stickers', stickers)
+
     return (
       <div>
         {stickers.map(sticker => (

@@ -1,13 +1,13 @@
 import React from 'react'
 
 const StickerCard = props => {
-  const {name, description, imageURL, price, quantity} = props
+  const {name, description, imageUrl, price, quantity} = props.sticker
 
   return (
     <div>
       {name}
       {description}
-      {imageURL}
+      <img className="allImg" src={imageUrl} />
       {price}
       {quantity}
     </div>
