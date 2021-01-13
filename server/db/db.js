@@ -5,6 +5,8 @@ const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
 const db = new Sequelize(
   process.env.DATABASE_URL ||
+    //Joe: uncomment first localhost address before you push!
+    /*  `postgres://localhost:5432/${databaseName}` || */
     `postgres://musicjoeyoung:Jake1234@localhost:5432/${databaseName}`,
   {
     logging: false

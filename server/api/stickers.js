@@ -1,11 +1,11 @@
 const router = require('express').Router()
-const {Pin} = require('../db/models')
+const {Sticker} = require('../db/models')
 const {Op} = require('sequelize')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const pins = await Pin.findAll({
+    const stickers = await Sticker.findAll({
       where: {
         stock: {
           [Op.ne]: 0
@@ -13,16 +13,16 @@ router.get('/', async (req, res, next) => {
       },
       attributes: {exclude: ['stock', 'description']}
     })
-    res.send(pins)
-  } catch (error) {
-    next(error)
+    res.json(stickers)
+  } catch (err) {
+    next(err)
   }
 })
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const pin = await Pin.findByPk(req.params.id)
-    res.send(pin)
+    const sticker = await Sticker.findByPk(req.params.id)
+    res.send(sticker)
   } catch (error) {
     next(error)
   }
@@ -30,11 +30,11 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const pin = await Pin.create(req.body)
-    res.send(pin)
+    const sticker = await Sticker.create(req.body)
+    res.send(sticker)
   } catch (error) {
     if (error.name === 'SequelizeUniqueContraintError') {
-      res.status(401).send('Pin already exists')
+      res.status(401).send('Sticker already exists')
     } else {
       next(error)
     }
@@ -43,7 +43,7 @@ router.post('/', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
   try {
-    const [num, result] = await Pin.update(req.body, {
+    const [num, result] = await Sticker.update(req.body, {
       where: {
         id: req.params.id
       },
@@ -57,7 +57,7 @@ router.put('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    const result = await Pin.destroy({
+    const result = await Sticker.destroy({
       where: {
         id: req.params.id
       }
