@@ -7,7 +7,7 @@ import cartReducer from './cart'
 
 const reducer = combineReducers({
   user,
-  cart: cartReducer
+  cartItems: cartReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))

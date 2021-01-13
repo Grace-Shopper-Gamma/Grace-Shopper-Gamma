@@ -1,19 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import DeleteCartItem from './DeleteCartItem'
+// import DeleteCartItem from './DeleteCartItem'
 
 const Cart = ({cartItems}) => {
+  console.log('cart items: ', cartItems)
   return (
     <div id="cart">
-      <h1>Hello from the cart</h1>
       {cartItems.map(cartItem => {
         return (
-          <div key={cartItem.id}>
-            <h3>{cartItem.name}</h3>
+          <div key={cartItem.id} id="cartItem-div">
+            <h4>{cartItem.name}</h4>
+            <p>{cartItem.description}</p>
+            <p>
+              qty: {cartItem.quantity} price: {cartItem.price}
+            </p>
             <img id="cartItem-img" src={cartItem.imageUrl} />
-            <span>
+            {/* <span>
               <DeleteCartItem cartItem={cartItem} />
-            </span>
+            </span> */}
           </div>
         )
       })}

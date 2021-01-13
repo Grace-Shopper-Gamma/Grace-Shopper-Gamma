@@ -12,6 +12,11 @@ const Cart = db.define('item', {
   description: {
     type: Sequelize.TEXT
   },
+  imageUrl: {
+    type: Sequelize.TEXT,
+    defaultValue:
+      'https://upload.wikimedia.org/wikipedia/commons/e/ec/Happy_smiley_face.png'
+  },
   price: {
     type: Sequelize.DECIMAL(4, 2),
     validate: {

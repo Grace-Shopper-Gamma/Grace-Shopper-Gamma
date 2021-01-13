@@ -18,11 +18,11 @@ const Cart = require('./cart')
  */
 
 Cart.belongsTo(User)
-User.hasMany(Cart)
+User.hasOne(Cart)
 
 module.exports = {
   User,
   Pin,
   Sticker,
-  Cart,
+  Cart
 }
