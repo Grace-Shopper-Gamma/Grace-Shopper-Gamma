@@ -15,7 +15,7 @@ const defaultsticker = {}
 /**
  * ACTION CREATORS
  */
-const getsticker = sticker => ({type: GET_STICKER, sticker})
+const getSticker = sticker => ({type: GET_STICKER, sticker})
 const removesticker = () => ({type: REMOVE_STICKER})
 
 /**
@@ -24,7 +24,7 @@ const removesticker = () => ({type: REMOVE_STICKER})
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
-    dispatch(getsticker(res.data || defaultsticker))
+    dispatch(getSticker(res.data || defaultsticker))
   } catch (err) {
     console.error(err)
   }
@@ -47,11 +47,11 @@ export const auth = (
       quantity
     })
   } catch (authError) {
-    return dispatch(getsticker({error: authError}))
+    return dispatch(getSticker({error: authError}))
   }
 
   try {
-    dispatch(getsticker(res.data))
+    dispatch(getSticker(res.data))
     history.push('/home')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
