@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Cart} = require('../server/db/models')
+const {User, Cart, Pin} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -29,8 +29,24 @@ async function seed() {
     })
   ])
 
+  const pins = await Promise.all([
+    Pin.create({
+      name: 'big pin',
+      description: 'really big pin',
+      price: 200,
+      rating: 5
+    }),
+    Pin.create({
+      name: 'small pin',
+      description: 'really small pin',
+      price: 200,
+      rating: 2
+    })
+  ])
+
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${carts.length} carts`)
+  console.log(`seeded ${pins.length} pins`)
   console.log(`seeded successfully`)
 }
 

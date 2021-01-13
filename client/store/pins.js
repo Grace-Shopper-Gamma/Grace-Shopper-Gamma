@@ -15,7 +15,7 @@ export const getPins = () => {
   }
 }
 
-export default function robotsReducer(state = [], action) {
+export default function pinsReducer(state = [], action) {
   switch (action.type) {
     case GET_PINS:
       return action.pins
