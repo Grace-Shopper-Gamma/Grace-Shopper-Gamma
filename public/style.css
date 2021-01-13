@@ -20,6 +20,11 @@ form div {
   display: inline-block;
 }
 
+.allImg {
+  height: 100px;
+  width: 100px;
+}
+
 .form-btn {
   display: flex;
   justify-content: center;

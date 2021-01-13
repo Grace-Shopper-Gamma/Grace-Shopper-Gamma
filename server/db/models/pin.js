@@ -12,12 +12,20 @@ const Pin = db.define('pin', {
     defaultValue: 'What a lovely pin!'
   },
   imageUrl: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     defaultValue:
-      'https://www.flaticon.com/svg/vstatic/svg/891/891448.svg?token=exp=1610479981~hmac=02dd2421d9afc0aadfa973d68ce812bb'
+      'https://www.flaticon.com/svg/vstatic/svg/1274/1274860.svg?token=exp=1610559388~hmac=85e15df3cecccc2b4e65ba64d09a2b97'
   },
   price: {
     type: Sequelize.FLOAT,
+    allowNull: false,
+    validate: {
+      min: 0
+    },
+    defaultValue: 0
+  },
+  quantity: {
+    type: Sequelize.INTEGER,
     validate: {
       min: 0
     },

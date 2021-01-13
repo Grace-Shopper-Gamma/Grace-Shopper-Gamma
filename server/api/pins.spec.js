@@ -35,11 +35,12 @@ describe('Pin routes', () => {
         .get('/api/pins/2')
         .expect(200)
 
-      expect(res.body[0].name).to.be.equal('Test')
-      expect(res.body[0].imageUrl).to.be.equal(
+      expect(res.body.name).to.be.equal('Test')
+      expect(res.body.imageUrl).to.be.equal(
         'https://www.flaticon.com/svg/vstatic/svg/891/891448.svg?token=exp=1610479981~hmac=02dd2421d9afc0aadfa973d68ce812bb'
       )
-      expect(res.body[0].price).to.be.equal(0)
+      expect(res.body.price).to.be.equal(0)
+      expect(res.body.quantity).to.be.equal(0)
     })
   })
 

@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
           [Op.ne]: 0
         }
       },
-      attributes: ['id', 'name', 'imageUrl', 'price']
+      attributes: {exclude: ['stock', 'description']}
     })
     res.send(pins)
   } catch (error) {
@@ -21,10 +21,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const pin = await Pin.findAll({
-      where: {id: req.params.id},
-      attributes: {exclude: ['stock']}
-    })
+    const pin = await Pin.findByPk(req.params.id)
     res.send(pin)
   } catch (error) {
     next(error)
