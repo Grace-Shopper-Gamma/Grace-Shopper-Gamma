@@ -10,7 +10,8 @@ import {
   Cart,
   AllPins,
   SingleSticker,
-  AllStickers
+  SinglePin,
+  AllStickers,
 } from './components'
 import {me} from './store'
 import {fetchCartItems} from './store/cart'
@@ -32,9 +33,10 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route exact path="/pins" component={AllPins} />
+        <Route path="/pins/:id" component={SinglePin} />
         <Route exact path="/stickers" component={AllStickers} />
         <Route path="/cart" component={Cart} cartItems={cartItems} />
-        <Route path="/pins" component={AllPins} />
         <Route path="/stickers/:id" component={SingleSticker} />
         {isLoggedIn && (
           <Switch>
