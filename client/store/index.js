@@ -10,8 +10,8 @@ import singleSticker from './singleSticker'
 
 const reducer = combineReducers({
   user,
-  cart: cartReducer,
   stickers: stickerReducer,
+  cartItems: cartReducer,
   pins: pinsReducer,
   sticker: singleSticker
 })

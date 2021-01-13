@@ -1,11 +1,13 @@
 const router = require('express').Router()
 const {Sticker} = require('../db/models')
 const {Op} = require('sequelize')
+
 module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
     const stickers = await Sticker.findAll({
+
       where: {
         stock: {
           [Op.ne]: 0
@@ -67,3 +69,4 @@ router.delete('/:id', async (req, res, next) => {
     next(error)
   }
 })
+

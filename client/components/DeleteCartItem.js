@@ -12,7 +12,7 @@ class DeleteCartItem extends Component {
             className="remove"
             onClick={() => this.props.deleteCartItem(this.props.cartItem)}
           >
-            X
+            remove item
           </button>
         </form>
       </div>

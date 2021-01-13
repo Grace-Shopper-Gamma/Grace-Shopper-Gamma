@@ -13,6 +13,7 @@ import {
   AllStickers
 } from './components'
 import {me} from './store'
+import {fetchCartItems} from './store/cart'
 
 /**
  * COMPONENT
@@ -20,17 +21,19 @@ import {me} from './store'
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
+    this.props.getCartItems()
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, cartItems} = this.props
+
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/cart" component={Cart} />
         <Route exact path="/stickers" component={AllStickers} />
+        <Route path="/cart" component={Cart} cartItems={cartItems} />
         <Route path="/pins" component={AllPins} />
         <Route path="/stickers/:id" component={SingleSticker} />
         {isLoggedIn && (
@@ -61,7 +64,8 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
-    }
+    },
+    getCartItems: () => dispatch(fetchCartItems())
   }
 }
 
