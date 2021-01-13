@@ -1,4 +1,6 @@
 const User = require('./user')
+const Pin = require('./pin')
+const Sticker = require('./sticker')
 const Cart = require('./cart')
 
 /**
@@ -20,5 +22,7 @@ User.hasMany(Cart)
 
 module.exports = {
   User,
-  Cart
+  Pin,
+  Sticker,
+  Cart,
 }
