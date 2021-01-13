@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Cart} = require('../server/db/models')
+const {User, Cart, Sticker} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -29,8 +29,36 @@ async function seed() {
     })
   ])
 
+  const stickers = await Promise.all([
+    Sticker.create({
+      name: 'Big Smile Sticker',
+      description: 'Sticker with a HUGE smile!',
+      imageUrl:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Hs54PWhYEDk9lf3AGcdLnwHaHa%26pid%3DApi&f=1',
+      price: 3.95,
+      quantity: 1
+    }),
+    Sticker.create({
+      name: 'Everything is ok.',
+      description: "Happy but inexperienced in expressing one's emotions",
+      imageUrl:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.451JRHpDPT1Mn7eWEh-Y3QHaHa%26pid%3DApi&f=1',
+      price: 3.95,
+      quantity: 1
+    }),
+    Sticker.create({
+      name: 'Confused but happy.',
+      description: "I'm...happy?",
+      imageUrl:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.1VYbo6xNHYnhMolGjLIbJQHaHa%26pid%3DApi&f=1',
+      price: 3.95,
+      quantity: 1
+    })
+  ])
+
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${carts.length} carts`)
+  console.log(`seeded ${stickers.length} stickers`)
   console.log(`seeded successfully`)
 }
 

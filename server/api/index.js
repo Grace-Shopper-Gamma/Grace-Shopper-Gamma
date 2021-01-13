@@ -7,6 +7,7 @@ router.use('/pins', require('./pins'))
 
 router.use('/cart', require('./cart'))
 
+router.use('/sticker', require('./sticker'))
 
 router.use((req, res, next) => {
   const error = new Error('Not Found')
