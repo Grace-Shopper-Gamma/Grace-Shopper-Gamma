@@ -18,6 +18,14 @@ const Pin = db.define('pin', {
   },
   price: {
     type: Sequelize.FLOAT,
+    allowNull: false,
+    validate: {
+      min: 0
+    },
+    defaultValue: 0
+  },
+  quantity: {
+    type: Sequelize.INTEGER,
     validate: {
       min: 0
     },
