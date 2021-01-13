@@ -9,6 +9,7 @@ export const getPins = () => {
     try {
       const {data: pins} = await axios.get('/api/pins')
       dispatch(_getPins(pins))
+      console.log(pins)
     } catch (err) {
       console.log(err)
     }

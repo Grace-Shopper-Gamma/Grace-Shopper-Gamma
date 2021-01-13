@@ -4,7 +4,12 @@ import {connect} from 'react-redux'
 import {getPins} from '../store/pins'
 
 class AllPins extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   componentDidMount() {
+    console.log('hi')
     this.props.getPins()
   }
   catch(err) {
