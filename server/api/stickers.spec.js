@@ -4,7 +4,7 @@ const db = require('../db')
 const app = require('../index')
 const Sticker = db.model('sticker')
 
-describe.only('Sticker routes', () => {
+describe('Sticker routes', () => {
   beforeEach(() => {
     return db.sync({force: true})
   })
@@ -27,11 +27,10 @@ describe.only('Sticker routes', () => {
       expect(res.body).to.be.an('array')
       expect(res.body.length).to.be.equal(2)
       expect(res.body[0].name).to.be.equal('FSA Sticker Pack')
-      // expect(res.body[0].imageUrl).to.be.equal(
-      //   'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4vVQ-f7JLBYwQT9YDogBfQHaHa%26pid%3DApi&f=1'
-      // )
-      // expect(res.body[0].price).to.be.equal(5)
-      // expect(res.body[0].stock).to.be.equal(0)
+      expect(res.body[0].imageUrl).to.be.equal(
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4vVQ-f7JLBYwQT9YDogBfQHaHa%26pid%3DApi&f=1'
+      )
+      expect(res.body[0].price).to.be.equal(5)
     })
 
     it('GET /api/stickers/:id', async () => {
@@ -39,15 +38,13 @@ describe.only('Sticker routes', () => {
         .get('/api/stickers/2')
         .expect(200)
 
-      expect(res.body[0].name).to.be.equal('Test')
-      expect(res.body[0].description).to.be.equal(
-        'No information provided yet.'
-      )
-      expect(res.body[0].imageUrl).to.be.equal(
+      expect(res.body.name).to.be.equal('Test')
+      expect(res.body.description).to.be.equal('No information provided yet.')
+      expect(res.body.imageUrl).to.be.equal(
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.4vVQ-f7JLBYwQT9YDogBfQHaHa%26pid%3DApi&f=1'
       )
-      expect(res.body[0].price).to.be.equal(0)
-      expect(res.body[0].quantity).to.be.equal(0)
+      expect(res.body.price).to.be.equal(0)
+      expect(res.body.quantity).to.be.equal(0)
     })
   })
 
