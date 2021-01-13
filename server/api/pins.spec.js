@@ -4,7 +4,7 @@ const db = require('../db')
 const app = require('../index')
 const Pin = db.model('pin')
 
-describe.only('Pin routes', () => {
+describe('Pin routes', () => {
   beforeEach(() => {
     return db.sync({force: true})
   })
@@ -76,7 +76,7 @@ describe.only('Pin routes', () => {
       return Pin.bulkCreate(data)
     })
 
-    it('can update a pin', async () => {
+    it('can delete a pin', async () => {
       await request(app)
         .delete('/api/pins/1')
         .expect(204)

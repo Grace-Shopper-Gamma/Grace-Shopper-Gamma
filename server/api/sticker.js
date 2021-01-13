@@ -12,3 +12,12 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const sticker = await Sticker.findByPK(req.params.id)
+    res.send(sticker)
+  } catch (error) {
+    next(error)
+  }
+})
