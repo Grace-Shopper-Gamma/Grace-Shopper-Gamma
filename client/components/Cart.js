@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import DeleteCartItem from './DeleteCartItem'
+import DeleteCartItem from './DeleteCartItem'
 
 const Cart = ({cartItems}) => {
   console.log('cart items: ', cartItems)
@@ -15,9 +15,9 @@ const Cart = ({cartItems}) => {
               qty: {cartItem.quantity} price: {cartItem.price}
             </p>
             <img id="cartItem-img" src={cartItem.imageUrl} />
-            {/* <span>
+            <span>
               <DeleteCartItem cartItem={cartItem} />
-            </span> */}
+            </span>
           </div>
         )
       })}
