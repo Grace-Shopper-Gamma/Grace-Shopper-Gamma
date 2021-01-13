@@ -1,16 +1,17 @@
 import React from 'react'
 
-const StickerCard = props => {}
+const StickerCard = props => {
+  const {name, description, imageURL, price, quantity} = props
 
-/* const mapState = (state) => {
-  return {
-  }
-} */
+  return (
+    <div>
+      {name}
+      {description}
+      {imageURL}
+      {price}
+      {quantity}
+    </div>
+  )
+}
 
-/* const mapDispatch = (dispatch) => {
-  return {
-   
-  }
-} */
-
-export default connect(mapState, mapDispatch)(StickerCard)
+export default StickerCard
