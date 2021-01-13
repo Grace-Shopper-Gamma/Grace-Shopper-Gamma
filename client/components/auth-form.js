@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import FormButton from './FormButton'
 
 /**
  * COMPONENT
@@ -25,7 +26,8 @@ const AuthForm = props => {
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          {/* <button type="submit">{displayName}</button> */}
+          <FormButton handleSubmit={handleSubmit} displayName={displayName} />
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
