@@ -9,7 +9,7 @@ import singleSticker from './singleSticker'
 
 const reducer = combineReducers({
   user,
-  cart: cartReducer,
+  cartItems: cartReducer,
   pins: pinsReducer,
   sticker: singleSticker
 })
