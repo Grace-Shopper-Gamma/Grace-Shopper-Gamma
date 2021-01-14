@@ -1,6 +1,5 @@
 const User = require('./user')
 const Product = require('./product')
-const Sticker = require('./sticker')
 const Cart = require('./cart')
 
 /**
@@ -23,6 +22,5 @@ const Cart = require('./cart')
 module.exports = {
   User,
   Product,
-  Sticker,
   Cart
 }
