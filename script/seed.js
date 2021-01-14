@@ -248,25 +248,29 @@ async function seed() {
     User.create({email: 'murphy@email.com', password: '123'})
   ])
 
-  const carts = await Promise.all([
-    Cart.create({
-      sellPrice: 2.5,
-      status: 'PENDING',
-      quantity: 1
-    }),
-    Cart.create({
-      sellPrice: 4.25,
-      status: 'PENDING',
-      quantity: 1
-    })
-  ])
+  // const carts = await Promise.all([
+  //   Cart.create({
+  //     sellPrice: 2.5,
+  //     status: 'PENDING',
+  //     quantity: 1,
+  //     userId: 5000,
+  //     orderId: 5000,
+  //   }),
+  //   Cart.create({
+  //     sellPrice: 4.25,
+  //     status: 'PENDING',
+  //     quantity: 1,
+  //     userId: 5005,
+  //     orderId: 5005,
+  //   }),
+  // ])
 
   await Promise.all(pinData.map(pin => Product.create(pin)))
 
   await Promise.all(stickerData.map(sticker => Product.create(sticker)))
 
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded ${carts.length} carts`)
+  // console.log(`seeded ${carts.length} carts`)
   console.log(`seeded ${stickerData.length + pinData.length} products`)
   console.log(`seeded successfully`)
 }
