@@ -12,9 +12,6 @@ class AllPins extends Component {
   componentDidMount() {
     this.props.getPins()
   }
-  catch(err) {
-    console.log(err)
-  }
 
   render() {
     const {pins} = this.props

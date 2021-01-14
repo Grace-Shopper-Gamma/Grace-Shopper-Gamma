@@ -9,23 +9,16 @@ class AllPins extends Component {
   componentDidMount() {
     this.props.getSinglePin(this.props.match.params.id)
   }
-  catch(err) {
-    console.log(err)
-  }
 
   handleSubmit = evt => {
     evt.preventDefault()
-    try {
-      const {pin, cart, createCartItem, updateCartItem} = this.props
-      const idArray = cart.filter(item => item.id)
-      if (idArray.includes(pin.id)) {
-        updateCartItem(pin)
-      }
-      createCartItem(pin)
-      this.props.history.push('/cart')
-    } catch (err) {
-      console.log(err)
+    const {pin, cart, createCartItem, updateCartItem} = this.props
+    const idArray = cart.filter(item => item.id)
+    if (idArray.includes(pin.id)) {
+      updateCartItem(pin)
     }
+    createCartItem(pin)
+    this.props.history.push('/cart')
   }
 
   render() {
