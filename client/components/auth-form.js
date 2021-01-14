@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 
@@ -13,27 +14,46 @@ const AuthForm = props => {
 
   return (
     <div className="auth-container center">
-      <h1 className="form-input">{title}</h1>
       <form onSubmit={handleSubmit} name={name}>
-        <div className="auth-form center">
-          <div className="form-input">
-            <label htmlFor="email" />
-            <input name="email" type="text" placeholder="Email" />
-          </div>
-          <div className="form-input">
-            <label htmlFor="password" />
-            <input name="password" type="password" placeholder="Password" />
-          </div>
-          <div className="form-input">
-            <button type="submit" className="form-btn">
-              {displayName}
-            </button>
-          </div>
+        <h1 className="form-input title">{title}</h1>
+        <div className="auth-form">
+          <label htmlFor="email" />
+          <input
+            className="form-input input"
+            name="email"
+            type="text"
+            placeholder="Email"
+          />
+          <label htmlFor="password" />
+          <input
+            className="form-input input"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <button type="submit" className="form-btn form-input">
+            {displayName}
+          </button>
           {error && error.response && <div> {error.response.data} </div>}
           {name === 'login' ? (
-            <a href="/auth/google">{displayName} with Google</a>
+            <div className="oauth-signup-container">
+              <p className="oauth-signup-msg">Or login with Google!</p>
+              <Link to="/auth/google" className="oauth-container">
+                <img
+                  className="oauth-img"
+                  src="https://p7.hiclipart.com/preview/893/776/984/5bbc0fcb4393a.jpg"
+                />
+              </Link>
+              <Link to="/signup" className="signup-container">
+                <p>First time here?</p>
+              </Link>
+            </div>
           ) : (
-            <></>
+            // <div>
+            <Link to="/login">
+              <p className="oauth-signup-msg">Already a user?</p>
+            </Link>
+            // </div>
           )}
         </div>
       </form>
