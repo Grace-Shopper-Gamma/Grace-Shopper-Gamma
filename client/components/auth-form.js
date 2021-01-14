@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import FormButton from './FormButton'
 
 /**
  * COMPONENT
@@ -10,28 +9,34 @@ import FormButton from './FormButton'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
+  const title = displayName[0].toUpperCase() + displayName.slice(1)
+
   return (
-    <div>
+    <div className="auth-container center">
+      <h1 className="form-input">{title}</h1>
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
+        <div className="auth-form center">
+          <div className="form-input">
+            <label htmlFor="email" />
+            <input name="email" type="text" placeholder="Email" />
+          </div>
+          <div className="form-input">
+            <label htmlFor="password" />
+            <input name="password" type="password" placeholder="Password" />
+          </div>
+          <div className="form-input">
+            <button type="submit" className="form-btn">
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+          {name === 'login' ? (
+            <a href="/auth/google">{displayName} with Google</a>
+          ) : (
+            <></>
+          )}
         </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          {/* <button type="submit">{displayName}</button> */}
-          <FormButton handleSubmit={handleSubmit} displayName={displayName} />
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
 }
