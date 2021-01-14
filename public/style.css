@@ -81,6 +81,10 @@ form div {
   border: 1px solid black;
 }
 
+.form-input {
+  margin: 5px;
+}
+
 .form-input.input {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -143,4 +147,85 @@ form div {
 
 .signup-container {
   text-align: center;
+}
+
+.single-item-container {
+  display: flex;
+  justify-content: center;
+}
+
+.single-item-picture {
+  height: 40em;
+  width: 40em;
+}
+
+.single-item-info-container {
+  padding-left: 20px;
+}
+
+.single-item-name {
+  margin: 4vh 0 1vh 0;
+  font-size: 2em;
+  font-weight: 50;
+}
+
+.single-item-description {
+  margin: 4vh 0 1vh 0;
+}
+
+label .star {
+  float: left;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+  height: 2em;
+  width: 2em;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(2, 32, 97, 0.548);
+  color: black;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.indSticker {
+  width: 150px;
+  padding-bottom: 5%;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+#name {
+  width: 100%;
+  padding-bottom: 5%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+#price {
+  width: 100%;
+  padding-bottom: 5%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+#stickersH1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+  font-size: 60px;
 }
