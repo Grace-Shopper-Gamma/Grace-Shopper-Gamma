@@ -4,6 +4,16 @@ body {
 
 a {
   text-decoration: none;
+  margin: 0;
+}
+
+a:visited {
+  color: black;
+}
+
+img {
+  height: 25px;
+  width: 25px;
 }
 
 label {
@@ -25,21 +35,18 @@ form div {
   width: 100px;
 }
 
-.form-btn {
+.auth-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: black;
-  height: 30px;
-  width: 100px;
-  transition: background-color 1s, color 1s, border 1s;
+  flex-direction: column;
+  height: 100%;
+  margin: 5%;
 }
 
-.form-btn:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  width: 25vw;
 }
 
 #cartItem-img {
@@ -50,6 +57,92 @@ form div {
 #cartItem-div {
   border: 1px solid;
   width: 25%;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  height: 30px;
+  width: 100%;
+  transition: background-color 0.75s, color 0.75s, border 0.75s;
+}
+
+.form-btn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.form-input.input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #e8e8e8;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  height: 30px;
+  width: 100%;
+  transition: background-color 0.35s;
+}
+
+.form-input:focus {
+  background-color: white;
+  outline: none;
+}
+
+.nav-bar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-bar-routes {
+  transition: border-bottom 0.15s;
+}
+
+.nav-bar-routes:hover {
+  border-bottom: 2px solid black;
+}
+
+.nav-bar-routes-container {
+  display: flex;
+}
+
+.oauth-container {
+  display: flex;
+  height: 30px;
+  margin: 5px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.oauth-img {
+  height: 20px;
+  width: 20px;
+}
+
+.oauth-signup-msg {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.oauth-signup-container {
+  margin: 0;
+}
+
+.signup-container {
+  text-align: center;
 }
 
 .single-item-container {
