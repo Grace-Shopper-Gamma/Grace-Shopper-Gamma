@@ -250,18 +250,14 @@ async function seed() {
 
   const carts = await Promise.all([
     Cart.create({
-      name: 'smiley face',
-      description: 'stickers with a smiley face - 50pc',
-      price: 3.95,
-      quantity: 1,
-      total: 3.95
+      sellPrice: 2.5,
+      status: 'PENDING',
+      quantity: 1
     }),
     Cart.create({
-      name: 'thank you',
-      description: 'stickers with a thank you message - 50pc',
-      price: 3.95,
-      quantity: 1,
-      total: 3.95
+      sellPrice: 4.25,
+      status: 'PENDING',
+      quantity: 1
     })
   ])
 
