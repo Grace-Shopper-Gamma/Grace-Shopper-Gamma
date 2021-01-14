@@ -162,7 +162,8 @@ form div {
 }
 
 .single-item-info-container {
-  padding-left: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
   height: 40em;
   width: 30em;
 }
