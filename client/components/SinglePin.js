@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getSinglePin} from '../store/singlePin'
 import {createCartItem, updateCartItem} from '../store/cart'
 import FormButton from './FormButton'
+import StarRating from './StarRating'
 
 class AllPins extends Component {
   componentDidMount() {
@@ -20,35 +21,33 @@ class AllPins extends Component {
       if (idArray.includes(pin.id)) {
         updateCartItem(pin)
       }
-      this.props.createCartItem(pin)
+      createCartItem(pin)
+      this.props.history.push('/cart')
     } catch (err) {
       console.log(err)
     }
   }
 
   render() {
-    const {
-      name,
-      description,
-      imageUrl,
-      price,
-      quantity,
-      rating,
-      stock
-    } = this.props.pin
+    const {imageUrl, name, rating, description, price} = this.props.pin
     return (
-      <div>
-        <h1>{name}</h1>
-        <img src={imageUrl} alt={`Photo of ${name} pin`} />
-        <p>{description}</p>
-        <h4>Price: {price}</h4>
-        <h4>Qty: {quantity}</h4>
-        <h4>Rating: {rating}</h4>
-        <h4>Stock: {stock}</h4>
-        <FormButton
-          displayName="Add To Cart"
-          handleSubmit={this.handleSubmit}
-        />
+      <div className="single-item-container">
+        <div className="single-item-picture">
+          <img src={imageUrl} alt={`Photo of ${name} pin`} />
+        </div>
+        <div className="single-item-info-container">
+          <div className="single-item-name">
+            <h1>{name}</h1>
+          </div>
+          <StarRating rating={rating} />
+          <br />
+          <p className="single-item-description">{description}</p>
+          <h4>${price}</h4>
+          <FormButton
+            displayName="Add To Cart"
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       </div>
     )
   }

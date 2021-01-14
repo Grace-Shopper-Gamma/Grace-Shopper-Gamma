@@ -51,3 +51,42 @@ form div {
   border: 1px solid;
   width: 25%;
 }
+
+.single-item-container {
+  display: flex;
+  justify-content: center;
+}
+
+.single-item-picture {
+  height: 40em;
+  width: 40em;
+}
+
+.single-item-info-container {
+  padding-left: 20px;
+}
+
+.single-item-name {
+  margin: 4vh 0 1vh 0;
+  font-size: 2em;
+  font-weight: 50;
+}
+
+.single-item-description {
+  margin: 4vh 0 1vh 0;
+}
+
+label .star {
+  float: left;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+  height: 2em;
+  width: 2em;
+}
