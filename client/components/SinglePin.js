@@ -1,18 +1,23 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getSinglePin} from '../store/singlePin'
+import {getSinglePin, addToCart} from '../store/singlePin'
+import FormButton from './FormButton'
 
 class AllPins extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
   componentDidMount() {
     this.props.getSinglePin(this.props.match.params.id)
   }
   catch(err) {
     console.log(err)
+  }
+
+  handleSubmit = evt => {
+    evt.preventDefault()
+    try {
+      this.props.addToCart(this.props.pin)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   render() {
@@ -34,6 +39,10 @@ class AllPins extends Component {
         <h4>Qty: {quantity}</h4>
         <h4>Rating: {rating}</h4>
         <h4>Stock: {stock}</h4>
+        <FormButton
+          displayName="Add To Cart"
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     )
   }
@@ -42,7 +51,8 @@ class AllPins extends Component {
 const mapState = state => ({pin: state.pin})
 
 const mapDispatch = dispatch => ({
-  getSinglePin: id => dispatch(getSinglePin(id))
+  getSinglePin: id => dispatch(getSinglePin(id)),
+  addToCart: pin => dispatch(addToCart(pin))
 })
 
 export default connect(mapState, mapDispatch)(AllPins)
