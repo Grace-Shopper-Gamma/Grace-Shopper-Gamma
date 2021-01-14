@@ -49,11 +49,9 @@ const AuthForm = props => {
               </Link>
             </div>
           ) : (
-            // <div>
             <Link to="/login">
               <p className="oauth-signup-msg">Already a user?</p>
             </Link>
-            // </div>
           )}
         </div>
       </form>
