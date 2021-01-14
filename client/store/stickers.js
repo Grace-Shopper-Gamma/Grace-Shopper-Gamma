@@ -1,38 +1,23 @@
 import axios from 'axios'
 import history from '../history'
 
-/**
- * ACTION TYPES
- */
 const GET_STICKER = 'GET_STICKER'
 const REMOVE_STICKER = 'REMOVE_STICKER'
 
-/**
- * INITIAL STATE
- */
 const defaultsticker = []
 
-/**
- * ACTION CREATORS
- */
 const getSticker = stickers => ({type: GET_STICKER, stickers})
 const removesticker = () => ({type: REMOVE_STICKER})
 
-/**
- * THUNK CREATORS
- */
 export const getStickers = () => async dispatch => {
   try {
-    const res = await axios.get('/api/sticker')
+    const res = await axios.get('/api/stickers')
     dispatch(getSticker(res.data || defaultsticker))
   } catch (err) {
     console.error(err)
   }
 }
 
-/**
- * REDUCER
- */
 export default function(state = defaultsticker, action) {
   switch (action.type) {
     case GET_STICKER:
