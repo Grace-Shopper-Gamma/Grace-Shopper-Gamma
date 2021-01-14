@@ -66,6 +66,7 @@ form div {
 
 .form-btn {
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   color: white;
@@ -152,6 +153,7 @@ form div {
 .single-item-container {
   display: flex;
   justify-content: center;
+  margin: 4vh 0 1vh 0;
 }
 
 .single-item-picture {
@@ -161,6 +163,8 @@ form div {
 
 .single-item-info-container {
   padding-left: 20px;
+  height: 40em;
+  width: 30em;
 }
 
 .single-item-name {

@@ -25,8 +25,12 @@ class AllPins extends Component {
     const {imageUrl, name, rating, description, price} = this.props.pin
     return (
       <div className="single-item-container">
-        <div className="single-item-picture">
-          <img src={imageUrl} alt={`Photo of ${name} pin`} />
+        <div>
+          <img
+            src={imageUrl}
+            alt={`Photo of ${name} pin`}
+            className="single-item-picture"
+          />
         </div>
         <div className="single-item-info-container">
           <div className="single-item-name">
