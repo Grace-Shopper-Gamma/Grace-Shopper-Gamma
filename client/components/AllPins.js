@@ -11,6 +11,8 @@ class AllPins extends Component {
   componentDidMount() {
     this.props.getPins()
   }
+  // no need to use try catch on the front end - all the asynchronous activity is
+  // contained within and handled by our thunks
   catch(err) {
     console.log(err)
   }

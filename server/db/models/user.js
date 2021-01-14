@@ -27,6 +27,7 @@ const User = db.define('user', {
   googleId: {
     type: Sequelize.STRING
   }
+  // can we add any other fields to help us with security - how can the model help us have tiered access for different users?
 })
 
 module.exports = User

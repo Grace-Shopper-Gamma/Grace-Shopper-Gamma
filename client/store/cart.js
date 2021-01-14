@@ -65,6 +65,7 @@ export const updateCartItem = cartItem => {
   }
 }
 
+// a switch statement is probably best practice here--it looks a little cleaner
 export default function cartReducer(state = [], action) {
   if (action.type === SET_CARTITEMS) {
     return action.cartItems

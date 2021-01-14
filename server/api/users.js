@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {User} = require('../db/models')
 module.exports = router
 
+// this is a good place to start thinking about security - can any user make this request?
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({

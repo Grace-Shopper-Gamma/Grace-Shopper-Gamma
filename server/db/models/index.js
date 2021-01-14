@@ -17,6 +17,9 @@ const Cart = require('./cart')
  * instead of: const User = require('../db/models/user')
  */
 
+
+// what if a user wants to order from our store more than once?
+
 // Cart.belongsTo(User)
 // User.hasOne(Cart)
 

@@ -9,6 +9,7 @@ class AllStickers extends React.Component {
   }
   componentDidMount() {
     this.props.getStickers()
+    // love the console.logs - just make sure to clean them up before merging to master
     console.log('WHATTTUP')
   }
   catch(err) {

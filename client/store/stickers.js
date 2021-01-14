@@ -15,6 +15,7 @@ const defaultsticker = []
 /**
  * ACTION CREATORS
  */
+// try to be consistent with conventions - in other files you use _getSingleSticker
 const getSticker = stickers => ({type: GET_STICKER, stickers})
 const removesticker = () => ({type: REMOVE_STICKER})
 
