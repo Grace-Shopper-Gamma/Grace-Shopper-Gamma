@@ -12,14 +12,7 @@ const Cart = ({cartItems}) => {
             <h4>{cartItem.name}</h4>
             <p>{cartItem.description}</p>
             <img id="cartItem-img" src={cartItem.imageUrl} />
-            <p>
-              qty:
-              <select value={cartItem.quantity}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </p>
+            <p>qty:</p>
             <p>price: {cartItem.price}</p>
             <span>
               <DeleteCartItem cartItem={cartItem} />

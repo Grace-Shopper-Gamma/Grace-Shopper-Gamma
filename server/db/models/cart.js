@@ -21,6 +21,27 @@ const Cart = db.define('item', {
       min: 0
     },
     defaultValue: 0
+  },
+  userId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    validate: {
+      notEmpty: false
+    }
+  },
+  orderId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    validate: {
+      notEmpty: false
+    }
+  },
+  productId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    validate: {
+      notEmpty: false
+    }
   }
 })
 
