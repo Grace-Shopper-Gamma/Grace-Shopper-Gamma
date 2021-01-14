@@ -6,6 +6,7 @@ import {getPins} from '../store/pins'
 class AllPins extends Component {
   constructor(props) {
     super(props)
+    this.state = {}
   }
 
   componentDidMount() {
