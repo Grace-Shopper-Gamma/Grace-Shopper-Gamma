@@ -11,6 +11,11 @@ a:visited {
   color: black;
 }
 
+img {
+  height: 25px;
+  width: 25px;
+}
+
 label {
   display: block;
 }
@@ -34,12 +39,14 @@ form div {
   display: flex;
   flex-direction: column;
   height: 100%;
+  margin: 5%;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
   margin: 5px;
+  width: 25vw;
 }
 
 #cartItem-img {
@@ -64,8 +71,8 @@ form div {
   color: white;
   background-color: black;
   height: 30px;
-  width: 100px;
-  transition: background-color 1s, color 1s, border 1s;
+  width: 100%;
+  transition: background-color 0.75s, color 0.75s, border 0.75s;
 }
 
 .form-btn:hover {
@@ -76,6 +83,23 @@ form div {
 
 .form-input {
   margin: 5px;
+}
+
+.form-input.input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #e8e8e8;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  height: 30px;
+  width: 100%;
+  transition: background-color 0.35s;
+}
+
+.form-input:focus {
+  background-color: white;
+  outline: none;
 }
 
 .nav-bar-container {
@@ -93,4 +117,114 @@ form div {
 
 .nav-bar-routes-container {
   display: flex;
+}
+
+.oauth-container {
+  display: flex;
+  height: 30px;
+  margin: 5px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.oauth-img {
+  height: 20px;
+  width: 20px;
+}
+
+.oauth-signup-msg {
+  margin: 0;
+  margin-top: 5px;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.oauth-signup-container {
+  margin: 0;
+}
+
+.signup-container {
+  text-align: center;
+}
+
+.single-item-container {
+  display: flex;
+  justify-content: center;
+}
+
+.single-item-picture {
+  height: 40em;
+  width: 40em;
+}
+
+.single-item-info-container {
+  padding-left: 20px;
+}
+
+.single-item-name {
+  margin: 4vh 0 1vh 0;
+  font-size: 2em;
+  font-weight: 50;
+}
+
+.single-item-description {
+  margin: 4vh 0 1vh 0;
+}
+
+label .star {
+  float: left;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+  height: 2em;
+  width: 2em;
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(2, 32, 97, 0.548);
+  color: black;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.indSticker {
+  width: 150px;
+  padding-bottom: 5%;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+#name {
+  width: 100%;
+  padding-bottom: 5%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+#price {
+  width: 100%;
+  padding-bottom: 5%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0%;
+  margin-top: 10%;
+}
+#stickersH1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+  font-size: 60px;
 }

@@ -4,12 +4,12 @@ const StickerCard = props => {
   const {name, description, imageUrl, price, quantity} = props.sticker
 
   return (
-    <div>
-      {name}
+    <div className="indSticker">
+      <div id="name">{name}</div>
       {description}
       <img className="allImg" src={imageUrl} />
-      {price}
-      {quantity}
+      <div id="price">Price: ${price}</div>
+      Qty: {quantity}
     </div>
   )
 }
