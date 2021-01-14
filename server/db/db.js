@@ -10,10 +10,10 @@ const db = new Sequelize(
     operatorsAliases: false,
     dialect: 'postgres',
     protocol: 'postgres',
-    ssl: true,
-    dialectOptions: {
-      ssl: true
-    }
+    ssl: true
+    // dialectOptions: {
+    //   ssl: true
+    // }
   }
 )
 module.exports = db
