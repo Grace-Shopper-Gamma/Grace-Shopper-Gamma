@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import FormButton from './FormButton'
 
 /**
  * COMPONENT
@@ -10,28 +10,51 @@ import FormButton from './FormButton'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
+  const title = displayName[0].toUpperCase() + displayName.slice(1)
+
   return (
-    <div>
+    <div className="auth-container center">
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
+        <h1 className="form-input title">{title}</h1>
+        <div className="auth-form">
+          <label htmlFor="email" />
+          <input
+            className="form-input input"
+            name="email"
+            type="text"
+            placeholder="Email"
+          />
+          <label htmlFor="password" />
+          <input
+            className="form-input input"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <button type="submit" className="form-btn form-input">
+            {displayName}
+          </button>
+          {error && error.response && <div> {error.response.data} </div>}
+          {name === 'login' ? (
+            <div className="oauth-signup-container">
+              <p className="oauth-signup-msg">Or login with Google!</p>
+              <Link to="/auth/google" className="oauth-container">
+                <img
+                  className="oauth-img"
+                  src="https://p7.hiclipart.com/preview/893/776/984/5bbc0fcb4393a.jpg"
+                />
+              </Link>
+              <Link to="/signup" className="signup-container">
+                <p>First time here?</p>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/login">
+              <p className="oauth-signup-msg">Already a user?</p>
+            </Link>
+          )}
         </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          {/* <button type="submit">{displayName}</button> */}
-          <FormButton handleSubmit={handleSubmit} displayName={displayName} />
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
 }
