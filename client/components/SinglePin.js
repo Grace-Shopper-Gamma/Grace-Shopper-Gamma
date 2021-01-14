@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getSinglePin, addToCart} from '../store/singlePin'
+import {getSinglePin} from '../store/singlePin'
+import {createCartItem, updateCartItem} from '../store/cart'
 import FormButton from './FormButton'
 
 class AllPins extends Component {
@@ -14,7 +15,12 @@ class AllPins extends Component {
   handleSubmit = evt => {
     evt.preventDefault()
     try {
-      this.props.addToCart(this.props.pin)
+      const {pin, cart, createCartItem, updateCartItem} = this.props
+      const idArray = cart.filter(item => item.id)
+      if (idArray.includes(pin.id)) {
+        updateCartItem(pin)
+      }
+      this.props.createCartItem(pin)
     } catch (err) {
       console.log(err)
     }
@@ -48,11 +54,15 @@ class AllPins extends Component {
   }
 }
 
-const mapState = state => ({pin: state.pin})
+const mapState = state => ({
+  pin: state.pin,
+  cart: state.cartItems
+})
 
 const mapDispatch = dispatch => ({
   getSinglePin: id => dispatch(getSinglePin(id)),
-  addToCart: pin => dispatch(addToCart(pin))
+  createCartItem: pin => dispatch(createCartItem(pin)),
+  updateCartItem: pin => dispatch(updateCartItem(pin))
 })
 
 export default connect(mapState, mapDispatch)(AllPins)

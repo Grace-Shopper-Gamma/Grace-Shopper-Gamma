@@ -18,7 +18,6 @@ class AllPins extends Component {
 
   render() {
     const {pins} = this.props
-    console.log(pins)
     return <div>{pins.map(pin => <PinCard key={pin.id} pin={pin} />)}</div>
   }
 }
