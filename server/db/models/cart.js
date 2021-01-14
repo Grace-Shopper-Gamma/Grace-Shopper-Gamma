@@ -3,7 +3,7 @@ const db = require('../db')
 
 const Cart = db.define('item', {
   sellPrice: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL(5, 2),
     allowNull: false,
     validate: {
       min: 1
@@ -11,9 +11,9 @@ const Cart = db.define('item', {
     defaultValue: 1
   },
   status: {
-    type: Sequelize.ENUM('Pins', 'Stickers'),
+    type: Sequelize.ENUM('PENDING', 'ORDERED'),
     allowNull: false,
-    defaultValue: 'Pins'
+    defaultValue: 'PENDING'
   },
   quantity: {
     type: Sequelize.INTEGER,
