@@ -29,7 +29,7 @@ const Pin = db.define('pin', {
     validate: {
       min: 0
     },
-    defaultValue: 0
+    defaultValue: 1
   },
   rating: {
     type: Sequelize.FLOAT,
