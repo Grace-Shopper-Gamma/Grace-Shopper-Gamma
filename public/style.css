@@ -81,6 +81,10 @@ form div {
   border: 1px solid black;
 }
 
+.form-input {
+  margin: 5px;
+}
+
 .form-input.input {
   margin-top: 5px;
   margin-bottom: 5px;
