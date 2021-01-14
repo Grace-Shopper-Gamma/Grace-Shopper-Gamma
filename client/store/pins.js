@@ -7,8 +7,9 @@ const _getPins = pins => ({type: GET_PINS, pins})
 export const getPins = () => {
   return async dispatch => {
     try {
-      const {data: pins} = await axios.get('/api/pins')
-      dispatch(_getPins(pins))
+      const {data: pins} = await axios.get('/api/products')
+      const result = pins.filter(pin => pin.category === 'Pins')
+      dispatch(_getPins(result))
     } catch (err) {
       console.log(err)
     }

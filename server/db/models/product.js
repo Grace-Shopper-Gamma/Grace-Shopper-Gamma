@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Pin = db.define('pin', {
+const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
     unique: true,
@@ -9,27 +9,20 @@ const Pin = db.define('pin', {
   },
   description: {
     type: Sequelize.TEXT,
-    defaultValue: 'What a lovely pin!'
+    defaultValue: 'Much product, much wow!'
   },
   imageUrl: {
     type: Sequelize.TEXT,
     defaultValue:
       'https://www.flaticon.com/svg/vstatic/svg/1274/1274860.svg?token=exp=1610559388~hmac=85e15df3cecccc2b4e65ba64d09a2b97'
   },
-  price: {
-    type: Sequelize.FLOAT,
+  msrp: {
+    type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
-      min: 0
+      min: 1
     },
-    defaultValue: 0
-  },
-  quantity: {
-    type: Sequelize.INTEGER,
-    validate: {
-      min: 0
-    },
-    defaultValue: 0
+    defaultValue: 1
   },
   rating: {
     type: Sequelize.FLOAT,
@@ -45,7 +38,11 @@ const Pin = db.define('pin', {
       min: 0
     },
     defaultValue: 1
+  },
+  category: {
+    type: Sequelize.ENUM('Pins', 'Stickers'),
+    defaultValue: 'Pins'
   }
 })
 
-module.exports = Pin
+module.exports = Product

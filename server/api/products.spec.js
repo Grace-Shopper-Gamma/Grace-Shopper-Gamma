@@ -2,7 +2,7 @@ const {expect} = require('chai')
 const request = require('supertest')
 const db = require('../db')
 const app = require('../index')
-const Pin = db.model('pin')
+const Product = db.model('product')
 
 describe('Pin routes', () => {
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe('Pin routes', () => {
     const data = [{name: 'FSA'}, {name: 'Test', stock: 0}]
 
     beforeEach(() => {
-      return Pin.bulkCreate(data)
+      return Product.bulkCreate(data)
     })
 
     it('GET /api/pins', async () => {
@@ -57,7 +57,7 @@ describe('Pin routes', () => {
     const data = [{name: 'FSA'}, {name: 'Test', stock: 0}]
 
     beforeEach(() => {
-      return Pin.bulkCreate(data)
+      return Product.bulkCreate(data)
     })
 
     it('can update a pin', async () => {
@@ -74,7 +74,7 @@ describe('Pin routes', () => {
     const data = [{name: 'FSA'}, {name: 'Test', stock: 0}]
 
     beforeEach(() => {
-      return Pin.bulkCreate(data)
+      return Product.bulkCreate(data)
     })
 
     it('can delete a pin', async () => {

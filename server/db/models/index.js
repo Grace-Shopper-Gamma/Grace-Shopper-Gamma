@@ -1,5 +1,5 @@
 const User = require('./user')
-const Pin = require('./pin')
+const Product = require('./product')
 const Sticker = require('./sticker')
 const Cart = require('./cart')
 
@@ -22,7 +22,7 @@ const Cart = require('./cart')
 
 module.exports = {
   User,
-  Pin,
+  Product,
   Sticker,
   Cart
 }

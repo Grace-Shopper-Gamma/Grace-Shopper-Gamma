@@ -2,7 +2,7 @@
 
 const db = require('../server/db')
 
-const {User, Cart, Pin, Sticker} = require('../server/db/models')
+const {User, Cart, Product} = require('../server/db/models')
 
 const stickerData = [
   {
@@ -10,141 +10,161 @@ const stickerData = [
     description: 'Test',
     imageUrl:
       'https://i.pinimg.com/originals/3c/48/bf/3c48bf9a8fb400eaa8cdc282f049afd1.jpg',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Naruto',
     description: 'Test',
     imageUrl:
       'https://images.bonanzastatic.com/afu/images/027a/84a8/f5fb_8742721276/narutopeeking.jpg',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Eri',
     description: 'Test',
     imageUrl:
       'https://i.pinimg.com/originals/a7/4d/35/a74d3514b9ffb13fdaeab1672584e20e.jpg',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Meliodas',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeYogv2j_vTg81QBYfb7K862XnZxseyzeIQ&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Todoroki Chibi',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR0-C3nldcWgwDnE8YkIK4q42hn3snyMZhPA&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Totoro',
     description: 'Test',
     imageUrl:
       'https://cdn.shopify.com/s/files/1/1158/2192/products/My-Neighbor-Totoro-Studio-Ghibli-Decal_1200x1200.jpg?v=1455482567',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Sasuke',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCPSihiBorO4eT4BRSF9eR-gPk4kP5Ob2CZA&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Goten',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6wPSx0cFsTLmwDjmyogVkbz9htKi6IzJ55g&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Gojo Satoru',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeknf0UdI0V5DopEvUmA3Hgpo7XHR-N1u0_w&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Natsu',
     description: 'Test',
     imageUrl:
       'https://cdn.shopify.com/s/files/1/1158/2192/products/Natsu-Dragneel-Fairytail-Black-Anime-Decal-Sticker_480x480.jpg?v=1519248068',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Kakashi',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmAD0hax6HtFRQA9ZMfQbDYjI7ISgGisE62w&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Rogue Ninja',
     description: 'Test',
     imageUrl:
       'https://cdn.shopify.com/s/files/1/0505/1354/3337/products/konoha_crosssed_comicsense_400x.jpg?v=1608211148',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Dab',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEyDBEcvYyGDObMQTpKudY5cPfArVV6WUNFQ&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Ichigo Kurosaki',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0bg62e2o99Ezej5hwUCjlpjIo4vX2dEgtXA&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'One Piece',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBf2uWIVN-gI4QNDNWRQT-iTPgl0bI6olXiQ&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Hisoka',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPFjS_Iw5S3Y1VojjqmIs8wsFq-dV2ocOCg&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
-  {name: 'Plus Ultra', description: 'Test', imageUrl: '', price: 3.99},
+  {name: 'Plus Ultra', description: 'Test', imageUrl: '', msrp: 399},
   {
     name: 'Marceline',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTzuQN9zJvxzzjK1BrEx8FpkppBJLRoCLn6Q&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Itachi',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmvtnzjlB1KkN60igkZ-ifN5OS8P-Trewx7A&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Akatsuki',
     description: 'Test',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqbF3x95NY2kL5CU3GIQ6beh4WRWiZAM3r_w&usqp=CAU',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   },
   {
     name: 'Berserke',
     description: 'Test',
     imageUrl:
       'https://images-na.ssl-images-amazon.com/images/I/61X4bPneFTL._AC_SL1001_.jpg',
-    price: 3.99
+    msrp: 399,
+    category: 'Stickers'
   }
 ]
 
@@ -152,13 +172,13 @@ const pinData = [
   {
     name: 'small pin',
     description: 'really small pin',
-    price: 200,
+    msrp: 200,
     rating: 2
   },
   {
     name: 'big pin',
     description: 'really big pin',
-    price: 200,
+    msrp: 200,
     rating: 5
   },
   {
@@ -166,56 +186,56 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgM2rbqR_SdDQOUeR0SQ__fDHgpJo-HL1DwQ&usqp=CAU',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Motivational',
     imageUrl:
       'https://ih1.redbubble.net/image.1156498190.4347/ur,pin_large_front,square,600x600.u3.jpg',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Hinata',
     imageUrl:
       'https://ih1.redbubble.net/image.1356992302.7366/ur,pin_large_front,square,600x600.jpg',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Nezuko',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNNEkv4NLntI8Ch6fYEQ9O1YuTbI3huP0MFA&usqp=CAU',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Haku',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIo_N_EiQIk7CIN1mlSO_t0ZNFTRN3jixbLg&usqp=CAU',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Fairy Tail',
     imageUrl:
       'https://res.cloudinary.com/teepublic/image/private/s--ojPTdPqV--/c_crop,x_10,y_10/c_fit,h_830/c_crop,g_north_west,h_1038,w_1038,x_-156,y_-104/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-267,y_-215/b_rgb:ffffff/c_limit,f_jpg,h_630,q_90,w_630/v1481517284/production/designs/936333_1.jpg',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Deku Cat',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-MKoDDnb1UKbygME7I3ieGWaGl3CZsJNqEA&usqp=CAU',
     description: 'Test',
-    price: 5
+    msrp: 5
   },
   {
     name: 'Dabi',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP99mujOHglXngGmZMOGR3RGwm-N6algSYEA&usqp=CAU',
     description: 'Test',
-    price: 5
+    msrp: 5
   }
 ]
 
@@ -245,44 +265,13 @@ async function seed() {
     })
   ])
 
-  const stickers = await Promise.all([
-    Sticker.create({
-      name: 'Big Smile Sticker',
-      description: 'Sticker with a HUGE smile!',
-      imageUrl:
-        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Hs54PWhYEDk9lf3AGcdLnwHaHa%26pid%3DApi&f=1',
-      price: 3.95,
-      quantity: 1
-    }),
-    Sticker.create({
-      name: 'Everything is ok.',
-      description: "Happy but inexperienced in expressing one's emotions",
-      imageUrl:
-        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.451JRHpDPT1Mn7eWEh-Y3QHaHa%26pid%3DApi&f=1',
-      price: 3.95,
-      quantity: 1
-    }),
-    Sticker.create({
-      name: 'Confused but happy.',
-      description: "I'm...happy?",
-      imageUrl:
-        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.1VYbo6xNHYnhMolGjLIbJQHaHa%26pid%3DApi&f=1',
-      price: 3.95,
-      quantity: 1
-    })
-  ])
+  await Promise.all(pinData.map(pin => Product.create(pin)))
+
+  await Promise.all(stickerData.map(sticker => Product.create(sticker)))
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${carts.length} carts`)
-  console.log(`seeded ${stickers.length} stickers`)
-  await Promise.all(pinData.map(pin => Pin.create(pin)))
-
-  await Promise.all(stickerData.map(sticker => Sticker.create(sticker)))
-
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded ${carts.length} carts`)
-  console.log(`seeded ${pinData.length} pins`)
-  console.log(`seeded ${stickerData.length} stickers`)
+  console.log(`seeded ${stickerData.length + pinData.length} products`)
   console.log(`seeded successfully`)
 }
 
