@@ -4,6 +4,11 @@ body {
 
 a {
   text-decoration: none;
+  margin: 0;
+}
+
+a:visited {
+  color: black;
 }
 
 label {
@@ -25,6 +30,33 @@ form div {
   width: 100px;
 }
 
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+#cartItem-img {
+  height: 30px;
+  width: 30px;
+}
+
+#cartItem-div {
+  border: 1px solid;
+  width: 25%;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
 .form-btn {
   display: flex;
   justify-content: center;
@@ -42,12 +74,23 @@ form div {
   border: 1px solid black;
 }
 
-#cartItem-img {
-  height: 30px;
-  width: 30px;
+.form-input {
+  margin: 5px;
 }
 
-#cartItem-div {
-  border: 1px solid;
-  width: 25%;
+.nav-bar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-bar-routes {
+  transition: border-bottom 0.15s;
+}
+
+.nav-bar-routes:hover {
+  border-bottom: 2px solid black;
+}
+
+.nav-bar-routes-container {
+  display: flex;
 }
