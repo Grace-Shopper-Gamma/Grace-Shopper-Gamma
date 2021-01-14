@@ -11,8 +11,9 @@ const removesticker = () => ({type: REMOVE_STICKER})
 
 export const getStickers = () => async dispatch => {
   try {
-    const res = await axios.get('/api/stickers')
-    dispatch(getSticker(res.data || defaultsticker))
+    const res = await axios.get('/api/products')
+    const result = res.data.filter(item => item.category === 'Stickers')
+    dispatch(getSticker(result || defaultsticker))
   } catch (err) {
     console.error(err)
   }

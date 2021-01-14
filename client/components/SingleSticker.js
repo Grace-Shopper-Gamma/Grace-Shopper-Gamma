@@ -5,11 +5,13 @@ import {getSingleSticker} from '../store/singleSticker'
 
 class SingleSticker extends Component {
   componentDidMount() {
-    this.fetchSticker(this.props.params.id)
+    this.props.fetchSticker(this.props.match.params.id)
   }
 
   render() {
-    const {sticker: {name, description, imageUrl, price, quantity}} = this.props
+    const {
+      sticker: {name, description, imageUrl, price, rating, quantity}
+    } = this.props
 
     return (
       <div className="single-sticker-container">

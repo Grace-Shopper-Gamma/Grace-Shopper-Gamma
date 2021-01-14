@@ -7,7 +7,7 @@ const _getSinglePin = pin => ({type: GET_SINGLE_PIN, pin})
 export const getSinglePin = id => {
   return async dispatch => {
     try {
-      const {data: pin} = await axios.get(`/api/pins/${id}`)
+      const {data: pin} = await axios.get(`/api/products/${id}`)
       dispatch(_getSinglePin(pin))
     } catch (err) {
       console.log(err)

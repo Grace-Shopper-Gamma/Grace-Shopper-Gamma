@@ -186,6 +186,7 @@ input[type='radio'] {
   transition: color 200ms;
   height: 2em;
   width: 2em;
+}
 
 .flex-container {
   display: flex;
