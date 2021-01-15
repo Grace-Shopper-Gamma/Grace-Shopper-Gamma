@@ -1,11 +1,12 @@
 const router = require('express').Router()
-const {Cart} = require('../db/models')
+const {Cart, User} = require('../db/models')
 
 // GET /api/cart
 router.get('/', async (req, res, next) => {
   try {
-    const cart = await Cart.findAll()
-    res.json(cart)
+    const user = await User.findByPk(1)
+    const items = await user.getProducts()
+    res.json(items)
   } catch (error) {
     next(error)
   }
@@ -36,9 +37,9 @@ router.post('/', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
-    const cartItem = await Cart.findByPk(id)
-    await cartItem.destroy()
-    res.send(cartItem)
+    const user = await User.findByPk(1)
+    await user.removeProduct(id)
+    res.status(200).send(id)
   } catch (error) {
     next(error)
   }
