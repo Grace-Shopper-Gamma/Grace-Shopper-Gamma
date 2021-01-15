@@ -166,7 +166,6 @@ form div {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 25px 25px 50px 0 #f8f8f8 inset, -25px -25px 50px 0 #f8f8f8 inset;
 }
 
 .image-loader {
