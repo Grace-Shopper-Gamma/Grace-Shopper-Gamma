@@ -1,34 +1,40 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getSinglePin} from '../store/singlePin'
+import {getSingleProduct} from '../store/products'
 import {createCartItem, updateCartItem} from '../store/cart'
 import FormButton from './FormButton'
 import StarRating from './StarRating'
 
-class AllPins extends Component {
+class SingleProduct extends Component {
   componentDidMount() {
-    this.props.getSinglePin(this.props.match.params.id)
+    this.props.getSingleProduct(this.props.match.params.id)
   }
 
   handleSubmit = evt => {
     evt.preventDefault()
-    const {pin, cart, createCartItem, updateCartItem} = this.props
+    const {singleProduct, cart, createCartItem, updateCartItem} = this.props
     const idArray = cart.filter(item => item.id)
-    if (idArray.includes(pin.id)) {
-      updateCartItem(pin)
+    if (idArray.includes(singleProduct.id)) {
+      updateCartItem(singleProduct)
     }
-    createCartItem(pin)
+    createCartItem(singleProduct)
     this.props.history.push('/cart')
   }
 
   render() {
-    const {imageUrl, name, rating, description, price} = this.props.pin
+    const {
+      imageUrl,
+      name,
+      rating,
+      description,
+      price
+    } = this.props.singleProduct
     return (
       <div className="single-item-container">
         <div>
           <img
             src={imageUrl}
-            alt={`Photo of ${name} pin`}
+            alt={`Photo of ${name}`}
             className="single-item-picture"
           />
         </div>
@@ -51,14 +57,14 @@ class AllPins extends Component {
 }
 
 const mapState = state => ({
-  pin: state.pin,
+  singleProduct: state.inventory.singleProduct,
   cart: state.cartItems
 })
 
 const mapDispatch = dispatch => ({
-  getSinglePin: id => dispatch(getSinglePin(id)),
+  getSingleProduct: id => dispatch(getSingleProduct(id)),
   createCartItem: pin => dispatch(createCartItem(pin)),
   updateCartItem: pin => dispatch(updateCartItem(pin))
 })
 
-export default connect(mapState, mapDispatch)(AllPins)
+export default connect(mapState, mapDispatch)(SingleProduct)
