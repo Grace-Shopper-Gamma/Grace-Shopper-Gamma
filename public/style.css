@@ -34,6 +34,7 @@ form div {
   display: flex;
   flex-direction: column;
   height: 100%;
+
   margin: 5%;
 }
 
@@ -41,7 +42,7 @@ form div {
   display: flex;
   flex-direction: column;
   margin: 5px;
-  width: 25vw;
+  width: 210px;
 }
 
 #cartItem-img {
@@ -66,8 +67,9 @@ form div {
   align-items: center;
   color: white;
   background-color: black;
+  margin-top: 5px;
   height: 30px;
-  width: 100%;
+  width: 210;
   transition: background-color 0.75s, color 0.75s, border 0.75s;
 }
 
@@ -76,9 +78,8 @@ form div {
   color: black;
   border: 1px solid black;
 }
-
-.form-input {
-  margin: 5px;
+.form-input.title {
+  text-align: center;
 }
 
 .form-input.input {
@@ -89,7 +90,7 @@ form div {
   border-left: 0;
   border-right: 0;
   height: 30px;
-  width: 100%;
+
   transition: background-color 0.35s;
 }
 
