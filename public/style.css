@@ -32,11 +32,6 @@ form div {
   display: inline-block;
 }
 
-.allImg {
-  height: 100px;
-  width: 100px;
-}
-
 .auth-container {
   display: flex;
   flex-direction: column;
@@ -221,20 +216,21 @@ input[type='radio'] {
   height: 2em;
   width: 2em;
 }
-
+/***Product Card***/
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: rgba(2, 32, 97, 0.548);
   color: black;
-  padding-left: 200px;
-  padding-right: 200px;
-  margin-left: 100px;
-  margin-right: 100px;
+}
+.allImg {
+  height: 100px;
+  width: 100px;
 }
 .indSticker {
   width: 150px;
+  padding-top: 5%;
   padding-bottom: 5%;
   padding-right: 50px;
   padding-left: 50px;
@@ -242,14 +238,24 @@ input[type='radio'] {
   margin-top: 10%;
 }
 #name {
+  color: black;
   width: 100%;
   padding-bottom: 5%;
   padding-right: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   margin-bottom: 0%;
   margin-top: 10%;
+}
+/* A link that is hovered on */
+#name:hover {
+  color: red;
+}
+/* A link that is selected */
+#name:active {
+  color: green;
 }
 #price {
+  color: black;
   width: 100%;
   padding-bottom: 5%;
   padding-right: 20px;
@@ -257,6 +263,15 @@ input[type='radio'] {
   margin-bottom: 0%;
   margin-top: 10%;
 }
+
+#price:hover {
+  color: red;
+}
+
+#price:active {
+  color: green;
+}
+/***Product Card***/
 #stickersH1 {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
