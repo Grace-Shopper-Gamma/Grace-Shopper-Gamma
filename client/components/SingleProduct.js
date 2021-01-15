@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getSingleProduct} from '../store/products'
 import {createCartItem, updateCartItem} from '../store/cart'
+import CircularProgress from '@material-ui/core/CircularProgress'
+
 import FormButton from './FormButton'
 import StarRating from './StarRating'
 
@@ -27,25 +29,40 @@ class SingleProduct extends Component {
       name,
       rating,
       description,
-      price
+      msrp,
+      stock
     } = this.props.singleProduct
     return (
-      <div className="single-item-container">
-        <div>
-          <img
-            src={imageUrl}
-            alt={`Photo of ${name}`}
-            className="single-item-picture"
-          />
+      <div className="single-product-container">
+        <div className="single-product-img">
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt={`Photo of ${name}`}
+              className="single-product-img"
+            />
+          ) : (
+            <CircularProgress className="image-loader" />
+          )}
         </div>
-        <div className="single-item-info-container">
-          <div className="single-item-name">
+        <div className="single-product-info-container">
+          <div className="single-product-name">
             <h1>{name}</h1>
           </div>
           <StarRating rating={rating} />
           <br />
-          <p className="single-item-description">{description}</p>
-          <h4>${price}</h4>
+          <p className="single-product-description">{description}</p>
+          <ul>
+            <li>%100 Organic</li>
+            <li>Made with love</li>
+          </ul>
+          <div className="single-product-stock">
+            {stock > 0
+              ? 'In Stock and Ready to Ship!'
+              : stock === 0 ? 'Out of Stock :(' : 'Loading...'}
+          </div>
+
+          <h3 className="single-product-price">${msrp}</h3>
           <FormButton
             displayName="Add To Cart"
             handleSubmit={this.handleSubmit}
