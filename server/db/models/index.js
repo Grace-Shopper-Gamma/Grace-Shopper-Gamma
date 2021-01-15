@@ -17,8 +17,8 @@ const Order = require('./order')
  * instead of: const User = require('../db/models/user')
  */
 
-Product.belongsToMany(User, {through: Cart})
-Order.belongsToMany(User, {through: Cart})
+User.belongsToMany(Product, {through: Cart})
+User.belongsToMany(Order, {through: Cart})
 
 module.exports = {
   User,
