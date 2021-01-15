@@ -5,7 +5,7 @@ const ProductCard = props => {
   const {name, imageUrl, price, id} = props.item
 
   return (
-    <div>
+    <div className="flex-container">
       <Link to={`/pins/${id}`} className="indSticker">
         <img src={imageUrl} alt={`Picture of ${name}`} className="allImg" />
         <h3 id="name">{name}</h3>
