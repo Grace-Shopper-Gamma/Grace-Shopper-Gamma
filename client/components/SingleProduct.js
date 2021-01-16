@@ -76,7 +76,7 @@ class SingleProduct extends Component {
               : stock === 0 ? 'Out of Stock :(' : 'Loading...'}
           </div>
 
-          <h3 className="single-product-price">${msrp}</h3>
+          <h3 className="single-product-price">${parseFloat(msrp / 100)}</h3>
           <FormButton
             displayName="Add To Cart"
             handleSubmit={this.handleSubmit}

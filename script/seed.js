@@ -10,7 +10,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://i.pinimg.com/originals/3c/48/bf/3c48bf9a8fb400eaa8cdc282f049afd1.jpg',
-    msrp: 399,
+    msrp: 499,
     category: 'Stickers',
     rating: 3
   },
@@ -19,7 +19,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://images.bonanzastatic.com/afu/images/027a/84a8/f5fb_8742721276/narutopeeking.jpg',
-    msrp: 399,
+    msrp: 499,
     category: 'Stickers',
     rating: 3
   },
@@ -28,7 +28,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://i.pinimg.com/originals/a7/4d/35/a74d3514b9ffb13fdaeab1672584e20e.jpg',
-    msrp: 399,
+    msrp: 499,
     category: 'Stickers',
     rating: 3
   },
@@ -37,7 +37,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpeYogv2j_vTg81QBYfb7K862XnZxseyzeIQ&usqp=CAU',
-    msrp: 399,
+    msrp: 499,
     category: 'Stickers',
     rating: 3
   },
@@ -46,7 +46,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR0-C3nldcWgwDnE8YkIK4q42hn3snyMZhPA&usqp=CAU',
-    msrp: 399,
+    msrp: 499,
     category: 'Stickers',
     rating: 3
   },
@@ -109,7 +109,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://cdn.shopify.com/s/files/1/0505/1354/3337/products/konoha_crosssed_comicsense_400x.jpg?v=1608211148',
-    msrp: 399,
+    msrp: 299,
     category: 'Stickers',
     rating: 3
   },
@@ -118,7 +118,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEyDBEcvYyGDObMQTpKudY5cPfArVV6WUNFQ&usqp=CAU',
-    msrp: 399,
+    msrp: 299,
     category: 'Stickers',
     rating: 3
   },
@@ -127,7 +127,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0bg62e2o99Ezej5hwUCjlpjIo4vX2dEgtXA&usqp=CAU',
-    msrp: 399,
+    msrp: 299,
     category: 'Stickers',
     rating: 3
   },
@@ -136,7 +136,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBf2uWIVN-gI4QNDNWRQT-iTPgl0bI6olXiQ&usqp=CAU',
-    msrp: 399,
+    msrp: 299,
     category: 'Stickers',
     rating: 3
   },
@@ -180,7 +180,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqbF3x95NY2kL5CU3GIQ6beh4WRWiZAM3r_w&usqp=CAU',
-    msrp: 399,
+    msrp: 599,
     category: 'Stickers',
     rating: 3
   },
@@ -189,7 +189,7 @@ const stickerData = [
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://images-na.ssl-images-amazon.com/images/I/61X4bPneFTL._AC_SL1001_.jpg',
-    msrp: 399,
+    msrp: 599,
     category: 'Stickers',
     rating: 5
   }
@@ -197,23 +197,27 @@ const stickerData = [
 
 const pinData = [
   {
-    name: 'small pin',
-    description: 'really small pin',
-    msrp: 400,
+    name: 'Small Pin',
+    description: `This is a really small pin. It's so small that you might lose it, so please pin it on something before it's misplaced`,
+    imageUrl:
+      'https://www.clipartkey.com/mpngs/m/46-460289_svg-png-icon-free-black-transparent-background-pin.png',
+    msrp: 499,
     rating: 2
   },
   {
-    name: 'big pin',
-    description: 'really big pin',
-    msrp: 800,
+    name: 'Big Pin',
+    description: `This is really big pin. It's so big, that you're going to have trouble finding something big enough to put it on. Tbh, it might be too big.`,
+    imageUrl:
+      'https://www.clipartkey.com/mpngs/m/46-460289_svg-png-icon-free-black-transparent-background-pin.png',
+    msrp: 899,
     rating: 5
   },
   {
     name: 'Sanic',
     imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgM2rbqR_SdDQOUeR0SQ__fDHgpJo-HL1DwQ&usqp=CAU',
+      'https://lh3.googleusercontent.com/proxy/Yqkh9Dcnd1Sk9Pp8epDNU_Bc70lRZneI3gwwlkEY-6cVDBAvDKD2wgKdXGYfogJJhCZ_mbTjGpbLvTVK0geKzv9xQQTsdpRPP1PUmTZW0v5oSsNWqsVxTWyPxJWd',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 700,
+    msrp: 799,
     rating: 2
   },
   {
@@ -221,7 +225,7 @@ const pinData = [
     imageUrl:
       'https://ih1.redbubble.net/image.1156498190.4347/ur,pin_large_front,square,600x600.u3.jpg',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 500,
+    msrp: 599,
     rating: 2
   },
   {
@@ -229,7 +233,7 @@ const pinData = [
     imageUrl:
       'https://ih1.redbubble.net/image.1356992302.7366/ur,pin_large_front,square,600x600.jpg',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 600,
+    msrp: 699,
     rating: 3
   },
   {
@@ -237,15 +241,15 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNNEkv4NLntI8Ch6fYEQ9O1YuTbI3huP0MFA&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 300,
+    msrp: 399,
     rating: 4
   },
   {
     name: 'Haku',
     imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIo_N_EiQIk7CIN1mlSO_t0ZNFTRN3jixbLg&usqp=CAU',
+      'https://www.clipartkey.com/mpngs/m/149-1491250_transparent-spirited-away-png-haku-spirited-away-stickers.png',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 500,
+    msrp: 599,
     rating: 1
   },
   {
@@ -253,7 +257,7 @@ const pinData = [
     imageUrl:
       'https://res.cloudinary.com/teepublic/image/private/s--ojPTdPqV--/c_crop,x_10,y_10/c_fit,h_830/c_crop,g_north_west,h_1038,w_1038,x_-156,y_-104/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-267,y_-215/b_rgb:ffffff/c_limit,f_jpg,h_630,q_90,w_630/v1481517284/production/designs/936333_1.jpg',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 300,
+    msrp: 399,
     rating: 5
   },
   {
@@ -261,7 +265,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-MKoDDnb1UKbygME7I3ieGWaGl3CZsJNqEA&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 700,
+    msrp: 799,
     rating: 3
   },
   {
@@ -269,7 +273,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP99mujOHglXngGmZMOGR3RGwm-N6algSYEA&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 800,
+    msrp: 899,
     rating: 3
   }
 ]
