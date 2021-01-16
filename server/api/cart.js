@@ -24,12 +24,11 @@ router.get('/:id', async (req, res, next) => {
 })
 
 // POST /api/cart
-router.post('/', async (req, res, next) => {
+router.post('/:id', async (req, res, next) => {
   try {
-    const {id} = req.body
-    const user = await User.findByPk(id)
-    const addCartItem = await user.addProduct(req.body)
-    res.json(addCartItem)
+    const user = await User.findByPk(1)
+    const newProduct = await user.addProduct(req.params.id)
+    res.json(newProduct)
   } catch (error) {
     next(error)
   }

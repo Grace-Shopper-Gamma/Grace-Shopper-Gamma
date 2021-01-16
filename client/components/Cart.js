@@ -11,7 +11,12 @@ const Cart = ({cartItems}) => {
             <h4>{cartItem.name}</h4>
             <p>{cartItem.description}</p>
             <img id="cartItem-img" src={cartItem.imageUrl} />
-            <p>qty:</p>
+            <p>qty:{cartItem.item && cartItem.item.quantity}</p>
+            {/* <select value={this.state.value} onChange={this.handleChange}>
+              <option value="all">all</option>
+              <option value="cats">cats</option>
+              <option value="dogs">dogs</option>
+            </select> */}
             <p>price: {cartItem.msrp}</p>
             <span>
               <DeleteCartItem cartItem={cartItem} />
