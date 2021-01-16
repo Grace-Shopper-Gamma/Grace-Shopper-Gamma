@@ -9,18 +9,17 @@ import StarRating from './StarRating'
 class SingleProduct extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       loaded: false
     }
   }
+
   componentDidMount() {
     this.props.getSingleProduct(this.props.match.params.id)
   }
 
   componentDidUpdate() {
     // if loaded is false and image is available, then set loaded to true
-    // this adds 'loaded' class to single-product container to fade in
     !this.state.loaded &&
       this.props.singleProduct.imageUrl &&
       this.setState({loaded: true})
@@ -28,12 +27,14 @@ class SingleProduct extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault()
-    const {singleProduct, cart, createCartItem, updateCartItem} = this.props
-    const idArray = cart.filter(item => item.id)
+    const {singleProduct, cart} = this.props
+    const idArray = cart.map(item => item.id)
+
     if (idArray.includes(singleProduct.id)) {
-      updateCartItem(singleProduct)
+      // this.props.updateCartItem(singleProduct)
+    } else {
+      this.props.createCartItem(singleProduct.id)
     }
-    createCartItem(singleProduct)
     this.props.history.push('/cart')
   }
 
@@ -94,7 +95,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   getSingleProduct: id => dispatch(getSingleProduct(id)),
-  createCartItem: pin => dispatch(createCartItem(pin)),
+  createCartItem: id => dispatch(createCartItem(id)),
   updateCartItem: pin => dispatch(updateCartItem(pin))
 })
 

@@ -20,7 +20,7 @@ const Cart = db.define('item', {
     validate: {
       min: 0
     },
-    defaultValue: 0
+    defaultValue: 1
   },
   userId: {
     type: Sequelize.INTEGER,
