@@ -11,7 +11,8 @@ import {
   AllPins,
   SingleSticker,
   SinglePin,
-  AllStickers
+  AllStickers,
+  Checkout
 } from './components'
 import {me} from './store'
 import {fetchCartItems} from './store/cart'
@@ -35,6 +36,7 @@ class Routes extends Component {
         <Route exact path="/stickers" component={AllStickers} />
         <Route path="/cart" component={Cart} cartItems={cartItems} />
         <Route path="/stickers/:id" component={SingleSticker} />
+        <Route path="/checkout" component={Checkout} cartItems={cartItems} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

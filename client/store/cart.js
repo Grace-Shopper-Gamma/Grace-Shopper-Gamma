@@ -60,7 +60,8 @@ const _updateCartItem = cartItem => {
 
 export const updateCartItem = cartItem => {
   return async dispatch => {
-    const updated = (await axios.put(`/api/cart/${cartItem.id}`, cartItem)).data
+    const updated = (await axios.put(`/api/cart/${cartItem.userId}`, cartItem))
+      .data
     dispatch(_updateCartItem(updated))
   }
 }
