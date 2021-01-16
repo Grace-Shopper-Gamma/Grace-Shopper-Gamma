@@ -2,14 +2,28 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getSingleProduct} from '../store/products'
 import {createCartItem, updateCartItem} from '../store/cart'
-import CircularProgress from '@material-ui/core/CircularProgress'
 
 import FormButton from './FormButton'
 import StarRating from './StarRating'
 
 class SingleProduct extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      loaded: false
+    }
+  }
   componentDidMount() {
     this.props.getSingleProduct(this.props.match.params.id)
+  }
+
+  componentDidUpdate() {
+    // if loaded is false and image is available, then set loaded to true
+    // this adds 'loaded' class to single-product container to fade in
+    !this.state.loaded &&
+      this.props.singleProduct.imageUrl &&
+      this.setState({loaded: true})
   }
 
   handleSubmit = evt => {
@@ -33,17 +47,17 @@ class SingleProduct extends Component {
       stock
     } = this.props.singleProduct
     return (
-      <div className="single-product-container">
+      <div
+        className={`single-product-container ${
+          this.state.loaded ? 'loaded' : ''
+        }`}
+      >
         <div className="single-product-img">
-          {imageUrl ? (
-            <img
-              src={imageUrl}
-              alt={`Photo of ${name}`}
-              className="single-product-img"
-            />
-          ) : (
-            <CircularProgress className="image-loader" />
-          )}
+          <img
+            src={imageUrl}
+            alt={`Photo of ${name}`}
+            className="single-product-img img-el"
+          />
         </div>
         <div className="single-product-info-container">
           <div className="single-product-name">
