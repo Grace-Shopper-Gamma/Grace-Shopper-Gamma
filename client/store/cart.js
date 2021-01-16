@@ -32,7 +32,7 @@ const _createCartItem = cartItem => {
 
 export const createCartItem = id => {
   return async dispatch => {
-    const created = (await axios.post(`/api/cart/${id}`)).data
+    const [created] = (await axios.post(`/api/cart/${id}`)).data
     dispatch(_createCartItem(created))
   }
 }
