@@ -36,8 +36,8 @@ Additional libraries/techs include:
   * [LinkedIn](https://www.linkedin.com/in/gerald-lou-berzuela/)
   * [GitHub](https://github.com/gberzuela)
 * Joe
-  * [LinkedIn]
-  * [GitHub]
+  * [LinkedIn](https://www.linkedin.com/in/joseph-m-young/)
+  * [GitHub](https://github.com/musicjoeyoung)
 * Kerri
   * [LinkedIn]
   * [GitHub]

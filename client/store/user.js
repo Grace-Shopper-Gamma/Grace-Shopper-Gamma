@@ -45,6 +45,40 @@ export const auth = (email, password, method) => async dispatch => {
     console.error(dispatchOrHistoryErr)
   }
 }
+export const info = (
+  firstName,
+  lastName,
+  address,
+  apartment,
+  city,
+  zip,
+  state,
+  country,
+  method
+) => async dispatch => {
+  let res
+  try {
+    res = await axios.post(`/auth/${method}`, {
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      zip,
+      state,
+      country
+    })
+  } catch (infoError) {
+    return dispatch(getUser({error: infoError}))
+  }
+
+  try {
+    dispatch(getUser(res.data))
+    history.push('/home')
+  } catch (dispatchOrHistoryErr) {
+    console.error(dispatchOrHistoryErr)
+  }
+}
 
 export const logout = () => async dispatch => {
   try {

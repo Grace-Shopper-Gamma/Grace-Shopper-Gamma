@@ -293,3 +293,45 @@ input[type='radio'] {
 #userWelcome {
   text-align: center;
 }
+#loggedInAs {
+  text-align: center;
+}
+
+#userProfileNavBar {
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+#userProfileNavBar li {
+  display: inline;
+}
+#userProfileNavBar a {
+  display: inline;
+}
+
+#mailingInfoDiv {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 30%;
+  border: 5px solid #000000;
+}
+#mailingInfoDiv label {
+  padding-bottom: 10px;
+}
+#mailingInfoDiv button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 37.5%;
+  width: 25%;
+  align-items: center;
+}
