@@ -9,7 +9,7 @@ const Cart = ({cartItems}) => {
   console.log(cartItems)
   return (
     <div id="cart">
-      {cartItems.map(cartItem => {
+      {cartItems.filter(x => x.item.status === 'PENDING').map(cartItem => {
         return (
           <div key={cartItem.id} id="cartItem-div">
             <h4>{cartItem.name}</h4>
