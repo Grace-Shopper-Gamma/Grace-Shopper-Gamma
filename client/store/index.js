@@ -5,18 +5,12 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import cartReducer from './cart'
 import orderReducer from './checkout'
-import stickerReducer from './stickers.js'
-import pinsReducer from './pins'
-import singleSticker from './singleSticker'
-import singlePin from './singlePin'
+import productsReducer from './products'
 
 const reducer = combineReducers({
   user,
-  stickers: stickerReducer,
+  inventory: productsReducer,
   cartItems: cartReducer,
-  pins: pinsReducer,
-  sticker: singleSticker,
-  pin: singlePin,
   order: orderReducer
 })
 const middleware = composeWithDevTools(

@@ -8,12 +8,12 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined'
 
-const Navbar = ({handleClick, isLoggedIn}) => {
+const NavBar = ({handleClick, isLoggedIn}) => {
   return (
     <div>
       <div className="nav-bar-container">
         <Link to="/">
-          <h1>PINS&STICKERS</h1>
+          <h1>STICK n' PIN</h1>
         </Link>
         <nav className="nav-bar-routes-container center">
           <Link className="nav-bar-routes" to="/pins">
@@ -65,12 +65,12 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(NavBar)
 
 /**
  * PROP TYPES
  */
-Navbar.propTypes = {
+NavBar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }

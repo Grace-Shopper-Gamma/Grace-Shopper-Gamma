@@ -8,19 +8,19 @@ import {
   Signup,
   UserHome,
   Cart,
-  AllPins,
-  SingleSticker,
-  SinglePin,
-  AllStickers,
-  Checkout
+  Checkout,
+  AllProducts,
+  SingleProduct
 } from './components'
 import {me} from './store'
 import {fetchCartItems} from './store/cart'
+import {getProducts} from './store/products'
 
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
     this.props.getCartItems()
+    this.props.getAllProducts()
   }
 
   render() {
@@ -31,11 +31,11 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/pins" component={AllPins} />
-        <Route path="/pins/:id" component={SinglePin} />
-        <Route exact path="/stickers" component={AllStickers} />
+        <Route exact path="/pins" component={AllProducts} />
+        <Route path="/pins/:id" component={SingleProduct} />
+        <Route exact path="/stickers" component={AllProducts} />
+        <Route path="/stickers/:id" component={SingleProduct} />
         <Route path="/cart" component={Cart} cartItems={cartItems} />
-        <Route path="/stickers/:id" component={SingleSticker} />
         <Route path="/checkout" component={Checkout} cartItems={cartItems} />
         {isLoggedIn && (
           <Switch>
@@ -63,7 +63,8 @@ const mapDispatch = dispatch => {
     loadInitialData() {
       dispatch(me())
     },
-    getCartItems: () => dispatch(fetchCartItems())
+    getCartItems: () => dispatch(fetchCartItems()),
+    getAllProducts: () => dispatch(getProducts())
   }
 }
 

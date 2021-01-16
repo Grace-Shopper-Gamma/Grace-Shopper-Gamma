@@ -24,10 +24,18 @@ router.get('/:id', async (req, res, next) => {
 })
 
 // POST /api/cart
-router.post('/', async (req, res, next) => {
+router.post('/:id', async (req, res, next) => {
   try {
-    const addCartItem = await Cart.create(req.body)
-    res.json(addCartItem)
+    const user = await User.findByPk(1)
+    await user.addProduct(req.params.id).then(async () =>
+      res.json(
+        await user.getProducts({
+          where: {
+            id: req.params.id
+          }
+        })
+      )
+    )
   } catch (error) {
     next(error)
   }

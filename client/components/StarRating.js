@@ -18,7 +18,7 @@ const StarRating = props => {
             />
             <FaStar
               className="star"
-              color={ratingValue <= rating ? '#444445' : '#e4e5e9'}
+              color={ratingValue <= rating ? '#468faf' : '#e4e5e9'}
             />
           </label>
         )
