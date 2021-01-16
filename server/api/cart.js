@@ -50,7 +50,8 @@ router.put('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
     const cartItem = await Cart.findByPk(id)
-    res.send(await cartItem.update(req.body))
+    await cartItem.update(req.body)
+    res.send(id)
   } catch (error) {
     next(error)
   }
