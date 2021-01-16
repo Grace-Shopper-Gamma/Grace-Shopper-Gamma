@@ -9,7 +9,7 @@ import {UserHome} from '../components/UserHome'
 const adapter = new Adapter()
 enzyme.configure({adapter})
 
-describe.only('UserHome', () => {
+describe('UserHome', () => {
   let userHome
 
   beforeEach(() => {
