@@ -42,7 +42,7 @@ const stickerData = [
     rating: 3
   },
   {
-    name: 'Todoroki Chibi',
+    name: 'Todoroki C.',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR0-C3nldcWgwDnE8YkIK4q42hn3snyMZhPA&usqp=CAU',
@@ -123,7 +123,7 @@ const stickerData = [
     rating: 3
   },
   {
-    name: 'Ichigo Kurosaki',
+    name: 'Ichigo K.',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0bg62e2o99Ezej5hwUCjlpjIo4vX2dEgtXA&usqp=CAU',
@@ -199,13 +199,13 @@ const pinData = [
   {
     name: 'small pin',
     description: 'really small pin',
-    msrp: 200,
+    msrp: 400,
     rating: 2
   },
   {
     name: 'big pin',
     description: 'really big pin',
-    msrp: 200,
+    msrp: 800,
     rating: 5
   },
   {
@@ -213,7 +213,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgM2rbqR_SdDQOUeR0SQ__fDHgpJo-HL1DwQ&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 700,
     rating: 2
   },
   {
@@ -221,7 +221,7 @@ const pinData = [
     imageUrl:
       'https://ih1.redbubble.net/image.1156498190.4347/ur,pin_large_front,square,600x600.u3.jpg',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 500,
     rating: 2
   },
   {
@@ -229,7 +229,7 @@ const pinData = [
     imageUrl:
       'https://ih1.redbubble.net/image.1356992302.7366/ur,pin_large_front,square,600x600.jpg',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 600,
     rating: 3
   },
   {
@@ -237,7 +237,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNNEkv4NLntI8Ch6fYEQ9O1YuTbI3huP0MFA&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 300,
     rating: 4
   },
   {
@@ -245,7 +245,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIo_N_EiQIk7CIN1mlSO_t0ZNFTRN3jixbLg&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 500,
     rating: 1
   },
   {
@@ -253,7 +253,7 @@ const pinData = [
     imageUrl:
       'https://res.cloudinary.com/teepublic/image/private/s--ojPTdPqV--/c_crop,x_10,y_10/c_fit,h_830/c_crop,g_north_west,h_1038,w_1038,x_-156,y_-104/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-267,y_-215/b_rgb:ffffff/c_limit,f_jpg,h_630,q_90,w_630/v1481517284/production/designs/936333_1.jpg',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 300,
     rating: 5
   },
   {
@@ -261,7 +261,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-MKoDDnb1UKbygME7I3ieGWaGl3CZsJNqEA&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 700,
     rating: 3
   },
   {
@@ -269,7 +269,7 @@ const pinData = [
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP99mujOHglXngGmZMOGR3RGwm-N6algSYEA&usqp=CAU',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 5,
+    msrp: 800,
     rating: 3
   }
 ]
