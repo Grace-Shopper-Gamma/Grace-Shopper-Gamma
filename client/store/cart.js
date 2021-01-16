@@ -58,9 +58,9 @@ const _updateCartItem = cartItem => {
   }
 }
 
-export const updateCartItem = cartItem => {
+export const updateCartItem = item => {
   return async dispatch => {
-    const updated = (await axios.put(`/api/cart/${cartItem.id}`, cartItem)).data
+    const updated = (await axios.put(`/api/cart/${item.id}`, item)).data
     dispatch(_updateCartItem(updated))
   }
 }

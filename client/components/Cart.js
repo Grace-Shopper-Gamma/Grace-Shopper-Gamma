@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import DeleteCartItem from './DeleteCartItem'
+import AddQty from './AddQty'
+import SubtractQty from './SubtractQty'
+import {Link} from 'react-router-dom'
 
 class Cart extends Component {
   constructor(props) {

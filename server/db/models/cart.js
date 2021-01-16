@@ -2,6 +2,11 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Cart = db.define('item', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
   sellPrice: {
     type: Sequelize.DECIMAL(5, 2),
     allowNull: false,

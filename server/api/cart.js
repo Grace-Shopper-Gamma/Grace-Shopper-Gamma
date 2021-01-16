@@ -57,9 +57,9 @@ router.delete('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
-    const user = await User.findByPk(1)
-    const cartItem = await user.addProduct(id)
-    res.send(cartItem)
+    const cartItem = await Cart.findByPk(id)
+    await cartItem.update(req.body)
+    res.send(id)
   } catch (error) {
     next(error)
   }
