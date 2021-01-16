@@ -13,14 +13,12 @@ describe('ProduceCard', () => {
   beforeEach(() => {
     const item = {
       category: 'Pins',
-      createdAt: '2021-01-16T17:08:06.380Z',
       id: 1,
       imageUrl:
         'https://www.flaticon.com/svg/vstatic/svg/1274/1274860.svg?token=exp=1610559388~hmac=85e15df3cecccc2b4e65ba64d09a2b97',
       price: 400,
       name: 'small pin',
-      rating: 2,
-      updatedAt: '2021-01-16T17:08'
+      rating: 2
     }
     productCard = shallow(<ProductCard item={item} />)
   })
