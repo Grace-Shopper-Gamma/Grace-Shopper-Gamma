@@ -247,11 +247,9 @@ input[type='radio'] {
   margin-bottom: 0%;
   margin-top: 10%;
 }
-/* A link that is hovered on */
 #name:hover {
   color: red;
 }
-/* A link that is selected */
 #name:active {
   color: green;
 }
@@ -278,4 +276,8 @@ input[type='radio'] {
   color: black;
   text-align: center;
   font-size: 60px;
+}
+/***UserHome***/
+#userWelcome {
+  text-align: center;
 }

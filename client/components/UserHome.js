@@ -7,10 +7,11 @@ import {connect} from 'react-redux'
  */
 export const UserHome = props => {
   const {email} = props
+  const name = email.replace(/@.*$/, '')
 
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <h3 id="userWelcome">Welcome, {name}!</h3>
     </div>
   )
 }
