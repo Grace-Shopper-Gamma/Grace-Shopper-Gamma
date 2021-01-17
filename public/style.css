@@ -62,6 +62,11 @@ form div {
   align-items: center;
 }
 
+.error-msg {
+  text-align: center;
+  color: red;
+}
+
 .form-btn {
   display: flex;
   cursor: pointer;
@@ -92,7 +97,7 @@ form div {
   border-left: 0;
   border-right: 0;
   height: 30px;
-
+  width: 98%;
   transition: background-color 0.35s;
 }
 
