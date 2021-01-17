@@ -51,11 +51,13 @@ export default function cartReducer(state = [], action) {
       return action.cartItems
     case UPDATE_CARTITEM:
       return state.map(cartItem => {
-        console.log(cartItem)
-        console.log(action.cartItem)
-        return cartItem.id === action.cartItem.productId
-          ? action.cartItem
-          : cartItem
+        console.log('CART ITEM ID', cartItem.id)
+        console.log('ACTION CARTITEM PRODUCTID', action.cartItem.productId)
+        if (cartItem.id === action.cartItem.productId) {
+          cartItem.item.quantity = action.cartItem.quantity
+          cartItem.item.status = action.cartItem.status
+        }
+        return cartItem
       })
     case DELETE_CARTITEM:
       return state.filter(cartItem => cartItem.id !== action.cartItem.id)

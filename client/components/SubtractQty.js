@@ -14,6 +14,7 @@ class SubtractQty extends Component {
       orderId: cartItem.item.orderId,
       productId: cartItem.item.productId
     }
+
     return (
       <div>
         <form onSubmit={ev => ev.preventDefault()}>
@@ -30,10 +31,14 @@ class SubtractQty extends Component {
   }
 }
 
+const mapState = state => ({
+  cartItems: state.cartItems
+})
+
 const mapDispatch = dispatch => {
   return {
     updateCartItem: cartItem => dispatch(updateCartItem(cartItem))
   }
 }
 
-export default connect(null, mapDispatch)(SubtractQty)
+export default connect(mapState, mapDispatch)(SubtractQty)

@@ -6,9 +6,14 @@ class AddQty extends Component {
   render() {
     const {cartItem} = this.props
 
-    const addQtyToProduct = product => {
-      product.item.quantity++
-      return product
+    const add = {
+      id: cartItem.item.id,
+      sellPrice: cartItem.item.sellPrice,
+      status: cartItem.item.status,
+      quantity: cartItem.item.quantity + 1,
+      userId: cartItem.item.userId,
+      orderId: cartItem.item.orderId,
+      productId: cartItem.item.productId
     }
 
     return (
@@ -17,7 +22,7 @@ class AddQty extends Component {
           <button
             type="submit"
             className="remove"
-            onClick={() => this.props.updateCartItem(addQtyToProduct(cartItem))}
+            onClick={() => this.props.updateCartItem(add)}
           >
             +
           </button>
@@ -27,10 +32,14 @@ class AddQty extends Component {
   }
 }
 
+const mapState = state => ({
+  cartItems: state.cartItems
+})
+
 const mapDispatch = dispatch => {
   return {
     updateCartItem: cartItem => dispatch(updateCartItem(cartItem))
   }
 }
 
-export default connect(null, mapDispatch)(AddQty)
+export default connect(mapState, mapDispatch)(AddQty)
