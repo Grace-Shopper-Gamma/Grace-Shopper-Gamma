@@ -8,11 +8,7 @@ class AddQty extends Component {
 
     const add = {
       id: cartItem.item.id,
-      sellPrice: cartItem.item.sellPrice,
-      status: cartItem.item.status,
       quantity: cartItem.item.quantity + 1,
-      userId: cartItem.item.userId,
-      orderId: cartItem.item.orderId,
       productId: cartItem.item.productId
     }
 

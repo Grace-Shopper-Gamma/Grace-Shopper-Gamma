@@ -28,11 +28,15 @@ class SingleProduct extends Component {
   handleSubmit = evt => {
     evt.preventDefault()
     const {singleProduct, cart} = this.props
-    const idArray = cart.map(item => item.id)
-    if (idArray.includes(singleProduct.id)) {
-      const [existingItem] = cart.filter(prod => prod.id)
-      existingItem.item.quantity++
-      this.props.updateCartItem(existingItem)
+    const [productInCart] = cart.filter(item => item.id === singleProduct.id)
+    if (productInCart) {
+      const add = {
+        id: productInCart.item.id,
+        quantity: productInCart.item.quantity + 1,
+        productId: productInCart.item.productId
+      }
+      console.log(add)
+      this.props.updateCartItem(add)
     } else {
       this.props.createCartItem(singleProduct.id)
     }
