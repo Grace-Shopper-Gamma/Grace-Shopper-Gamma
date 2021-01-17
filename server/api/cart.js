@@ -13,15 +13,15 @@ router.get('/', async (req, res, next) => {
 })
 
 // GET /api/cart/:id
-// router.get('/:userId', async (req, res, next) => {
-//   try {
-//     const user = await User.findByPk(req.session.passport.user)
-//     const items = await user.getProducts()
-//     res.json(items)
-//   } catch (error) {
-//     next(error)
-//   }
-// })
+router.get('/:userId', async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.session.passport.user)
+    const items = await user.getProducts()
+    res.json(items)
+  } catch (error) {
+    next(error)
+  }
+})
 
 // POST /api/cart
 router.post('/:id', async (req, res, next) => {
