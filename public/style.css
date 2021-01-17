@@ -333,7 +333,7 @@ input[type='radio'] {
   padding-bottom: 20px;
   padding-left: 50px;
   padding-right: 50px;
-  width: 30%;
+  width: 50%;
   border: 5px solid #000000;
 }
 #mailingInfoDiv label {
@@ -345,4 +345,32 @@ input[type='radio'] {
   margin-left: 37.5%;
   width: 25%;
   align-items: center;
+}
+#currentInfoDiv {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  /*   padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px; */
+  width: 45%;
+  height: 500px;
+  border: 5px solid #000000;
+}
+.flex-container-User {
+  display: flex;
+  flex-direction: row;
+}
+.flex-left {
+  width: 50%;
+  height: 100vh;
+}
+
+.flex-right {
+  width: 50%;
+}
+#currentInfoTitle {
+  text-align: center;
 }
