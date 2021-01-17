@@ -29,11 +29,10 @@ class SingleProduct extends Component {
     evt.preventDefault()
     const {singleProduct, cart} = this.props
     const idArray = cart.map(item => item.id)
-
     if (idArray.includes(singleProduct.id)) {
       // this.props.updateCartItem(singleProduct)
     } else {
-      this.props.createCartItem(singleProduct.id)
+      this.props.createCartItem(singleProduct.id, this.props.user)
     }
     this.props.history.push('/cart')
   }
@@ -90,12 +89,13 @@ class SingleProduct extends Component {
 
 const mapState = state => ({
   singleProduct: state.inventory.singleProduct,
-  cart: state.cartItems
+  cart: state.cartItems,
+  user: state.user
 })
 
 const mapDispatch = dispatch => ({
   getSingleProduct: id => dispatch(getSingleProduct(id)),
-  createCartItem: id => dispatch(createCartItem(id)),
+  createCartItem: (id, user) => dispatch(createCartItem(id, user)),
   updateCartItem: pin => dispatch(updateCartItem(pin))
 })
 
