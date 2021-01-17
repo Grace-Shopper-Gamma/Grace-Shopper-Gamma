@@ -35,7 +35,6 @@ class SingleProduct extends Component {
         quantity: productInCart.item.quantity + 1,
         productId: productInCart.item.productId
       }
-      console.log(add)
       this.props.updateCartItem(add)
     } else {
       this.props.createCartItem(singleProduct.id)
