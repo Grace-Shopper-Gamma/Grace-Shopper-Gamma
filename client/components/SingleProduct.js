@@ -29,7 +29,6 @@ class SingleProduct extends Component {
     evt.preventDefault()
     const {singleProduct, cart} = this.props
     const idArray = cart.map(item => item.id)
-
     if (idArray.includes(singleProduct.id)) {
       // this.props.updateCartItem(singleProduct)
     } else {

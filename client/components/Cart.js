@@ -13,7 +13,8 @@ class Cart extends Component {
 
   render() {
     const {cartItems} = this.props
-    return (
+
+    return cartItems.length ? (
       <div id="cart">
         {cartItems.filter(x => x.item.status === 'PENDING').map(cartItem => {
           return (
@@ -54,12 +55,14 @@ class Cart extends Component {
           </div>
         }
       </div>
+    ) : (
+      <div>Get to shopping!</div>
     )
   }
 }
 
-export default connect(({cartItems}) => {
-  return {
-    cartItems
-  }
-})(Cart)
+const mapState = ({cartItems}) => ({
+  cartItems
+})
+
+export default connect(mapState)(Cart)

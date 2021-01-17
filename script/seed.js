@@ -289,7 +289,7 @@ async function seed() {
     products.map(product => Product.create(product))
   )
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 12; i++) {
     const randPrdIdx = Math.floor(Math.random() * Math.floor(data.length))
     const randUsrIdx = Math.floor(Math.random() * Math.floor(users.length))
     try {
@@ -300,7 +300,7 @@ async function seed() {
   }
 
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded about 25 cart items`)
+  console.log(`seeded about 12 cart items`)
   console.log(`seeded ${data.length} products`)
   console.log(`seeded successfully`)
 }

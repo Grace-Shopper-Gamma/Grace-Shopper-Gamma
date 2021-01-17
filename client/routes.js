@@ -13,14 +13,14 @@ import {
   SingleProduct
 } from './components'
 import {me} from './store'
-import {fetchCartItems} from './store/cart'
 import {getProducts} from './store/products'
+import {fetchCartItems} from './store/cart'
 
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
-    this.props.getCartItems()
     this.props.getAllProducts()
+    this.props.loadCart()
   }
 
   render() {
@@ -35,8 +35,8 @@ class Routes extends Component {
         <Route path="/pins/:id" component={SingleProduct} />
         <Route exact path="/stickers" component={AllProducts} />
         <Route path="/stickers/:id" component={SingleProduct} />
-        <Route path="/cart" component={Cart} cartItems={cartItems} />
-        <Route path="/checkout" component={Checkout} cartItems={cartItems} />
+        <Route path="/cart" component={() => <Cart cartItems={cartItems} />} />
+        <Route path="/checkout" component={Checkout} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -54,7 +54,8 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 
@@ -63,8 +64,8 @@ const mapDispatch = dispatch => {
     loadInitialData() {
       dispatch(me())
     },
-    getCartItems: () => dispatch(fetchCartItems()),
-    getAllProducts: () => dispatch(getProducts())
+    getAllProducts: () => dispatch(getProducts()),
+    loadCart: () => dispatch(fetchCartItems())
   }
 }
 

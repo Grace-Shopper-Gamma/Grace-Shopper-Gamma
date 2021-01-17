@@ -4,7 +4,7 @@ const {Cart, User} = require('../db/models')
 // GET /api/cart
 router.get('/', async (req, res, next) => {
   try {
-    const user = await User.findByPk(1)
+    const user = await User.findByPk(req.session.passport.user)
     const items = await user.getProducts()
     res.json(items)
   } catch (error) {
@@ -13,11 +13,11 @@ router.get('/', async (req, res, next) => {
 })
 
 // GET /api/cart/:id
-router.get('/:id', async (req, res, next) => {
-  const {id} = req.params
+router.get('/:userId', async (req, res, next) => {
   try {
-    const cart = await Cart.findByPk(id)
-    res.json(cart)
+    const user = await User.findByPk(req.session.passport.user)
+    const items = await user.getProducts()
+    res.json(items)
   } catch (error) {
     next(error)
   }
@@ -26,7 +26,7 @@ router.get('/:id', async (req, res, next) => {
 // POST /api/cart
 router.post('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(1)
+    const user = await User.findByPk(req.session.passport.user)
     await user.addProduct(req.params.id).then(async () =>
       res.json(
         await user.getProducts({
@@ -45,7 +45,7 @@ router.post('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
-    const user = await User.findByPk(1)
+    const user = await User.findByPk(req.session.passport.user)
     await user.removeProduct(id)
     res.status(200).send(id)
   } catch (error) {
