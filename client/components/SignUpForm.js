@@ -71,14 +71,6 @@ const SignUpForm = props => {
             />
           </label>
 
-          {error.length ? (
-            <div className="error-msg">{error}</div>
-          ) : requestError ? (
-            <div className="error-msg">Email already in use</div>
-          ) : (
-            <></>
-          )}
-
           <button
             type="button"
             onClick={handleSignUp}
@@ -86,6 +78,14 @@ const SignUpForm = props => {
           >
             Sign up
           </button>
+
+          {error.length ? (
+            <div className="error-msg">{error}</div>
+          ) : requestError ? (
+            <div className="error-msg">Email already in use</div>
+          ) : (
+            <></>
+          )}
 
           <Link to="/login">
             <p className="oauth-signup-msg">Already a user?</p>
