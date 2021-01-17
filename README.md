@@ -30,8 +30,8 @@ Additional libraries/techs include:
 ## Team:
 
 * Gabe
-  * [LinkedIn]
-  * [GitHub]
+  * [LinkedIn](https://www.linkedin.com/in/gabesmithp/)
+  * [GitHub](https://github.com/gabesmithp)
 * Gerald
   * [LinkedIn](https://www.linkedin.com/in/gerald-lou-berzuela/)
   * [GitHub](https://github.com/gberzuela)
@@ -39,5 +39,5 @@ Additional libraries/techs include:
   * [LinkedIn](https://www.linkedin.com/in/joseph-m-young/)
   * [GitHub](https://github.com/musicjoeyoung)
 * Kerri
-  * [LinkedIn]
-  * [GitHub]
+  * [LinkedIn](https://www.linkedin.com/in/kerriryan11/)
+  * [GitHub](https://github.com/kerri-ryan)
