@@ -51,8 +51,6 @@ export default function cartReducer(state = [], action) {
       return action.cartItems
     case UPDATE_CARTITEM:
       return state.map(cartItem => {
-        console.log('CART ITEM ID', cartItem.id)
-        console.log('ACTION CARTITEM PRODUCTID', action.cartItem.productId)
         if (cartItem.id === action.cartItem.productId) {
           cartItem.item.quantity = action.cartItem.quantity
           cartItem.item.status = action.cartItem.status

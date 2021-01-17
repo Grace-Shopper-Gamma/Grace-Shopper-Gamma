@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom'
 class Cart extends Component {
   render() {
     const {cartItems} = this.props
-    console.log(cartItems)
     return cartItems.length ? (
       <div id="cart">
         {cartItems.filter(x => x.item.status === 'PENDING').map(cartItem => {
