@@ -22,13 +22,12 @@ class Cart extends Component {
               <h4>{cartItem.name}</h4>
               <p>{cartItem.description}</p>
               <img id="cartItem-img" src={cartItem.imageUrl} />
-              <p>qty:{cartItem.item && cartItem.item.quantity}</p>
-              {/* <select value={this.state.value} onChange={this.handleChange}>
-                <option value="all">all</option>
-                <option value="cats">cats</option>
-                <option value="dogs">dogs</option>
-              </select> */}
-              <p>price: ${cartItem.msrp / 100}</p>
+              <div>
+                qty: {cartItem.item.quantity}
+                <AddQty cartItem={cartItem} />
+                <SubtractQty cartItem={cartItem} />
+              </div>
+              <p>price: ${(cartItem.msrp / 100).toFixed(2)}</p>
               <span>
                 <DeleteCartItem cartItem={cartItem} />
               </span>
