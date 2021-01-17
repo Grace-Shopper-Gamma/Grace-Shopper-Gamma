@@ -30,7 +30,9 @@ class SingleProduct extends Component {
     const {singleProduct, cart} = this.props
     const idArray = cart.map(item => item.id)
     if (idArray.includes(singleProduct.id)) {
-      // this.props.updateCartItem(singleProduct)
+      const [existingItem] = cart.filter(prod => prod.id)
+      existingItem.item.quantity++
+      this.props.updateCartItem(existingItem)
     } else {
       this.props.createCartItem(singleProduct.id)
     }

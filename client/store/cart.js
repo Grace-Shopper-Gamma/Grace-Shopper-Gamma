@@ -5,12 +5,7 @@ const CREATE_CARTITEM = 'CREATE_CARTITEM'
 const DELETE_CARTITEM = 'DELETE_CARTITEM'
 const UPDATE_CARTITEM = 'UPDATE_CARTITEM'
 
-export const _setCartItems = cartItems => {
-  return {
-    type: SET_CARTITEMS,
-    cartItems
-  }
-}
+export const _setCartItems = cartItems => ({type: SET_CARTITEMS, cartItems})
 
 export const fetchCartItems = () => {
   return async dispatch => {
@@ -23,12 +18,7 @@ export const fetchCartItems = () => {
   }
 }
 
-const _createCartItem = cartItem => {
-  return {
-    type: CREATE_CARTITEM,
-    cartItem
-  }
-}
+const _createCartItem = cartItem => ({type: CREATE_CARTITEM, cartItem})
 
 export const createCartItem = id => {
   return async dispatch => {
@@ -37,12 +27,7 @@ export const createCartItem = id => {
   }
 }
 
-const _deleteCartItem = cartItem => {
-  return {
-    type: DELETE_CARTITEM,
-    cartItem
-  }
-}
+const _deleteCartItem = cartItem => ({type: DELETE_CARTITEM, cartItem})
 
 export const deleteCartItem = cartItem => {
   return async dispatch => {
@@ -51,12 +36,7 @@ export const deleteCartItem = cartItem => {
   }
 }
 
-const _updateCartItem = cartItem => {
-  return {
-    type: UPDATE_CARTITEM,
-    cartItem
-  }
-}
+const _updateCartItem = cartItem => ({type: UPDATE_CARTITEM, cartItem})
 
 export const updateCartItem = item => {
   return async dispatch => {
@@ -66,20 +46,22 @@ export const updateCartItem = item => {
 }
 
 export default function cartReducer(state = [], action) {
-  if (action.type === SET_CARTITEMS) {
-    return action.cartItems
+  switch (action.type) {
+    case SET_CARTITEMS:
+      return action.cartItems
+    case UPDATE_CARTITEM:
+      return state.map(cartItem => {
+        console.log(cartItem)
+        console.log(action.cartItem)
+        return cartItem.id === action.cartItem.productId
+          ? action.cartItem
+          : cartItem
+      })
+    case DELETE_CARTITEM:
+      return state.filter(cartItem => cartItem.id !== action.cartItem.id)
+    case CREATE_CARTITEM:
+      return [...state, action.cartItem]
+    default:
+      return state
   }
-  if (action.type === UPDATE_CARTITEM) {
-    return state.map(
-      cartItem =>
-        cartItem.id === action.cartItem.id ? action.cartItem : cartItem
-    )
-  }
-  if (action.type === DELETE_CARTITEM) {
-    return state.filter(cartItem => cartItem.id !== action.cartItem.id)
-  }
-  if (action.type === CREATE_CARTITEM) {
-    return [...state, action.cartItem]
-  }
-  return state
 }
