@@ -27,13 +27,9 @@ const User = db.define('user', {
   googleId: {
     type: Sequelize.STRING
   },
-  firstName: {
+  name: {
     type: Sequelize.STRING,
-    defaultValue: 'John'
-  },
-  lastName: {
-    type: Sequelize.STRING,
-    defaultValue: 'Smith'
+    defaultValue: this.email
   },
   address: {
     type: Sequelize.STRING

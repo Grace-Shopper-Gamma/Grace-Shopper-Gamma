@@ -2,9 +2,9 @@
 
 const db = require('../server/db')
 
-const {User, Cart, Product} = require('../server/db/models')
+const {User, Product} = require('../server/db/models')
 
-const stickerData = [
+const products = [
   {
     name: 'Koro Sensei',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
@@ -192,10 +192,8 @@ const stickerData = [
     msrp: 599,
     category: 'Stickers',
     rating: 5
-  }
-]
+  },
 
-const pinData = [
   {
     name: 'Small Pin',
     description: `This is a really small pin. It's so small that you might lose it, so please pin it on something before it's misplaced`,
@@ -283,34 +281,27 @@ async function seed() {
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+    User.create({name: 'cody', email: 'cody@email.com', password: '123'}),
+    User.create({name: 'murphy', email: 'murphy@email.com', password: '123'})
   ])
 
-  // const carts = await Promise.all([
-  //   Cart.create({
-  //     sellPrice: 2.5,
-  //     status: 'PENDING',
-  //     quantity: 1,
-  //     userId: 5000,
-  //     orderId: 5000,
-  //   }),
-  //   Cart.create({
-  //     sellPrice: 4.25,
-  //     status: 'PENDING',
-  //     quantity: 1,
-  //     userId: 5005,
-  //     orderId: 5005,
-  //   }),
-  // ])
+  const data = await Promise.all(
+    products.map(product => Product.create(product))
+  )
 
-  await Promise.all(pinData.map(pin => Product.create(pin)))
-
-  await Promise.all(stickerData.map(sticker => Product.create(sticker)))
+  for (let i = 0; i < 25; i++) {
+    const randPrdIdx = Math.floor(Math.random() * Math.floor(data.length))
+    const randUsrIdx = Math.floor(Math.random() * Math.floor(users.length))
+    try {
+      await users[randUsrIdx].addProduct(data[randPrdIdx])
+    } catch (error) {
+      console.log('Moving on')
+    }
+  }
 
   console.log(`seeded ${users.length} users`)
-  // console.log(`seeded ${carts.length} carts`)
-  console.log(`seeded ${stickerData.length + pinData.length} products`)
+  console.log(`seeded about 25 cart items`)
+  console.log(`seeded ${data.length} products`)
   console.log(`seeded successfully`)
 }
 
