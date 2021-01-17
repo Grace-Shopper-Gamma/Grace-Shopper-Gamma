@@ -12,15 +12,13 @@ export const _setCartItems = cartItems => {
   }
 }
 
-export const fetchCartItems = userId => {
+export const fetchCartItems = () => {
   return async dispatch => {
-    if (userId) {
-      try {
-        const cartItems = (await axios.get(`/api/cart/${userId}`)).data
-        dispatch(_setCartItems(cartItems))
-      } catch (error) {
-        console.log(error)
-      }
+    try {
+      const cartItems = (await axios.get('/api/cart')).data
+      dispatch(_setCartItems(cartItems))
+    } catch (error) {
+      console.log(error)
     }
   }
 }
@@ -32,9 +30,9 @@ const _createCartItem = cartItem => {
   }
 }
 
-export const createCartItem = (id, user) => {
+export const createCartItem = id => {
   return async dispatch => {
-    const [created] = (await axios.post(`/api/cart/${id}`, user)).data
+    const [created] = (await axios.post(`/api/cart/${id}`)).data
     dispatch(_createCartItem(created))
   }
 }

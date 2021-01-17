@@ -32,7 +32,7 @@ class SingleProduct extends Component {
     if (idArray.includes(singleProduct.id)) {
       // this.props.updateCartItem(singleProduct)
     } else {
-      this.props.createCartItem(singleProduct.id, this.props.user)
+      this.props.createCartItem(singleProduct.id)
     }
     this.props.history.push('/cart')
   }
@@ -89,13 +89,12 @@ class SingleProduct extends Component {
 
 const mapState = state => ({
   singleProduct: state.inventory.singleProduct,
-  cart: state.cartItems,
-  user: state.user
+  cart: state.cartItems
 })
 
 const mapDispatch = dispatch => ({
   getSingleProduct: id => dispatch(getSingleProduct(id)),
-  createCartItem: (id, user) => dispatch(createCartItem(id, user)),
+  createCartItem: id => dispatch(createCartItem(id)),
   updateCartItem: pin => dispatch(updateCartItem(pin))
 })
 

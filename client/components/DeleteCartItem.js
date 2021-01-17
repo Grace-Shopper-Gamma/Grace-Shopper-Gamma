@@ -22,7 +22,7 @@ class DeleteCartItem extends Component {
 
 const mapDispatch = dispatch => {
   return {
-    deleteCartItem: cartItem => dispatch(deleteCartItem(cartItem))
+    deleteCartItem: (cartItem, user) => dispatch(deleteCartItem(cartItem, user))
   }
 }
 

@@ -4,16 +4,11 @@ import DeleteCartItem from './DeleteCartItem'
 import AddQty from './AddQty'
 import SubtractQty from './SubtractQty'
 import {Link} from 'react-router-dom'
-import {fetchCartItems} from '../store/cart'
 
 class Cart extends Component {
   constructor(props) {
     super(props)
     this.state = {}
-  }
-
-  componentDidMount() {
-    this.props.loadCart(this.props.user.id)
   }
 
   render() {
@@ -51,8 +46,4 @@ const mapState = ({cartItems}) => ({
   cartItems
 })
 
-const mapDispatch = dispatch => ({
-  loadCart: user => dispatch(fetchCartItems(user))
-})
-
-export default connect(mapState, mapDispatch)(Cart)
+export default connect(mapState)(Cart)
