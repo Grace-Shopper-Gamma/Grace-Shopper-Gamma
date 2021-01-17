@@ -32,6 +32,11 @@ form div {
   display: inline-block;
 }
 
+form {
+  padding: 40px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
+}
+
 .auth-container {
   display: flex;
   flex-direction: column;
@@ -60,6 +65,11 @@ form div {
 .center {
   justify-content: center;
   align-items: center;
+}
+
+.error-msg {
+  text-align: center;
+  color: red;
 }
 
 .form-btn {
@@ -92,7 +102,8 @@ form div {
   border-left: 0;
   border-right: 0;
   height: 30px;
-
+  width: 98%;
+  padding-left: 10px;
   transition: background-color 0.35s;
 }
 

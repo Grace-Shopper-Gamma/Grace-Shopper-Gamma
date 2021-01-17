@@ -8,14 +8,12 @@ import {auth} from '../store'
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
-
-  const title = displayName[0].toUpperCase() + displayName.slice(1)
+  let {name, displayName, handleSubmit, error} = props
 
   return (
     <div className="auth-container center">
       <form onSubmit={handleSubmit} name={name}>
-        <h1 className="form-input title">{title}</h1>
+        <h1 className="form-input title">{displayName}</h1>
         <div className="auth-form">
           <label htmlFor="email" />
           <input
@@ -34,25 +32,23 @@ const AuthForm = props => {
           <button type="submit" className="form-btn form-input">
             {displayName}
           </button>
-          {error && error.response && <div> {error.response.data} </div>}
-          {name === 'login' ? (
-            <div className="oauth-signup-container">
-              <p className="oauth-signup-msg">Or login with Google!</p>
-              <Link to="/auth/google" className="oauth-container">
-                <img
-                  className="oauth-img"
-                  src="https://p7.hiclipart.com/preview/893/776/984/5bbc0fcb4393a.jpg"
-                />
-              </Link>
-              <Link to="/signup" className="signup-container">
-                <p>First time here?</p>
-              </Link>
-            </div>
-          ) : (
-            <Link to="/login">
-              <p className="oauth-signup-msg">Already a user?</p>
+
+          {error &&
+            error.response && (
+              <div className="error-msg"> {error.response.data} </div>
+            )}
+          <div className="oauth-signup-container">
+            <p className="oauth-signup-msg">Or login with Google!</p>
+            <a href="/auth/google" className="oauth-container">
+              <img
+                className="oauth-img"
+                src="https://p7.hiclipart.com/preview/893/776/984/5bbc0fcb4393a.jpg"
+              />
+            </a>
+            <Link to="/signup" className="signup-container">
+              <p>First time here?</p>
             </Link>
-          )}
+          </div>
         </div>
       </form>
     </div>
@@ -74,14 +70,6 @@ const mapLogin = state => {
   }
 }
 
-const mapSignup = state => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.user.error
-  }
-}
-
 const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
@@ -89,13 +77,12 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      dispatch(auth({email, password}, formName))
     }
   }
 }
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
 
 /**
  * PROP TYPES
