@@ -13,32 +13,26 @@ class AddQty extends Component {
     }
 
     return (
-      <div>
-        <form
-          onSubmit={ev => ev.preventDefault()}
-          className="remove-add-button-container"
+      <form
+        onSubmit={ev => ev.preventDefault()}
+        className="remove-add-button-container"
+      >
+        <button
+          type="submit"
+          className="remove-add-button"
+          onClick={() => this.props.updateCartItem(add)}
         >
-          <button
-            type="submit"
-            className="remove-add-button"
-            onClick={() => this.props.updateCartItem(add)}
-          >
-            +
-          </button>
-        </form>
-      </div>
+          +
+        </button>
+      </form>
     )
   }
 }
 
-const mapState = state => ({
-  cartItems: state.cartItems
-})
+const mapState = state => ({cartItems: state.cartItems})
 
-const mapDispatch = dispatch => {
-  return {
-    updateCartItem: cartItem => dispatch(updateCartItem(cartItem))
-  }
-}
+const mapDispatch = dispatch => ({
+  updateCartItem: cartItem => dispatch(updateCartItem(cartItem))
+})
 
 export default connect(mapState, mapDispatch)(AddQty)

@@ -17,10 +17,8 @@ class DeleteCartItem extends Component {
   }
 }
 
-const mapDispatch = dispatch => {
-  return {
-    deleteCartItem: (cartItem, user) => dispatch(deleteCartItem(cartItem, user))
-  }
-}
+const mapDispatch = dispatch => ({
+  deleteCartItem: (cartItem, user) => dispatch(deleteCartItem(cartItem, user))
+})
 
 export default connect(null, mapDispatch)(DeleteCartItem)
