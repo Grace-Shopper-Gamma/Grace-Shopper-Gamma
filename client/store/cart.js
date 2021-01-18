@@ -24,7 +24,7 @@ const _createCartItem = cartItem => ({type: CREATE_CARTITEM, cartItem})
 export const createCartItem = id => {
   return async dispatch => {
     const [created] = (await axios.post(`/api/cart/${id}`)).data
-    dispatch(_createCartItem(created))
+    dispatch(fetchCartItems())
   }
 }
 
@@ -54,7 +54,7 @@ const _submitOrder = () => {
 
 export const submitOrder = order => {
   return async dispatch => {
-    await axios.post(`api/cart`, order)
+    await axios.put(`api/cart`, order)
     dispatch(_submitOrder())
   }
 }
@@ -75,10 +75,9 @@ export default function cartReducer(state = [], action) {
       return state.filter(cartItem => cartItem.id !== action.cartItem.id)
     case CREATE_CARTITEM:
       return [...state, action.cartItem]
-    case SUBMIT_ORDER: 
+    case SUBMIT_ORDER:
       return []
     default:
       return state
   }
 }
-  

@@ -2,7 +2,7 @@
 
 const db = require('../server/db')
 
-const {User, Product} = require('../server/db/models')
+const {User, Product, Order} = require('../server/db/models')
 
 const products = [
   {
@@ -282,25 +282,35 @@ async function seed() {
 
   const users = await Promise.all([
     User.create({name: 'cody', email: 'cody@email.com', password: '123'}),
-    User.create({name: 'murphy', email: 'murphy@email.com', password: '123'})
+    User.create({name: 'murphy', email: 'murphy@email.com', password: '123'}),
+    User.create({name: 'Gabe', email: 'gabe@email.com', password: '123'}),
+    User.create({name: 'Gerald', email: 'gerald@email.com', password: '123'}),
+    User.create({name: 'Joe', email: 'joe@email.com', password: '123'}),
+    User.create({name: 'Kerri', email: 'kerri@email.com', password: '123'})
   ])
 
   const data = await Promise.all(
     products.map(product => Product.create(product))
   )
 
-  for (let i = 0; i < 12; i++) {
+  const orders = await Promise.all([Order.create(), Order.create()])
+
+  await Promise.all([
+    users[0].addOrder(orders[0]),
+    users[1].addOrder(orders[1])
+  ])
+
+  for (let i = 0; i < 10; i++) {
     const randPrdIdx = Math.floor(Math.random() * Math.floor(data.length))
-    const randUsrIdx = Math.floor(Math.random() * Math.floor(users.length))
     try {
-      await users[randUsrIdx].addProduct(data[randPrdIdx])
+      await orders[i % 2].addProduct(data[randPrdIdx])
     } catch (error) {
       console.log('Moving on')
     }
   }
 
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded about 12 cart items`)
+  console.log(`seeded ${users.length} users with orders`)
+  console.log(`seeded about 10 cart items`)
   console.log(`seeded ${data.length} products`)
   console.log(`seeded successfully`)
 }

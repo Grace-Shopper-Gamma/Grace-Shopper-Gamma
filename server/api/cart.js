@@ -1,13 +1,17 @@
 const router = require('express').Router()
-const {Cart, User, Product} = require('../db/models')
+const {Cart, User, Order} = require('../db/models')
 
 // GET /api/cart
 router.get('/', async (req, res, next) => {
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
-    const user = await User.findByPk(userId)
-    const items = await user.getProducts()
-    res.json(items.filter(item => item.item.status === 'PENDING'))
+    const order = await Order.findOrCreate({
+      where: {
+        userId: userId,
+        status: 'PENDING'
+      }
+    })
+    res.send(await order[0].getProducts())
   } catch (error) {
     next(error)
   }
@@ -25,17 +29,16 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.put('/', async (req, res, next) => {
   try {
-    const cart = await Cart.findAll({
+    const userId = req.session.passport ? req.session.passport.user : 1
+    const order = await Order.findOrCreate({
       where: {
-        userId: 1,
+        userId: userId,
         status: 'PENDING'
       }
     })
-    await Promise.all([
-      cart.map(item => Cart.update({status: 'ORDERED'}, {where: {id: item.id}}))
-    ])
+    await Order.update({status: 'ORDERED'}, {where: {id: order[0].id}})
     res.sendStatus(200)
   } catch (error) {
     next(error)
@@ -46,16 +49,13 @@ router.post('/', async (req, res, next) => {
 router.post('/:id', async (req, res, next) => {
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
-    const user = await User.findByPk(userId)
-    await user.addProduct(req.params.id).then(async () =>
-      res.json(
-        await user.getProducts({
-          where: {
-            id: req.params.id
-          }
-        })
-      )
-    )
+    const order = await Order.findOrCreate({
+      where: {
+        userId: userId,
+        status: 'PENDING'
+      }
+    })
+    await order[0].addProduct(req.params.id).then(() => res.sendStatus(200))
   } catch (error) {
     next(error)
   }
@@ -66,8 +66,13 @@ router.delete('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
-    const user = await User.findByPk(userId)
-    await user.removeProduct(id)
+    const order = await Order.findOne({
+      where: {
+        userId: userId,
+        status: 'PENDING'
+      }
+    })
+    await order.removeProduct(id)
     res.status(200).send(id)
   } catch (error) {
     next(error)
