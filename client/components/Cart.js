@@ -55,8 +55,6 @@ class Cart extends Component {
   }
 }
 
-const mapState = state => ({
-  cartItems: state.cartItems
-})
+const mapState = ({cartItems}) => ({cartItems})
 
 export default connect(mapState)(Cart)
