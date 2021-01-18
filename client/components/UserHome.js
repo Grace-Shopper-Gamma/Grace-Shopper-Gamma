@@ -54,7 +54,7 @@ export const UserHome = props => {
             <li>Address: {address}</li>
             <li>Apartment: {apartment}</li>
             <li>City: {city}</li>
-            <li>Zip:{zip}</li>
+            <li>Zip: {zip}</li>
             <li>State: {state}</li>
             <li>Country: {country}</li>
           </ul>
@@ -91,7 +91,7 @@ export const UserHome = props => {
               <label />
               <input
                 className="form-input input"
-                name="apt"
+                name="apartment"
                 type="text"
                 placeholder="Apt/Suite number"
                 defaultValue={apartment}
@@ -475,8 +475,8 @@ const mapDispatch = dispatch => {
         firstName: target.firstName.value,
         lastName: target.lastName.value,
         address: target.address.value,
-        /* apartment: target.apartment.value, */
-        city: target.country.city,
+        apartment: target.apartment.value,
+        city: target.city.value,
         zip: target.zipCode.value,
         state: target.state.value,
         country: target.country.value
