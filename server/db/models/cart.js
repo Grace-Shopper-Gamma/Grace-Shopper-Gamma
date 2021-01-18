@@ -15,24 +15,12 @@ const Cart = db.define('item', {
     },
     defaultValue: 1
   },
-  status: {
-    type: Sequelize.ENUM('PENDING', 'ORDERED'),
-    allowNull: false,
-    defaultValue: 'PENDING'
-  },
   quantity: {
     type: Sequelize.INTEGER,
     validate: {
       min: 0
     },
     defaultValue: 1
-  },
-  userId: {
-    type: Sequelize.INTEGER,
-    allowNull: true,
-    validate: {
-      notEmpty: false
-    }
   },
   orderId: {
     type: Sequelize.INTEGER,
