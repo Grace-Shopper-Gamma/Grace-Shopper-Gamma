@@ -8,6 +8,7 @@ import {
   SignUpForm,
   UserHome,
   Cart,
+  HomePage,
   Checkout,
   AllProducts,
   SingleProduct
@@ -29,6 +30,7 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        <Route exact path="/" component={HomePage} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUpForm} />
         <Route exact path="/pins" component={AllProducts} />
