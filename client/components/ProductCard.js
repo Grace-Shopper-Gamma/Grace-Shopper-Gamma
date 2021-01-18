@@ -10,7 +10,12 @@ class ProductCard extends Component {
   }
 
   componentDidMount() {
-    this.setState({loaded: true})
+    setTimeout(
+      function() {
+        this.setState({loaded: true}) //After 1 second, set render to true
+      }.bind(this),
+      100
+    )
   }
 
   render() {
