@@ -14,10 +14,13 @@ class AddQty extends Component {
 
     return (
       <div>
-        <form onSubmit={ev => ev.preventDefault()}>
+        <form
+          onSubmit={ev => ev.preventDefault()}
+          className="remove-add-button-container"
+        >
           <button
             type="submit"
-            className="remove"
+            className="remove-add-button"
             onClick={() => this.props.updateCartItem(add)}
           >
             +

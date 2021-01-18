@@ -12,17 +12,18 @@ class SubtractQty extends Component {
     }
 
     return (
-      <div>
-        <form onSubmit={ev => ev.preventDefault()}>
-          <button
-            type="submit"
-            className="remove"
-            onClick={() => this.props.updateCartItem(sub)}
-          >
-            -
-          </button>
-        </form>
-      </div>
+      <form
+        onSubmit={ev => ev.preventDefault()}
+        className="remove-add-button-container"
+      >
+        <button
+          type="submit"
+          className="remove-add-button"
+          onClick={() => this.props.updateCartItem(sub)}
+        >
+          -
+        </button>
+      </form>
     )
   }
 }

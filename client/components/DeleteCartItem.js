@@ -5,17 +5,14 @@ import {connect} from 'react-redux'
 class DeleteCartItem extends Component {
   render() {
     return (
-      <div>
-        <form onSubmit={ev => ev.preventDefault()}>
-          <button
-            type="submit"
-            className="remove"
-            onClick={() => this.props.deleteCartItem(this.props.cartItem)}
-          >
-            remove item
-          </button>
-        </form>
-      </div>
+      <form onSubmit={ev => ev.preventDefault()} id="remove">
+        <button
+          type="submit"
+          onClick={() => this.props.deleteCartItem(this.props.cartItem)}
+        >
+          Remove Item
+        </button>
+      </form>
     )
   }
 }
