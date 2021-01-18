@@ -7,14 +7,14 @@ const AllProducts = props => {
   const items = props.products.filter(product => product.category === category)
 
   return (
-    <div>
+    <>
       <h1 id="stickersH1">{category}</h1>
       <div className="allproducts-container">
         <div className="flex-container">
           {items.map(item => <ProductCard key={item.id} item={item} />)}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
