@@ -150,14 +150,6 @@ const products = [
     rating: 3
   },
   {
-    name: 'Plus Ultra',
-    description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    imageUrl: '',
-    msrp: 399,
-    category: 'Stickers',
-    rating: 3
-  },
-  {
     name: 'Marceline',
     description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
     imageUrl:
@@ -209,14 +201,6 @@ const products = [
       'https://www.clipartkey.com/mpngs/m/46-460289_svg-png-icon-free-black-transparent-background-pin.png',
     msrp: 899,
     rating: 5
-  },
-  {
-    name: 'Sanic',
-    imageUrl:
-      'https://lh3.googleusercontent.com/proxy/Yqkh9Dcnd1Sk9Pp8epDNU_Bc70lRZneI3gwwlkEY-6cVDBAvDKD2wgKdXGYfogJJhCZ_mbTjGpbLvTVK0geKzv9xQQTsdpRPP1PUmTZW0v5oSsNWqsVxTWyPxJWd',
-    description: `This is a description. You're really going to love this product and hopefully this description is convincing you to buy it! Thanks for reading.`,
-    msrp: 799,
-    rating: 2
   },
   {
     name: 'Motivational',
