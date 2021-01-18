@@ -5,33 +5,38 @@ import AddQty from './AddQty'
 import SubtractQty from './SubtractQty'
 import {Link} from 'react-router-dom'
 
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
+
 class Cart extends Component {
   render() {
     const {cartItems} = this.props
+
     return cartItems.length ? (
       <div id="cart-container">
-        {cartItems.map(cartItem => {
-          return (
-            <div key={cartItem.id} id="cartItem-div">
-              <img id="cartItem-img" src={cartItem.imageUrl} />
-              <div className="cart-info-container">
-                <h3 id="cartItem-name">{cartItem.name}</h3>
-                <h4 className="cartItem-price">
-                  ${(cartItem.msrp / 100).toFixed(2)}
-                </h4>
-                <h4 className="cart-times">x</h4>
-                <SubtractQty cartItem={cartItem} />
-                <h4 className="cart-qty-num">{cartItem.item.quantity}</h4>
-                <AddQty cartItem={cartItem} />
-                <DeleteCartItem cartItem={cartItem} />
+        <div id="inner-cart-container">
+          {cartItems.map(cartItem => {
+            return (
+              <div key={cartItem.id} id="cartItem-div">
+                <div className="cart-info-container">
+                  <img id="cartItem-img" src={cartItem.imageUrl} />
+                  <h3 id="cartItem-name">{cartItem.name}</h3>
+                  <h4 className="cartItem-price">
+                    ${(cartItem.msrp / 100).toFixed(2)}
+                  </h4>
+                  <h4 className="cart-times">x</h4>
+                  <SubtractQty cartItem={cartItem} />
+                  <h4 className="cart-qty-num">{cartItem.item.quantity}</h4>
+                  <AddQty cartItem={cartItem} />
+                  <DeleteCartItem cartItem={cartItem} />
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
         {
-          <div>
+          <div id="cart-summary">
             {cartItems.length > 0 ? (
-              <div id="cart-summary">
+              <div>
                 <h4>Summary</h4>
                 <p>
                   Subtotal $
@@ -47,7 +52,10 @@ class Cart extends Component {
         }
       </div>
     ) : (
-      <div>Get to shopping!</div>
+      <div id="empty-cart">
+        <h1>Your Cart Is Empty</h1>
+        <ShoppingCartOutlinedIcon id="big-cart-icon" />
+      </div>
     )
   }
 }
