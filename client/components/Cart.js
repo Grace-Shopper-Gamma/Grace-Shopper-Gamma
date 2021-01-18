@@ -16,7 +16,7 @@ class Cart extends Component {
 
     return cartItems.length ? (
       <div id="cart">
-        {cartItems.filter(x => x.item.status === 'PENDING').map(cartItem => {
+        {cartItems.map(cartItem => {
           return (
             <div key={cartItem.id} id="cartItem-div">
               <h4>{cartItem.name}</h4>
@@ -36,16 +36,13 @@ class Cart extends Component {
         })}
         {
           <div>
-            {cartItems.filter(x => x.item.status === 'PENDING').length > 0 ? (
+            {cartItems.length > 0 ? (
               <div id="cart-summary">
                 <h4>Summary</h4>
                 <p>
                   Subtotal $
-                  {cartItems
-                    .filter(x => x.item.status === 'PENDING')
-                    .map(x => x.item.quantity * (x.msrp / 100))
-                    .reduce((a, c) => a + c, 0)
-                    .toFixed(2)}
+                  {cartItems.reduce((a, c) => a + c.item.quantity * c.msrp, 0) /
+                    100}
                 </p>
                 <Link className="nav-bar-routes" to="/checkout">
                   <button type="button">Checkout</button>

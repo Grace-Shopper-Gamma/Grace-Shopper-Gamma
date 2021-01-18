@@ -43,6 +43,7 @@ const Cart = db.define('item', {
   },
   productId: {
     type: Sequelize.INTEGER,
+    unique: false,
     allowNull: true,
     validate: {
       notEmpty: false

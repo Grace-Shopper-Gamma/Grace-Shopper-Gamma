@@ -1,12 +1,12 @@
 const router = require('express').Router()
-const {Cart, User} = require('../db/models')
+const {Cart, User, Product} = require('../db/models')
 
 // GET /api/cart
 router.get('/', async (req, res, next) => {
   try {
     const user = await User.findByPk(req.session.passport.user)
     const items = await user.getProducts()
-    res.json(items)
+    res.json(items.filter(item => item.item.status === 'PENDING'))
   } catch (error) {
     next(error)
   }
@@ -15,9 +15,26 @@ router.get('/', async (req, res, next) => {
 // GET /api/cart/:id
 router.get('/:userId', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.session.passport.user)
+    const user = await User.findByPk(1)
     const items = await user.getProducts()
     res.json(items)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/', async (req, res, next) => {
+  try {
+    const cart = await Cart.findAll({
+      where: {
+        userId: 1,
+        status: 'PENDING'
+      }
+    })
+    await Promise.all([
+      cart.map(item => Cart.update({status: 'ORDERED'}, {where: {id: item.id}}))
+    ])
+    res.sendStatus(200)
   } catch (error) {
     next(error)
   }
