@@ -2,10 +2,19 @@ import React from 'react'
 import {createOrder} from '../store/checkout'
 import {connect} from 'react-redux'
 import {submitOrder} from '../store/cart'
+import FormButton from './FormButton'
+import MailingForm from './MailingForm'
+import PaymentForm from './PaymentForm'
+
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
 class Checkout extends React.Component {
   constructor() {
     super()
+    this.state = {
+      showMailing: true,
+      showPayment: false
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -19,6 +28,7 @@ class Checkout extends React.Component {
   render() {
     const {handleSubmit} = this
     const {cartItems} = this.props
+    const {showMailing, showPayment} = this.state
     const subtotal = cartItems.reduce(
       (result, next) => result + next.item.quantity * next.msrp,
       0
@@ -28,11 +38,25 @@ class Checkout extends React.Component {
     return (
       <div className="checkout-container">
         <div className="order-form">
-          <p>This is where user inputs mailing address</p>
-          <p>and payment information</p>
+          <div
+            className="open-checkout-forms"
+            onClick={() => this.setState({showMailing: !showMailing})}
+          >
+            <p>Mailing Information</p>
+            <ArrowDropDownIcon />
+          </div>
+          {showMailing && <MailingForm />}
+          <div
+            className="open-checkout-forms"
+            onClick={() => this.setState({showPayment: !showPayment})}
+          >
+            <p>Payment Information</p>
+            <ArrowDropDownIcon />
+          </div>
+          {showPayment && <PaymentForm />}
         </div>
-        <div>
-          <h1>Order Summary</h1>
+        <div className="order-summary">
+          <p>Order Summary</p>
           <hr />
           <p>Subtotal: ${subtotal / 100}</p>
           <p>
@@ -40,10 +64,8 @@ class Checkout extends React.Component {
           </p>
           <p>Total: ${(subtotal / 100 + tax).toFixed(2)}</p>
           <p>{/* Submit Order; change all items to 'ORDERED' */}</p>
+          <FormButton displayName="Submit" handleSubmit={handleSubmit} />
         </div>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
       </div>
     )
   }
