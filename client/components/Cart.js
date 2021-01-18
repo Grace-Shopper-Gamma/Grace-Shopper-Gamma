@@ -9,22 +9,22 @@ class Cart extends Component {
   render() {
     const {cartItems} = this.props
     return cartItems.length ? (
-      <div id="cart">
+      <div id="cart-container">
         {cartItems.map(cartItem => {
           return (
             <div key={cartItem.id} id="cartItem-div">
-              <h4>{cartItem.name}</h4>
-              <p>{cartItem.description}</p>
               <img id="cartItem-img" src={cartItem.imageUrl} />
-              <div>
-                qty: {cartItem.item.quantity}
-                <AddQty cartItem={cartItem} />
+              <div className="cart-info-container">
+                <h3 id="cartItem-name">{cartItem.name}</h3>
+                <h4 className="cartItem-price">
+                  ${(cartItem.msrp / 100).toFixed(2)}
+                </h4>
+                <h4 className="cart-times">x</h4>
                 <SubtractQty cartItem={cartItem} />
-              </div>
-              <p>price: ${(cartItem.msrp / 100).toFixed(2)}</p>
-              <span>
+                <h4 className="cart-qty-num">{cartItem.item.quantity}</h4>
+                <AddQty cartItem={cartItem} />
                 <DeleteCartItem cartItem={cartItem} />
-              </span>
+              </div>
             </div>
           )
         })}
