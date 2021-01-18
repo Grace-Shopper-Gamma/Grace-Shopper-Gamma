@@ -6,14 +6,8 @@ import SubtractQty from './SubtractQty'
 import {Link} from 'react-router-dom'
 
 class Cart extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
   render() {
     const {cartItems} = this.props
-
     return cartItems.length ? (
       <div id="cart">
         {cartItems.filter(x => x.item.status === 'PENDING').map(cartItem => {
@@ -61,8 +55,6 @@ class Cart extends Component {
   }
 }
 
-const mapState = ({cartItems}) => ({
-  cartItems
-})
+const mapState = ({cartItems}) => ({cartItems})
 
 export default connect(mapState)(Cart)
