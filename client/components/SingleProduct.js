@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getSingleProduct} from '../store/products'
 import {createCartItem, updateCartItem} from '../store/cart'
-
-import FormButton from './FormButton'
-import StarRating from './StarRating'
+import SingleProductCard from './SingleProductCard'
 
 class SingleProduct extends Component {
   constructor(props) {
@@ -19,14 +17,12 @@ class SingleProduct extends Component {
   }
 
   componentDidUpdate() {
-    // if loaded is false and image is available, then set loaded to true
     !this.state.loaded &&
       this.props.singleProduct.imageUrl &&
       this.setState({loaded: true})
   }
 
-  handleSubmit = evt => {
-    evt.preventDefault()
+  handleSubmit = () => {
     const {singleProduct, cart} = this.props
     const [productInCart] = cart.filter(item => item.id === singleProduct.id)
     if (productInCart) {
@@ -43,51 +39,12 @@ class SingleProduct extends Component {
   }
 
   render() {
-    const {
-      imageUrl,
-      name,
-      rating,
-      description,
-      msrp,
-      stock
-    } = this.props.singleProduct
     return (
-      <div
-        className={`single-product-container ${
-          this.state.loaded ? 'loaded' : ''
-        }`}
-      >
-        <div className="single-product-img">
-          <img
-            src={imageUrl}
-            alt={`Photo of ${name}`}
-            className="single-product-img img-el"
-          />
-        </div>
-        <div className="single-product-info-container">
-          <div className="single-product-name">
-            <h1>{name}</h1>
-          </div>
-          <StarRating rating={rating} />
-          <br />
-          <p className="single-product-description">{description}</p>
-          <ul>
-            <li>%100 Organic</li>
-            <li>Made with love</li>
-          </ul>
-          <div className="single-product-stock">
-            {stock > 0
-              ? 'In Stock and Ready to Ship!'
-              : stock === 0 ? 'Out of Stock :(' : 'Loading...'}
-          </div>
-
-          <h3 className="single-product-price">${parseFloat(msrp / 100)}</h3>
-          <FormButton
-            displayName="Add To Cart"
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      </div>
+      <SingleProductCard
+        loaded={this.state.loaded}
+        singleProduct={this.props.singleProduct}
+        handleSubmit={this.handleSubmit}
+      />
     )
   }
 }
