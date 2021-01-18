@@ -41,7 +41,6 @@ form {
   display: flex;
   flex-direction: column;
   height: 100%;
-
   margin: 5%;
 }
 
@@ -282,66 +281,73 @@ input[type='radio'] {
   width: 2em;
 }
 
-/***Product Card***/
+/***All Products***/
+.allproducts-container {
+  display: flex;
+  justify-content: center;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  min-width: 35em;
+  max-width: 70em;
   justify-content: center;
-  background-color: rgba(2, 32, 97, 0.548);
-  color: black;
 }
+
+/***Product Card***/
+
 .allImg {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
+  border-radius: 3px;
 }
+
 .indSticker {
   width: 150px;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-right: 50px;
-  padding-left: 50px;
-  margin-bottom: 0%;
-  margin-top: 10%;
+  padding: 20px 30px 0px 30px;
+  margin: 15px 20px 15px 20px;
+  background-color: white;
+  box-shadow: 3px 3px 10px darkgray;
+  border-radius: 3px;
+  opacity: 0;
+  position: relative;
+  top: 0px;
 }
+
+.indSticker.loaded {
+  opacity: 1;
+  transition: background-color 0.8s, opacity 1s;
+}
+
+.indSticker.loaded:hover {
+  background-color: #f5f3f3;
+  transition: background-color 0.8s;
+}
+
+.indSticker:active {
+  color: #468faf;
+}
+
 #name {
-  color: black;
-  width: 100%;
-  padding-bottom: 5%;
-  padding-right: 20px;
-  padding-bottom: 5px;
-  margin-bottom: 0%;
-  margin-top: 10%;
+  padding-left: 5px;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-top: 2px solid rgb(228, 228, 228);
 }
-#name:hover {
-  color: red;
-}
-#name:active {
-  color: green;
-}
+
 #price {
-  color: black;
-  width: 100%;
-  padding-bottom: 5%;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 0%;
-  margin-top: 10%;
+  margin-top: 10px;
+  padding-left: 5px;
 }
 
-#price:hover {
-  color: red;
-}
-
-#price:active {
-  color: green;
-}
 /***Product Card***/
 #stickersH1 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
   text-align: center;
   font-size: 60px;
 }
+
 /***UserHome***/
 #userWelcome {
   text-align: center;
