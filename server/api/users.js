@@ -15,3 +15,14 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.post('/update', async (req, res, next) => {
+  try {
+    console.log('updating')
+    const {user} = req.body
+    console.log({req: req.body})
+    res.json({user})
+  } catch (err) {
+    next(err)
+  }
+})

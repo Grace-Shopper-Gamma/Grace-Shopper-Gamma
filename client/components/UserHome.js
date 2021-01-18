@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {info} from '../store/user'
+import {updateUser} from '../store/user'
 
 /**
  * COMPONENT
@@ -9,6 +9,7 @@ import {info} from '../store/user'
 
 export const UserHome = props => {
   const {
+    id,
     handleSubmit,
     email,
     firstName,
@@ -20,10 +21,15 @@ export const UserHome = props => {
     state,
     country
   } = props
+  console.log({props})
   const name = email.replace(/@.*$/, '')
   console.log('connected')
   console.log('firstName', firstName)
   console.log('lastName', lastName)
+
+  function refreshPage() {
+    location.reload()
+  }
 
   return (
     <div>
@@ -55,6 +61,7 @@ export const UserHome = props => {
         </div>
         <div className="flex-right">
           <form onSubmit={handleSubmit} name={name}>
+            <input type="hidden" name="id" value={id} />
             <div id="mailingInfoDiv">
               Edit Mailing Information
               <label />
@@ -63,6 +70,7 @@ export const UserHome = props => {
                 name="firstName"
                 type="text"
                 placeholder="First Name"
+                defaultValue={firstName}
               />
               <label />
               <input
@@ -70,6 +78,7 @@ export const UserHome = props => {
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
+                defaultValue={lastName}
               />
               <label />
               <input
@@ -77,6 +86,7 @@ export const UserHome = props => {
                 name="address"
                 type="text"
                 placeholder="Address"
+                defaultValue={address}
               />
               <label />
               <input
@@ -84,6 +94,7 @@ export const UserHome = props => {
                 name="apt"
                 type="text"
                 placeholder="Apt/Suite number"
+                defaultValue={apartment}
               />
               <label />
               <input
@@ -91,6 +102,7 @@ export const UserHome = props => {
                 name="city"
                 type="text"
                 placeholder="City"
+                defaultValue={city}
               />
               <label />
               <input
@@ -98,6 +110,7 @@ export const UserHome = props => {
                 name="zipCode"
                 type="number"
                 placeholder="Zip Code"
+                defaultValue={zip}
               />
               <label />
               <select name="state">
@@ -154,7 +167,7 @@ export const UserHome = props => {
                 <option value="WY">Wyoming</option>
               </select>
               <label />
-              <select id="country" name="country">
+              <select id="country" name="country" defaultValue={country}>
                 <option value="United States of America">
                   United States of America
                 </option>
@@ -425,7 +438,7 @@ export const UserHome = props => {
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
               </select>
-              <button>Save</button>
+              <button onClick={() => refreshPage()}>Save</button>
             </div>
           </form>
         </div>
@@ -439,6 +452,7 @@ export const UserHome = props => {
  */
 const mapState = state => {
   return {
+    id: state.user.id,
     email: state.user.email,
     firstName: state.user.firstName,
     lastName: state.user.lastName,
@@ -446,7 +460,8 @@ const mapState = state => {
     apartment: state.user.apartment,
     city: state.user.city,
     state: state.user.state,
-    country: state.user.country
+    country: state.user.country,
+    zip: state.user.zip
   }
 }
 
@@ -454,9 +469,20 @@ const mapDispatch = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
-      const formName = evt.target.name
-      const firstName = evt.target.firstName
-      dispatch(info(formName, firstName))
+      const {target} = evt
+      const info = {
+        id: target.id.value,
+        firstName: target.firstName.value,
+        lastName: target.lastName.value,
+        address: target.address.value,
+        /* apartment: target.apartment.value, */
+        city: target.country.city,
+        zip: target.zipCode.value,
+        state: target.state.value,
+        country: target.country.value
+      }
+
+      dispatch(updateUser(info))
     }
   }
 }
