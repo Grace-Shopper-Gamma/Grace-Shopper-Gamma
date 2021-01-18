@@ -4,6 +4,7 @@ const SET_CARTITEMS = 'SET_CARTITEMS'
 const CREATE_CARTITEM = 'CREATE_CARTITEM'
 const DELETE_CARTITEM = 'DELETE_CARTITEM'
 const UPDATE_CARTITEM = 'UPDATE_CARTITEM'
+const SUBMIT_ORDER = 'SUBMIT_ORDER'
 
 export const _setCartItems = cartItems => ({type: SET_CARTITEMS, cartItems})
 
@@ -45,6 +46,19 @@ export const updateCartItem = item => {
   }
 }
 
+const _submitOrder = () => {
+  return {
+    type: SUBMIT_ORDER
+  }
+}
+
+export const submitOrder = order => {
+  return async dispatch => {
+    await axios.post(`api/cart`, order)
+    dispatch(_submitOrder())
+  }
+}
+
 export default function cartReducer(state = [], action) {
   switch (action.type) {
     case SET_CARTITEMS:
@@ -61,7 +75,10 @@ export default function cartReducer(state = [], action) {
       return state.filter(cartItem => cartItem.id !== action.cartItem.id)
     case CREATE_CARTITEM:
       return [...state, action.cartItem]
+    case SUBMIT_ORDER: 
+      return []
     default:
       return state
   }
 }
+  

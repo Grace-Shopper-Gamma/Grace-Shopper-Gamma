@@ -9,6 +9,16 @@ const _createOrder = order => {
   }
 }
 
+// export const submitOrder = () => {
+//   return async dispatch => {
+//     try {
+//       const
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
+// }
+
 export const createOrder = order => {
   return async dispatch => {
     const created = (await axios.post('/api/checkout/:id', order)).data

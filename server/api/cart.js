@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Cart, User} = require('../db/models')
+const {Cart, User, Product} = require('../db/models')
 
 // GET /api/cart
 router.get('/', async (req, res, next) => {
@@ -7,7 +7,7 @@ router.get('/', async (req, res, next) => {
     const userId = req.session.passport ? req.session.passport.user : 1
     const user = await User.findByPk(userId)
     const items = await user.getProducts()
-    res.json(items)
+    res.json(items.filter(item => item.item.status === 'PENDING'))
   } catch (error) {
     next(error)
   }
@@ -20,6 +20,23 @@ router.get('/:userId', async (req, res, next) => {
     const user = await User.findByPk(userId)
     const items = await user.getProducts()
     res.json(items)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/', async (req, res, next) => {
+  try {
+    const cart = await Cart.findAll({
+      where: {
+        userId: 1,
+        status: 'PENDING'
+      }
+    })
+    await Promise.all([
+      cart.map(item => Cart.update({status: 'ORDERED'}, {where: {id: item.id}}))
+    ])
+    res.sendStatus(200)
   } catch (error) {
     next(error)
   }

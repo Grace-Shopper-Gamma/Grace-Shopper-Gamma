@@ -51,6 +51,10 @@ const User = db.define('user', {
   },
   country: {
     type: Sequelize.STRING
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
