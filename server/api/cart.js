@@ -4,7 +4,8 @@ const {Cart, User, Product} = require('../db/models')
 // GET /api/cart
 router.get('/', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.session.passport.user)
+    const userId = req.session.passport ? req.session.passport.user : 1
+    const user = await User.findByPk(userId)
     const items = await user.getProducts()
     res.json(items.filter(item => item.item.status === 'PENDING'))
   } catch (error) {
@@ -15,7 +16,8 @@ router.get('/', async (req, res, next) => {
 // GET /api/cart/:id
 router.get('/:userId', async (req, res, next) => {
   try {
-    const user = await User.findByPk(1)
+    const userId = req.session.passport ? req.session.passport.user : 1
+    const user = await User.findByPk(userId)
     const items = await user.getProducts()
     res.json(items)
   } catch (error) {
@@ -43,7 +45,8 @@ router.post('/', async (req, res, next) => {
 // POST /api/cart
 router.post('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.session.passport.user)
+    const userId = req.session.passport ? req.session.passport.user : 1
+    const user = await User.findByPk(userId)
     await user.addProduct(req.params.id).then(async () =>
       res.json(
         await user.getProducts({
@@ -62,7 +65,8 @@ router.post('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
-    const user = await User.findByPk(req.session.passport.user)
+    const userId = req.session.passport ? req.session.passport.user : 1
+    const user = await User.findByPk(userId)
     await user.removeProduct(id)
     res.status(200).send(id)
   } catch (error) {
@@ -75,8 +79,8 @@ router.put('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
     const cartItem = await Cart.findByPk(id)
-    await cartItem.update(req.body)
-    res.send(id)
+    const updatedItem = await cartItem.update(req.body)
+    res.send(updatedItem)
   } catch (error) {
     next(error)
   }
