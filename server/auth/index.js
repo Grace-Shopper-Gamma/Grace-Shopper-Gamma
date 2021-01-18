@@ -43,3 +43,21 @@ router.get('/me', (req, res) => {
 })
 
 router.use('/google', require('./google'))
+
+router.put('/update', async (req, res, next) => {
+  try {
+    console.log('updating')
+    const {user} = req.body
+
+    await User.update(user, {
+      where: {
+        id: user.id
+      },
+      returning: true
+    })
+
+    res.json({user})
+  } catch (err) {
+    next(err)
+  }
+})

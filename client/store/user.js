@@ -5,6 +5,7 @@ import history from '../history'
  * ACTION TYPES
  */
 const GET_USER = 'GET_USER'
+const UPDATE_USER = 'UPDATE_USER'
 const REMOVE_USER = 'REMOVE_USER'
 
 /**
@@ -16,6 +17,7 @@ const defaultUser = {}
  * ACTION CREATORS
  */
 const getUser = user => ({type: GET_USER, user})
+const update = () => ({type: UPDATE_USER})
 const removeUser = () => ({type: REMOVE_USER})
 
 /**
@@ -30,10 +32,10 @@ export const me = () => async dispatch => {
   }
 }
 
-export const auth = (formBody, method) => async dispatch => {
+export const auth = (email, password, method) => async dispatch => {
   let res
   try {
-    res = await axios.post(`/auth/${method}`, formBody)
+    res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
     return dispatch(getUser({error: authError}))
   }
@@ -45,38 +47,14 @@ export const auth = (formBody, method) => async dispatch => {
     console.error(dispatchOrHistoryErr)
   }
 }
-export const info = (
-  firstName,
-  lastName,
-  address,
-  apartment,
-  city,
-  zip,
-  state,
-  country,
-  method
-) => async dispatch => {
-  let res
-  try {
-    res = await axios.post(`/auth/${method}`, {
-      firstName,
-      lastName,
-      address,
-      apartment,
-      city,
-      zip,
-      state,
-      country
-    })
-  } catch (infoError) {
-    return dispatch(getUser({error: infoError}))
-  }
 
+export const updateUser = user => async dispatch => {
   try {
-    dispatch(getUser(res.data))
-    history.push('/home')
-  } catch (dispatchOrHistoryErr) {
-    console.error(dispatchOrHistoryErr)
+    await axios.put('/auth/update', {user})
+    dispatch(update())
+    // history.push('/login')
+  } catch (err) {
+    console.error(err)
   }
 }
 
