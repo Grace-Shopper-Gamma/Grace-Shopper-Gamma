@@ -37,6 +37,10 @@ form {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
 }
 
+div {
+  animation: fadeIn ease 1s;
+}
+
 .auth-container {
   display: flex;
   flex-direction: column;
@@ -521,7 +525,6 @@ input[type='radio'] {
   border-radius: 10px;
   margin: 15px 0 0 15px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
-  animation: fadeIn ease 1s;
 }
 @keyframes fadeIn {
   0% {
