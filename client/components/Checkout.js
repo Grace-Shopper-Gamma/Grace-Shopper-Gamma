@@ -1,5 +1,4 @@
 import React from 'react'
-import {createOrder} from '../store/checkout'
 import {connect} from 'react-redux'
 import {submitOrder} from '../store/cart'
 import FormButton from './FormButton'
@@ -82,10 +81,8 @@ const mapState = state => ({
   cartItems: state.cartItems
 })
 
-const mapDispatch = dispatch => {
-  return {
-    submitOrder: order => dispatch(submitOrder(order))
-  }
-}
+const mapDispatch = dispatch => ({
+  submitOrder: order => dispatch(submitOrder(order))
+})
 
 export default connect(mapState, mapDispatch)(Checkout)

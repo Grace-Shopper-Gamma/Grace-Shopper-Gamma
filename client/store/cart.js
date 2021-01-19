@@ -18,12 +18,12 @@ export const fetchCartItems = () => {
     }
   }
 }
-
+// unused at the moment
 const _createCartItem = cartItem => ({type: CREATE_CARTITEM, cartItem})
 
 export const createCartItem = id => {
   return async dispatch => {
-    const [created] = (await axios.post(`/api/cart/${id}`)).data
+    await axios.post(`/api/cart/${id}`)
     dispatch(fetchCartItems())
   }
 }

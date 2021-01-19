@@ -3,8 +3,9 @@ import {FaStar} from 'react-icons/fa'
 
 const StarRating = props => {
   const [rating, setRating] = useState(props.rating)
+
   return (
-    <div>
+    <>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1
 
@@ -23,7 +24,7 @@ const StarRating = props => {
           </label>
         )
       })}
-    </div>
+    </>
   )
 }
 
