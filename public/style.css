@@ -116,12 +116,18 @@ form {
 }
 
 .remove-add-button {
-  border: 2px solid grey;
+  background-color: #468faf;
+  color: white;
+  border: 1px solid #5796b1;
   border-radius: 12px;
   width: 23px;
   height: 23px;
   margin: 0 5px 0 5px;
   text-align: center;
+}
+
+.remove-add-button:active {
+  background-color: #5796b1;
 }
 
 #remove {
