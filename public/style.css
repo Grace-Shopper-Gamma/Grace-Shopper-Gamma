@@ -543,3 +543,129 @@ input[type='radio'] {
   align-items: center;
   height: 35px;
 }
+
+.parallax {
+  height: 1000px;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg-1 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #777;
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/img1.png');
+  min-height: 100%;
+}
+.caption {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.border {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  text-align: center;
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+#div1 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #777;
+  background-color: white;
+  padding: 50px 80px;
+  text-align: justify;
+}
+
+#h3-1 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px 'Lato', sans-serif;
+  color: #111;
+  text-align: center;
+}
+
+.bgimg-2 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #777;
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/img2.png');
+  min-height: 400px;
+}
+#span1 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  text-align: center;
+  padding: 18px;
+  letter-spacing: 10px;
+  background-color: transparent;
+  font-size: 25px;
+  color: #000000;
+}
+#div2 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #777;
+  position: relative;
+}
+#div3 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #ddd;
+  background-color: #282e34;
+  padding: 50px 80px;
+  text-align: justify;
+}
+.bgimg-3 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #777;
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/img3.png');
+  min-height: 400px;
+}
+#span2 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  text-align: center;
+  padding: 18px;
+  letter-spacing: 10px;
+  background-color: transparent;
+  font-size: 25px;
+  color: #000000;
+}
+#div4 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #777;
+  position: relative;
+}
+#div5 {
+  font: 400 15px/1.8 'Lato', sans-serif;
+  color: #ddd;
+  background-color: #282e34;
+  padding: 50px 80px;
+  text-align: justify;
+}
+.strikethrough {
+  text-decoration: line-through;
+}
