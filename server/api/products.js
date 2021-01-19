@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const {Product} = require('../db/models')
 const {Op} = require('sequelize')
-module.exports = router
+const {isAdmin} = require('./checkAuth')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', isAdmin, async (req, res, next) => {
   try {
     const item = await Product.create(req.body)
     res.send(item)
@@ -41,7 +41,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isAdmin, async (req, res, next) => {
   try {
     const [num, result] = await Product.update(req.body, {
       where: {
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res, next) => {
   }
 })
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAdmin, async (req, res, next) => {
   try {
     const result = await Product.destroy({
       where: {
@@ -67,3 +67,5 @@ router.delete('/:id', async (req, res, next) => {
     next(error)
   }
 })
+
+module.exports = router
