@@ -6,6 +6,7 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
   margin: 0;
 }
 
@@ -668,4 +669,16 @@ input[type='radio'] {
 }
 .strikethrough {
   text-decoration: line-through;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.content {
+  margin-top: 8em;
 }
