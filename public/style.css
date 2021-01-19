@@ -4,6 +4,18 @@ body {
   color: rgb(53, 52, 52);
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  width: auto;
+}
+
+#content-wrap {
+  margin-top: 8em;
+  padding-bottom: 10em;
+}
+
 a {
   text-decoration: none;
   margin: 0;
@@ -24,7 +36,7 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
+  margin: 0em 1em;
 }
 
 form div {
@@ -116,12 +128,18 @@ form {
 }
 
 .remove-add-button {
-  border: 2px solid grey;
+  background-color: #468faf;
+  color: white;
+  border: 1px solid #5796b1;
   border-radius: 12px;
   width: 23px;
   height: 23px;
   margin: 0 5px 0 5px;
   text-align: center;
+}
+
+.remove-add-button:active {
+  background-color: #5796b1;
 }
 
 #remove {
@@ -232,14 +250,31 @@ button:focus {
 .nav-bar-container {
   display: flex;
   justify-content: space-between;
+  padding: 1em 2em 0em 2em;
+}
+
+.black-title {
+  color: rgb(53, 52, 52);
+  margin: 0.5em 0em;
+  float: left;
+}
+
+.blue-title {
+  margin: 0.5em 3px;
+  padding-bottom: 0em;
+  color: #5796b1;
+  float: left;
+  opacity: 0.9;
 }
 
 .nav-bar-routes {
+  border-bottom: 0px solid black;
   transition: border-bottom 0.15s;
 }
 
 .nav-bar-routes:hover {
   border-bottom: 2px solid black;
+  transition: border-bottom 0.15s;
 }
 
 .nav-bar-routes-container {
@@ -257,6 +292,11 @@ button:focus {
 .nav-bar-container h1 {
   font-family: 'DawningofaNewDay';
   font-size: 31px;
+}
+
+hr {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .oauth-container {
@@ -388,7 +428,7 @@ label .star {
   float: left;
 }
 
-input[type='radio'] {
+.hidden-radio {
   display: none;
 }
 
@@ -563,6 +603,30 @@ input[type='radio'] {
   align-items: center;
   height: 35px;
 }
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(53, 52, 52);
+  position: absolute;
+  bottom: 0;
+  height: 4em;
+  padding: 1em 0em;
+  width: 100%;
+}
+
+#github-icon {
+  height: 2em;
+  width: 2em;
+  color: #468faf;
+  transition: height 0.15s, width 0.15s;
+}
+
+#github-icon:hover {
+  height: 2.1em;
+  width: 2.1em;
+  transition: height 0.15s, width 0.15s;
 
 .parallax {
   height: 1000px;

@@ -16,6 +16,7 @@ const StarRating = props => {
               name="rating"
               value={ratingValue}
               onClick={() => setRating(ratingValue)}
+              className="hidden-radio"
             />
             <FaStar
               className="star"
