@@ -222,6 +222,13 @@ button:focus {
   outline: none;
 }
 
+.main-container {
+  position: sticky;
+  background-color: white;
+  top: 0;
+  z-index: 10;
+}
+
 .nav-bar-container {
   display: flex;
   justify-content: space-between;
@@ -237,6 +244,19 @@ button:focus {
 
 .nav-bar-routes-container {
   display: flex;
+}
+#navPins,
+#navStickers {
+  font-family: 'DawningofaNewDay';
+  font-size: 20px;
+}
+@font-face {
+  font-family: 'DawningofaNewDay';
+  src: url(/fonts/DawningofaNewDay.ttf);
+}
+.nav-bar-container h1 {
+  font-family: 'DawningofaNewDay';
+  font-size: 31px;
 }
 
 .oauth-container {
@@ -553,6 +573,10 @@ input[type='radio'] {
   background-size: cover;
 }
 
+#title {
+  font-family: 'DawningofaNewDay';
+}
+
 .bgimg-1 {
   font: 400 15px/1.8 'Lato', sans-serif;
   color: #777;
@@ -590,6 +614,7 @@ input[type='radio'] {
   background-color: white;
   padding: 50px 80px;
   text-align: justify;
+  z-index: -1;
 }
 
 #h3-1 {

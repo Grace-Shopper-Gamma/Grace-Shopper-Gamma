@@ -6,7 +6,9 @@ export class HomePage extends Component {
       <div className="parallax">
         <div className="bgimg-1">
           <div className="caption">
-            <span className="border">WELCOME!</span>
+            <span className="border" id="title">
+              Stick & Pin
+            </span>
           </div>
         </div>
         <div id="div1">
