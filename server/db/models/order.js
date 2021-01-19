@@ -6,6 +6,10 @@ const Order = db.define('order', {
     type: Sequelize.ENUM('PENDING', 'ORDERED'),
     allowNull: false,
     defaultValue: 'PENDING'
+  },
+  confirmation: {
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4
   }
 })
 

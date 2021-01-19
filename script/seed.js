@@ -271,17 +271,29 @@ async function seed() {
       email: 'murphy@email.com',
       password: '123'
     }),
-    User.create({firstName: 'Gabe', email: 'gabe@email.com', password: '123'}),
+    User.create({
+      firstName: 'Gabe',
+      email: 'gabe@email.com',
+      password: '123',
+      isAdmin: true
+    }),
     User.create({
       firstName: 'Gerald',
       email: 'gerald@email.com',
-      password: '123'
+      password: '123',
+      isAdmin: true
     }),
-    User.create({firstName: 'Joe', email: 'joe@email.com', password: '123'}),
+    User.create({
+      firstName: 'Joe',
+      email: 'joe@email.com',
+      password: '123',
+      isAdmin: true
+    }),
     User.create({
       firstName: 'Kerri',
       email: 'kerri@email.com',
-      password: '123'
+      password: '123',
+      isAdmin: true
     })
   ])
 
@@ -289,24 +301,36 @@ async function seed() {
     products.map(product => Product.create(product))
   )
 
-  const orders = await Promise.all([Order.create(), Order.create()])
+  const orders = await Promise.all([
+    Order.create(),
+    Order.create(),
+    Order.create(),
+    Order.create(),
+    Order.create(),
+    Order.create()
+  ])
 
   await Promise.all([
     users[0].addOrder(orders[0]),
-    users[1].addOrder(orders[1])
+    users[1].addOrder(orders[1]),
+    users[2].addOrder(orders[2]),
+    users[3].addOrder(orders[3]),
+    users[4].addOrder(orders[4]),
+    users[5].addOrder(orders[5])
   ])
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 50; i++) {
     const randPrdIdx = Math.floor(Math.random() * Math.floor(data.length))
+    const randOrdIdx = Math.floor(Math.random() * Math.floor(orders.length))
     try {
-      await orders[i % 2].addProduct(data[randPrdIdx])
+      await orders[randOrdIdx].addProduct(data[randPrdIdx])
     } catch (error) {
       console.log('Moving on')
     }
   }
 
   console.log(`seeded ${users.length} users with orders`)
-  console.log(`seeded about 10 cart items`)
+  console.log(`seeded about 50 cart items`)
   console.log(`seeded ${data.length} products`)
   console.log(`seeded successfully`)
 }

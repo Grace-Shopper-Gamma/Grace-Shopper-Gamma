@@ -32,13 +32,13 @@ router.get('/:userId', async (req, res, next) => {
 router.put('/', async (req, res, next) => {
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
-    const order = await Order.findOrCreate({
+    const order = await Order.findOne({
       where: {
         userId: userId,
         status: 'PENDING'
       }
     })
-    await Order.update({status: 'ORDERED'}, {where: {id: order[0].id}})
+    await Order.update({status: 'ORDERED'}, {where: {id: order.id}})
     res.sendStatus(200)
   } catch (error) {
     next(error)
