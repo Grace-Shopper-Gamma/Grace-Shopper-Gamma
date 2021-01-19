@@ -21,11 +21,8 @@ export const UserHome = props => {
     state,
     country
   } = props
-  console.log({props})
+
   const name = email.replace(/@.*$/, '')
-  console.log('connected')
-  console.log('firstName', firstName)
-  console.log('lastName', lastName)
 
   function refreshPage() {
     location.reload()
