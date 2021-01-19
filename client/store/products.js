@@ -15,6 +15,7 @@ export const getProducts = () => {
       const {data: products} = await axios.get('/api/products')
       dispatch(_getProducts(products))
     } catch (err) {
+      // small note, best practice to use console.error(err)
       console.log(err)
     }
   }

@@ -22,7 +22,7 @@ describe.only('SingleProduct', () => {
   })
 
   it('has className single-product-container', () => {
-    console.log(singleProduct.toJSON())
+    singleProduct.toJSON()
     expect(singleProduct.toJSON().props.className).to.equal(
       'single-product-container '
     )

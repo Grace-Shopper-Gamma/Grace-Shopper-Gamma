@@ -12,7 +12,7 @@ Additional libraries/techs include:
 * mocha/chai/enzyme/supertest; testing
 * webpack/babel; bundling
 
----
+## <!-- add a deployment link somewhere here too! -->
 
 ## What we learned:
 

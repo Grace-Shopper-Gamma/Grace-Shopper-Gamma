@@ -4,13 +4,22 @@ const {Cart, User, Order} = require('../db/models')
 // GET /api/cart
 router.get('/', async (req, res, next) => {
   try {
+    // you can access req.user directly instead of checking passport
+    // say more about what's happening here?
     const userId = req.session.passport ? req.session.passport.user : 1
+
+    /*
+    findOrCreate returns the order itself AND a boolean indicating
+    whether or not it was created. if you want to handle guest cart on session,
+    you can utilize that boolean to handle control flow for the two states (logged in vs not)
+    */
     const order = await Order.findOrCreate({
       where: {
         userId: userId,
         status: 'PENDING'
       }
     })
+
     res.send(await order[0].getProducts())
   } catch (error) {
     next(error)
@@ -18,6 +27,7 @@ router.get('/', async (req, res, next) => {
 })
 
 // GET /api/cart/:id
+// staying RESTFUL - we usually want the number after cart to represent the cart id, not userId
 router.get('/:userId', async (req, res, next) => {
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
@@ -29,6 +39,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+// how can we protect this route so that users can only edit carts that belong to them?
 router.put('/', async (req, res, next) => {
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
