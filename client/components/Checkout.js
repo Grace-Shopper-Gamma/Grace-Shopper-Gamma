@@ -5,6 +5,7 @@ import {submitOrder} from '../store/cart'
 import FormButton from './FormButton'
 import MailingForm from './MailingForm'
 import PaymentForm from './PaymentForm'
+import Confirmation from './Confirmation'
 
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
@@ -13,29 +14,36 @@ class Checkout extends React.Component {
     super()
     this.state = {
       showMailing: true,
-      showPayment: false
+      showPayment: false,
+      submitted: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount() {
+    if (!this.props.cartItems.length) this.props.history.push('/')
   }
 
   handleSubmit(evt) {
     evt.preventDefault()
     this.props.submitOrder(this.props.cartItems)
+    this.setState({submitted: true})
   }
-
-  generateOrderConfirmation() {}
 
   render() {
     const {handleSubmit} = this
     const {cartItems} = this.props
-    const {showMailing, showPayment} = this.state
+    const {showMailing, showPayment, submitted} = this.state
     const subtotal = cartItems.reduce(
       (result, next) => result + next.item.quantity * next.msrp,
       0
     )
     const tax = Math.round(subtotal * 0.07) / 100
+    const orderId = cartItems[0] ? cartItems[0].item.orderId : ''
 
-    return (
+    return submitted ? (
+      <Confirmation orderId={orderId} />
+    ) : (
       <div className="checkout-container">
         <div className="order-form">
           <div
@@ -63,7 +71,6 @@ class Checkout extends React.Component {
             Tax {'(7%)'}: ${tax}
           </p>
           <p>Total: ${(subtotal / 100 + tax).toFixed(2)}</p>
-          <p>{/* Submit Order; change all items to 'ORDERED' */}</p>
           <FormButton displayName="Submit" handleSubmit={handleSubmit} />
         </div>
       </div>

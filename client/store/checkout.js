@@ -1,34 +1,26 @@
 import axios from 'axios'
 
-const CREATE_ORDER = 'CREATE_ORDER'
+const GET_CONFIRMATION = 'GET_CONFIRMATION'
 
-const _createOrder = order => {
+const _getConfirmation = confirmation => {
   return {
-    type: CREATE_ORDER,
-    order
+    type: GET_CONFIRMATION,
+    confirmation
   }
 }
 
-// export const submitOrder = () => {
-//   return async dispatch => {
-//     try {
-//       const
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   }
-// }
-
-export const createOrder = order => {
+export const getConfirmation = orderId => {
   return async dispatch => {
-    const created = (await axios.post('/api/checkout/:id', order)).data
-    dispatch(_createOrder(created))
+    const confirmation = (await axios.get(`/api/checkout/${orderId}`)).data
+    dispatch(_getConfirmation(confirmation))
   }
 }
 
-export default function orderReducer(state = [], action) {
-  if (action.type === CREATE_ORDER) {
-    return [...state, action.order]
+export default function confirmationReducer(state = '', action) {
+  switch (action.type) {
+    case GET_CONFIRMATION:
+      return action.confirmation
+    default:
+      return state
   }
-  return state
 }
