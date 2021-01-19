@@ -15,8 +15,8 @@ const SingleProductCard = props => {
         />
       </div>
       <div className="single-product-info-container">
-        <div className="single-product-name">
-          <h1>{name}</h1>
+        <div>
+          <h1 className="single-product-name">{name}</h1>
         </div>
         <StarRating rating={rating} />
         <br />

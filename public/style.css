@@ -7,12 +7,10 @@ body {
 #page-container {
   position: relative;
   min-height: 100vh;
-  height: auto;
-  width: auto;
 }
 
 #content-wrap {
-  margin-top: 8em;
+  margin-top: 7em;
   padding-bottom: 10em;
 }
 
@@ -75,7 +73,7 @@ form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 4em;
+  margin-top: 2em;
 }
 
 #inner-cart-container {
@@ -343,7 +341,7 @@ hr {
 .single-product-container {
   display: flex;
   justify-content: center;
-  margin: 2em 0 2em 0;
+  margin-bottom: 2em;
   flex-wrap: wrap;
   opacity: 0;
   position: relative;
@@ -363,7 +361,6 @@ hr {
 .single-product-img {
   height: 25em;
   width: 25em;
-  margin: 4em 0 2em 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -378,10 +375,10 @@ hr {
 
 .single-product-name {
   color: black;
-  font-size: 2em;
-  font-weight: 50;
-  margin: 2em 0 0vh 0;
-  height: 3em;
+  font-size: 3em;
+  /* font-weight: 50; */
+  margin: 0;
+  height: 2em;
 }
 
 .single-product-description {
@@ -423,7 +420,6 @@ label .star {
 .allproducts-container {
   display: flex;
   justify-content: center;
-  margin-top: 3em;
 }
 
 .flex-container {
@@ -607,10 +603,10 @@ label .star {
   height: 2.1em;
   width: 2.1em;
   transition: height 0.15s, width 0.15s;
+}
 
 .parallax {
   height: 1000px;
-
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -629,6 +625,7 @@ label .star {
   background-image: url('/img1.jpg');
   min-height: 100%;
 }
+
 .caption {
   font: 400 15px/1.8 'Lato', sans-serif;
   position: absolute;
@@ -638,6 +635,7 @@ label .star {
   text-align: center;
   color: #000;
 }
+
 .border {
   font: 400 15px/1.8 'Lato', sans-serif;
   text-align: center;
@@ -730,6 +728,7 @@ label .star {
   padding: 50px 80px;
   text-align: justify;
 }
+
 .strikethrough {
   text-decoration: line-through;
 }
