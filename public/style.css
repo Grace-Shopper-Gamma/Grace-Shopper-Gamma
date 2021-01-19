@@ -514,3 +514,26 @@ input[type='radio'] {
 #currentInfoTitle {
   text-align: center;
 }
+
+.confirmation-container {
+  width: 50vw;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0 0 15px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
+  animation: fadeIn ease 1s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.confirmation-header {
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
