@@ -17,15 +17,16 @@ class Orders extends Component {
     console.log('productArr ', productArr)
     return (
       <div id="orders-container">
+        <h2 id="orderHistoryTitle"> Order History</h2>
         {productArr.map(x => {
           return (
             <div id="inner-orders-container" key={x.id}>
-              <h5>
-                confirmation #:
+              <h4 id="confOrder">
+                <a>Confirmation #:</a>{' '}
                 {x.filter(j => j.confirmation).map(conf => conf.confirmation)}
-              </h5>
-              <h5>
-                order date:
+              </h4>
+              <h5 id="confOrder">
+                <a>Order Date:</a>{' '}
                 {x
                   .filter(j => j.confirmation)
                   .map(date => date.createdAt)
@@ -34,10 +35,13 @@ class Orders extends Component {
               </h5>
               {x.filter(a => a.description).map(y => {
                 return (
-                  <div key={y.id}>
+                  <div key={y.id} className="purchasedItems">
                     <h5>{y.name && y.name}</h5>
                     <h5>qty: {y.item && y.item.quantity}</h5>
                     <img src={y.imageUrl ? y.imageUrl : null} />
+                    <h5>
+                      <a>Name:</a> {y.name && y.name}
+                    </h5>
                   </div>
                 )
               })}
