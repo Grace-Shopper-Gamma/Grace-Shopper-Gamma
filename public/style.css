@@ -682,3 +682,46 @@ input[type='radio'] {
 .content {
   margin-top: 8em;
 }
+
+.admins-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2%;
+}
+
+.admins-filter {
+  display: flex;
+  width: 20vw;
+  justify-content: space-around;
+}
+
+.user-card {
+  margin: 15px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
+  padding: 15px;
+}
+
+.user-radio-input {
+  display: inline;
+}
+
+.admin-product-card {
+  display: flex;
+  border: 1px solid black;
+  margin: 0 0 10px 0;
+}
+
+.admin-product-card > img {
+  height: 50px;
+  width: 50px;
+}
+
+.admin-product-card > div {
+  display: flex;
+  margin: 0 10px 0 10px;
+  width: 50vw;
+}
+
+.admin-product-card > div > p {
+  padding: 0 10px 0 10px;
+}
