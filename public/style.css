@@ -789,10 +789,20 @@ label .star {
   margin: 15px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
   padding: 15px;
+  width: 100%;
 }
 
-.user-radio-input {
-  display: inline;
+.user-card > p {
+  margin-top: 5px;
+}
+
+.user-radio {
+  display: flex;
+  align-items: center;
+}
+
+.user-radio > label {
+  margin-left: 10px;
 }
 
 .admin-product-container {

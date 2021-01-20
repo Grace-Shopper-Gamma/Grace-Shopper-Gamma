@@ -15,6 +15,15 @@ export const fetchUsers = () => {
   }
 }
 
+export const updateUser = user => async dispatch => {
+  try {
+    await axios.put('/auth/update', {user})
+    dispatch(fetchUsers())
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export default (state = [], action) => {
   switch (action.type) {
     case GET_USERS:

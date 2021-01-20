@@ -9,7 +9,7 @@ class Admins extends Component {
   constructor() {
     super()
     this.state = {
-      viewing: 'products',
+      viewing: 'users',
       showAddForm: false
     }
   }
@@ -25,7 +25,13 @@ class Admins extends Component {
     return (
       <div className="admins-nav">
         <div className="admins-filter">
-          <p onClick={() => this.setState({viewing: 'users'})}>Users</p>
+          <p
+            onClick={() =>
+              this.setState({viewing: 'users', showAddForm: false})
+            }
+          >
+            Users
+          </p>
           <p onClick={() => this.setState({viewing: 'products'})}>Products</p>
           {viewing === 'products' && (
             <p onClick={() => this.setState({showAddForm: !showAddForm})}>
