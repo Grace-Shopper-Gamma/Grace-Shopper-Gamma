@@ -13,7 +13,7 @@ const NavBar = ({handleClick, isLoggedIn}) => {
     <div className="main-container">
       <div className="nav-bar-container">
         <Link to="/">
-          <h1>Stick & Pin</h1>
+          <h1 id="main-title">Stick & Pin</h1>
         </Link>
         <nav className="nav-bar-routes-container center">
           <Link className="nav-bar-routes" to="/pins" id="navPins">
