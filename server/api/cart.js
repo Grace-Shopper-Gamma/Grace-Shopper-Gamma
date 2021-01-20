@@ -1,11 +1,10 @@
 const router = require('express').Router()
 const {Cart, User, Order} = require('../db/models')
-const {isUser} = require('./checkAuth')
 
 // GET /api/cart
-router.get('/', isUser, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    const userId = req.session.passport ? req.session.passport.user : 1
+    const userId = req.user ? req.user.id : 1
     const order = await Order.findOrCreate({
       where: {
         userId: userId,
@@ -21,7 +20,7 @@ router.get('/', isUser, async (req, res, next) => {
 // GET /api/cart/:id
 router.get('/:userId', async (req, res, next) => {
   try {
-    const userId = req.session.passport ? req.session.passport.user : 1
+    const userId = req.user ? req.user.id : 1
     const user = await User.findByPk(userId)
     const items = await user.getProducts()
     res.json(items)
@@ -32,7 +31,7 @@ router.get('/:userId', async (req, res, next) => {
 
 router.put('/', async (req, res, next) => {
   try {
-    const userId = req.session.passport ? req.session.passport.user : 1
+    const userId = req.user ? req.user.id : 1
     const order = await Order.findOne({
       where: {
         userId: userId,
@@ -49,7 +48,7 @@ router.put('/', async (req, res, next) => {
 // POST /api/cart
 router.post('/:id', async (req, res, next) => {
   try {
-    const userId = req.session.passport ? req.session.passport.user : 1
+    const userId = req.user ? req.user.id : 1
     const order = await Order.findOrCreate({
       where: {
         userId: userId,
@@ -63,10 +62,10 @@ router.post('/:id', async (req, res, next) => {
 })
 
 // DELETE /api/cart/:id
-router.delete('/:id', isUser, async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
-    const userId = req.session.passport ? req.session.passport.user : 1
+    const userId = req.user ? req.user.id : 1
     const order = await Order.findOne({
       where: {
         userId: userId,
@@ -81,7 +80,7 @@ router.delete('/:id', isUser, async (req, res, next) => {
 })
 
 // PUT /api/cart/:id
-router.put('/:id', isUser, async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   const {id} = req.params
   try {
     const cartItem = await Cart.findByPk(id)
