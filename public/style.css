@@ -277,7 +277,8 @@ button:focus {
 }
 
 #navPins,
-#navStickers {
+#navStickers,
+#navAdmins {
   font-family: 'DawningofaNewDay';
   font-size: 25px;
   margin: 0em 0.5em;
@@ -819,6 +820,7 @@ label .star {
 .product-update {
   display: flex;
   flex-direction: column;
+}
 
 #inner-orders-container {
   border: 2px solid black;
