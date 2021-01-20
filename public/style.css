@@ -620,7 +620,7 @@ label .star {
 }
 
 .parallax {
-  height: 100vh;
+  height: 1000px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
