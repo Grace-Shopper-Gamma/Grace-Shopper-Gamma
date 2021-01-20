@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchUsers} from '../store/admins'
 import AdminProductCard from './AdminProductCard'
 import UserCard from './UserCard'
+import ProductForm from './ProductForm'
 
 class Admins extends Component {
   constructor() {
@@ -19,7 +20,7 @@ class Admins extends Component {
 
   render() {
     const {users, products} = this.props
-    const {viewing} = this.state
+    const {viewing, showAddForm} = this.state
 
     return (
       <div>
@@ -28,10 +29,15 @@ class Admins extends Component {
             <p onClick={() => this.setState({viewing: 'products'})}>Products</p>
             <p onClick={() => this.setState({viewing: 'users'})}>Users</p>
           </div>
-          <p>Add {viewing}</p>
+          {viewing === 'products' && (
+            <p onClick={() => this.setState({showAddForm: !showAddForm})}>
+              Add product
+            </p>
+          )}
         </div>
         <hr />
         <div className="flex-container">
+          {showAddForm && <ProductForm />}
           {viewing === 'users' &&
             users.map(user => <UserCard key={user.id} user={user} />)}
           {viewing === 'products' &&

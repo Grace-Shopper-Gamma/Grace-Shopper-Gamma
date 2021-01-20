@@ -53,6 +53,17 @@ export const updateProduct = (id, update) => {
   }
 }
 
+export const addProduct = product => {
+  return async dispatch => {
+    try {
+      await axios.post('/api/products', product)
+      dispatch(getProducts())
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 export default function productsReducer(
   state = {products: [], singleProduct: {}},
   action

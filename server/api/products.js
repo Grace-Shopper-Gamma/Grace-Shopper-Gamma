@@ -33,7 +33,7 @@ router.post('/', isAdmin, async (req, res, next) => {
     res.send(item)
   } catch (error) {
     if (error.name === 'SequelizeUniqueContraintError') {
-      res.status(401).send('Pin already exists')
+      res.status(401).send('Product already exists')
     } else {
       next(error)
     }
