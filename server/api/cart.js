@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const {Cart, User, Order} = require('../db/models')
+const {isUser} = require('./checkAuth')
 
 // GET /api/cart
-router.get('/', async (req, res, next) => {
+router.get('/', isUser, async (req, res, next) => {
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
     const order = await Order.findOrCreate({
@@ -62,7 +63,7 @@ router.post('/:id', async (req, res, next) => {
 })
 
 // DELETE /api/cart/:id
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isUser, async (req, res, next) => {
   const {id} = req.params
   try {
     const userId = req.session.passport ? req.session.passport.user : 1
@@ -80,7 +81,7 @@ router.delete('/:id', async (req, res, next) => {
 })
 
 // PUT /api/cart/:id
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', isUser, async (req, res, next) => {
   const {id} = req.params
   try {
     const cartItem = await Cart.findByPk(id)

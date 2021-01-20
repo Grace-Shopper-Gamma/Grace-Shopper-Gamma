@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {updateUser} from '../store/user'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -34,9 +35,9 @@ export const UserHome = props => {
       <h6 id="loggedInAs"> Logged in as {email}</h6>
       <nav id="userProfileNavBar">
         <ul>
-          <li>
-            <a>Order History</a>
-          </li>
+          <Link to="/orders">
+            <li>Order History</li>
+          </Link>
           <li>
             <a>My Information</a>
           </li>

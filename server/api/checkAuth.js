@@ -7,6 +7,15 @@ function isAdmin(req, res, next) {
   }
 }
 
+function isUser(req, res, next) {
+  if (req.user.id !== req.session.passport.user) {
+    res.status(404).redirect('/')
+  } else {
+    next()
+  }
+}
+
 module.exports = {
-  isAdmin
+  isAdmin,
+  isUser
 }

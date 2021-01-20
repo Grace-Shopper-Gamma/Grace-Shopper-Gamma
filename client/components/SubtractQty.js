@@ -20,6 +20,7 @@ class SubtractQty extends Component {
           type="submit"
           className="remove-add-button"
           onClick={() => this.props.updateCartItem(sub)}
+          disabled={cartItem.item.quantity === 0}
         >
           -
         </button>
