@@ -42,6 +42,17 @@ export const deleteProduct = id => {
   }
 }
 
+export const updateProduct = (id, update) => {
+  return async dispatch => {
+    try {
+      await axios.put(`/api/products/${id}`, update)
+      dispatch(getProducts())
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 export default function productsReducer(
   state = {products: [], singleProduct: {}},
   action

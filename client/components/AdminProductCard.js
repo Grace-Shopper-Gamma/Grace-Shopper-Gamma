@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {deleteProduct} from '../store/products'
+import UpdateProduct from './UpdateProduct'
 
 class AdminProductCard extends Component {
   constructor() {
@@ -24,22 +25,25 @@ class AdminProductCard extends Component {
     } = this.props.product
 
     return (
-      <div
-        className="admin-product-card"
-        onClick={() => this.setState({selected: !selected})}
-      >
-        <img src={imageUrl} />
-        <div>
-          <p>name: {name}</p>
-          <p>msrp: {msrp}</p>
-          <p>rating: {rating}</p>
-          <p>stock: {stock}</p>
-          <p>category: {category}</p>
+      <div>
+        <div
+          className="admin-product-card"
+          onClick={() => this.setState({selected: !selected})}
+        >
+          <img src={imageUrl} />
+          <div>
+            <p>name: {name}</p>
+            <p>msrp: {msrp}</p>
+            <p>rating: {rating}</p>
+            <p>stock: {stock}</p>
+            <p>category: {category}</p>
+          </div>
+          <p>desc: {description}</p>
+          <button type="button" onClick={() => this.props.deleteProduct(id)}>
+            X
+          </button>
         </div>
-        <p>desc: {description}</p>
-        <button type="button" onClick={() => this.props.deleteProduct(id)}>
-          X
-        </button>
+        {selected && <UpdateProduct product={this.props.product} />}
       </div>
     )
   }
