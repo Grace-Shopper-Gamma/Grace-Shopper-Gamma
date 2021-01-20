@@ -14,7 +14,7 @@ export const fetchCartItems = () => {
       const cartItems = (await axios.get('/api/cart')).data
       dispatch(_setCartItems(cartItems))
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 }

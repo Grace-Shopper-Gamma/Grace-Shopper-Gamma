@@ -19,6 +19,7 @@ const Order = require('./order')
 
 User.hasMany(Order)
 Order.belongsToMany(Product, {through: Cart})
+Product.belongsToMany(Order, {through: Cart})
 
 module.exports = {
   User,
