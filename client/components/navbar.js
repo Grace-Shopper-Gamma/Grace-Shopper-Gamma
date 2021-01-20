@@ -17,8 +17,10 @@ const NavBar = ({handleClick, isLoggedIn, isAdmin}) => {
         </Link>
         <nav className="nav-bar-routes-container center">
           {isAdmin && (
-            <Link className="nav-bar-routes" to="/admin" id="navAdmins">
-              Admins
+
+            <Link className="nav-bar-routes" to="/admin" id="navAdmin">
+              Admin
+
             </Link>
           )}
           <Link className="nav-bar-routes" to="/pins" id="navPins">

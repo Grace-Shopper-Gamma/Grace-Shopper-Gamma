@@ -30,7 +30,7 @@ export const UserHome = props => {
   }
 
   return (
-    <div>
+    <div id="user-page-container">
       <h3 id="userWelcome">Welcome, {name}!</h3>
       <h6 id="loggedInAs"> Logged in as {email}</h6>
       <nav id="userProfileNavBar">
