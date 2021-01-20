@@ -614,9 +614,9 @@ label .star {
 }
 
 #github-icon:hover {
-  height: 2.2em;
-  width: 2.2em;
-  transition: height 0.5s, width 0.5s;
+  height: 2.1em;
+  width: 2.1em;
+  transition: height 0.15s, width 0.15s;
 }
 
 .parallax {
