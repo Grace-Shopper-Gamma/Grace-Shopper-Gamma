@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {deleteProduct} from '../store/products'
 
 class AdminProductCard extends Component {
   constructor() {
@@ -35,9 +37,16 @@ class AdminProductCard extends Component {
           <p>category: {category}</p>
         </div>
         <p>desc: {description}</p>
+        <button type="button" onClick={() => this.props.deleteProduct(id)}>
+          X
+        </button>
       </div>
     )
   }
 }
 
-export default AdminProductCard
+const mapDispatch = dispatch => ({
+  deleteProduct: id => dispatch(deleteProduct(id))
+})
+
+export default connect(null, mapDispatch)(AdminProductCard)
