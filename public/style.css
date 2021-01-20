@@ -4,14 +4,19 @@ body {
   color: rgb(53, 52, 52);
 }
 
+html {
+  height: auto;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;
 }
 
 #content-wrap {
-  margin-top: 7em;
+  margin-top: 5em;
   padding-bottom: 10em;
+  min-height: 65vh;
 }
 
 a {
@@ -47,11 +52,9 @@ form {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
 }
 
-/* animation code to be used */
-
-/* div {
+.fade {
   animation: fadeIn ease 1s;
-} */
+}
 
 .auth-container {
   display: flex;
@@ -73,7 +76,8 @@ form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 2em;
+  margin-top: 7em;
+  min-height: 65vh;
 }
 
 #inner-cart-container {
@@ -155,6 +159,7 @@ form {
   text-align: center;
   margin-top: 6em;
   color: lightgrey;
+  min-height: 65vh;
 }
 
 #big-cart-icon {
@@ -240,7 +245,7 @@ button:focus {
 
 .main-container {
   position: sticky;
-  background-color: white;
+  background-color: #f8f8f8;
   top: 0;
   z-index: 10;
 }
@@ -248,21 +253,12 @@ button:focus {
 .nav-bar-container {
   display: flex;
   justify-content: space-between;
-  padding: 1em 2em 0em 2em;
+  padding: 1em 1.5em 0em 1.5em;
+  background-color: #f8f8f8;
 }
 
-.black-title {
-  color: rgb(53, 52, 52);
-  margin: 0.5em 0em;
-  float: left;
-}
-
-.blue-title {
-  margin: 0.5em 3px;
-  padding-bottom: 0em;
-  color: #5796b1;
-  float: left;
-  opacity: 0.9;
+#main-title {
+  margin: 0.5em 0;
 }
 
 .nav-bar-routes {
@@ -278,23 +274,26 @@ button:focus {
 .nav-bar-routes-container {
   display: flex;
 }
+
 #navPins,
 #navStickers {
   font-family: 'DawningofaNewDay';
-  font-size: 20px;
+  font-size: 25px;
+  margin: 0em 0.5em;
 }
+
 @font-face {
   font-family: 'DawningofaNewDay';
   src: url(/fonts/DawningofaNewDay.ttf);
 }
+
 .nav-bar-container h1 {
   font-family: 'DawningofaNewDay';
-  font-size: 31px;
+  font-size: 40px;
 }
 
 hr {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin: 0em 1em;
 }
 
 .oauth-container {
@@ -361,7 +360,7 @@ hr {
 .single-product-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2em;
+  min-height: 65vh;
   flex-wrap: wrap;
   opacity: 0;
   position: relative;
@@ -440,6 +439,7 @@ label .star {
 .allproducts-container {
   display: flex;
   justify-content: center;
+  min-height: 65vh;
 }
 
 .flex-container {
@@ -495,12 +495,6 @@ label .star {
 #price {
   margin-top: 10px;
   padding-left: 5px;
-}
-
-/***Product Card***/
-#stickersH1 {
-  text-align: center;
-  font-size: 60px;
 }
 
 /***UserHome***/
@@ -585,6 +579,7 @@ label .star {
   margin: 15px 0 0 15px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -605,10 +600,9 @@ label .star {
   justify-content: center;
   align-items: center;
   background-color: rgb(53, 52, 52);
-  position: absolute;
   bottom: 0;
   height: 4em;
-  padding: 1em 0em;
+  padding: 0.8em 0em;
   width: 100%;
 }
 
@@ -616,13 +610,13 @@ label .star {
   height: 2em;
   width: 2em;
   color: #468faf;
-  transition: height 0.15s, width 0.15s;
+  transition: height 0.3s, width 0.3s;
 }
 
 #github-icon:hover {
-  height: 2.1em;
-  width: 2.1em;
-  transition: height 0.15s, width 0.15s;
+  height: 2.2em;
+  width: 2.2em;
+  transition: height 0.5s, width 0.5s;
 }
 
 .parallax {
@@ -673,7 +667,6 @@ label .star {
 #div1 {
   font: 400 15px/1.8 'Lato', sans-serif;
   color: #777;
-  background-color: white;
   padding: 50px 80px;
   text-align: justify;
   z-index: -1;
