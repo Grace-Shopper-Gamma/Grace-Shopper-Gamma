@@ -31,8 +31,8 @@ export const UserHome = props => {
 
   return (
     <div id="user-page-container">
-      <h3 id="userWelcome">Welcome, {name}!</h3>
-      <h6 id="loggedInAs"> Logged in as {email}</h6>
+      <h1 id="userWelcome">Welcome, {name}!</h1>
+      <h4 id="loggedInAs"> Logged in as {email}</h4>
       <nav id="userProfileNavBar">
         <ul>
           <Link to="/orders">
@@ -58,7 +58,7 @@ export const UserHome = props => {
           </ul>
         </div>
         <div className="flex-right">
-          <form onSubmit={handleSubmit} name={name}>
+          <form onSubmit={handleSubmit} name={name} className="no-shadow">
             <input type="hidden" name="id" value={id} />
             <div id="mailingInfoDiv">
               Edit Mailing Information

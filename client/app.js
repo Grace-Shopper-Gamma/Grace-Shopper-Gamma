@@ -1,11 +1,12 @@
 import React from 'react'
 
-import {NavBar, Footer} from './components'
+import {NavBar, Footer, ScrollToTop} from './components'
 import Routes from './routes'
 
 const App = () => {
   return (
     <div id="page-container">
+      <ScrollToTop />
       <NavBar />
       <div id="content-wrap">
         <Routes />
