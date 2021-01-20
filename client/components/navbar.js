@@ -18,7 +18,7 @@ const NavBar = ({handleClick, isLoggedIn, isAdmin}) => {
         <nav className="nav-bar-routes-container center">
           {isAdmin && (
             <Link className="nav-bar-routes" to="/admin" id="navAdmin">
-              Admins
+              Admin
             </Link>
           )}
           <Link className="nav-bar-routes" to="/pins" id="navPins">
