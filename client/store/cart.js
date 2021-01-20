@@ -18,8 +18,6 @@ export const fetchCartItems = () => {
     }
   }
 }
-// unused at the moment
-const _createCartItem = cartItem => ({type: CREATE_CARTITEM, cartItem})
 
 export const createCartItem = id => {
   return async dispatch => {

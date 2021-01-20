@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import FormButton from './FormButton'
-import {updateProduct, addProduct} from '../store/products'
+import {updateProduct, addProduct, deleteProduct} from '../store/products'
 
 const defaultState = {
   name: '',
@@ -130,16 +130,6 @@ class ProductForm extends Component {
             placeholder="Stock"
             value={stock}
           />
-          Category
-          <select
-            className="form-input input"
-            name="category"
-            onChange={this.handleChange}
-            placeholder="Category"
-          >
-            <option value="Pins">Pins</option>
-            <option value="Stickers">Stickers</option>
-          </select>
           Description:
           <input
             type="text"
@@ -149,12 +139,32 @@ class ProductForm extends Component {
             placeholder="Description"
             value={description}
           />
+          Category
+          <select
+            className="form-input input"
+            name="category"
+            onChange={this.handleChange}
+            placeholder="Category"
+            defaultValue={category}
+          >
+            <option value="Pins">Pins</option>
+            <option value="Stickers">Stickers</option>
+          </select>
           <FormButton
             displayName={(this.props.update ? 'Update' : 'Add') + ' Product'}
             handleSubmit={
               this.props.update ? this.handleUpdate : this.handleAdd
             }
           />
+          {this.props.update && (
+            <button
+              className="delete-product"
+              type="button"
+              onClick={() => this.props.deleteProduct(this.props.product.id)}
+            >
+              REMOVE PRODUCT
+            </button>
+          )}
         </div>
       )
     )
@@ -163,7 +173,8 @@ class ProductForm extends Component {
 
 const mapDispatch = dispatch => ({
   updateProduct: (id, update) => dispatch(updateProduct(id, update)),
-  addProduct: product => dispatch(addProduct(product))
+  addProduct: product => dispatch(addProduct(product)),
+  deleteProduct: id => dispatch(deleteProduct(id))
 })
 
 export default connect(null, mapDispatch)(ProductForm)

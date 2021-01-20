@@ -23,12 +23,10 @@ class Admins extends Component {
     const {viewing, showAddForm} = this.state
 
     return (
-      <div>
-        <div className="admins-nav">
-          <div className="admins-filter">
-            <p onClick={() => this.setState({viewing: 'products'})}>Products</p>
-            <p onClick={() => this.setState({viewing: 'users'})}>Users</p>
-          </div>
+      <div className="admins-nav">
+        <div className="admins-filter">
+          <p onClick={() => this.setState({viewing: 'users'})}>Users</p>
+          <p onClick={() => this.setState({viewing: 'products'})}>Products</p>
           {viewing === 'products' && (
             <p onClick={() => this.setState({showAddForm: !showAddForm})}>
               Add product
