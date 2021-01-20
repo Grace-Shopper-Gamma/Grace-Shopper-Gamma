@@ -14,7 +14,7 @@ class Orders extends Component {
     for (let i = 0; i < orderArr.length; i++) {
       productArr[i].push(orderArr[i])
     }
-    console.log('productArr ', productArr)
+
     return (
       <div id="orders-container">
         <h2 id="orderHistoryTitle"> Order History</h2>

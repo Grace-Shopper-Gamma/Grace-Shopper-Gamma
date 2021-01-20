@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Order, Cart} = require('../db/models')
+const {Order} = require('../db/models')
 
 // GET /api/orders
 router.get('/', async (req, res, next) => {
