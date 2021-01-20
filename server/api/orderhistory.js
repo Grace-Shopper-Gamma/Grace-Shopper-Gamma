@@ -11,22 +11,13 @@ router.get('/', async (req, res, next) => {
         status: 'ORDERED'
       }
     })
-    res.send(orders)
-  } catch (error) {
-    next(error)
-  }
-})
-
-// GET /api/orders/:id
-router.get('/:id', async (req, res, next) => {
-  try {
-    const {id} = req.params
-    const items = await Cart.findAll({
-      where: {
-        orderId: id
-      }
-    })
-    res.send(items)
+    let products = []
+    for (let i = 0; i < orders.length; i++) {
+      let each = await orders[i].getProducts()
+      products.push(each)
+    }
+    const allOrders = [orders, products]
+    res.send(allOrders)
   } catch (error) {
     next(error)
   }

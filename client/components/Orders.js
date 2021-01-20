@@ -9,19 +9,40 @@ class Orders extends Component {
 
   render() {
     const {orders} = this.props
-    console.log('orders ', orders)
+    const orderArr = orders[0] ? orders[0] : []
+    const productArr = orders[1] ? orders[1] : []
+    for (let i = 0; i < orderArr.length; i++) {
+      productArr[i].push(orderArr[i])
+    }
+    console.log('productArr ', productArr)
     return (
       <div id="orders-container">
-        <div id="inner-orders-container">
-          {orders.map(x => {
-            return (
-              <div key={x.id} id="order-div">
-                <h5>confirmation #: {x.confirmation}</h5>
-                <h5>order date: {x.createdAt.substr(0, 10)}</h5>
-              </div>
-            )
-          })}
-        </div>
+        {productArr.map(x => {
+          return (
+            <div id="inner-orders-container" key={x.id}>
+              <h5>
+                confirmation #:
+                {x.filter(j => j.confirmation).map(conf => conf.confirmation)}
+              </h5>
+              <h5>
+                order date:
+                {x
+                  .filter(j => j.confirmation)
+                  .map(date => date.createdAt)
+                  .join('')
+                  .substr(0, 10)}
+              </h5>
+              {x.map(y => {
+                return (
+                  <div key={y.id}>
+                    <h5>{y.name && y.name}</h5>
+                    <img src={y.imageUrl ? y.imageUrl : null} />
+                  </div>
+                )
+              })}
+            </div>
+          )
+        })}
       </div>
     )
   }
