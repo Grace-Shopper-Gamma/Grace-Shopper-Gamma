@@ -15,7 +15,7 @@ export const getProducts = () => {
       const {data: products} = await axios.get('/api/products')
       dispatch(_getProducts(products))
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 }
@@ -26,7 +26,29 @@ export const getSingleProduct = id => {
       const {data: singleProduct} = await axios.get(`/api/products/${id}`)
       dispatch(_getSingleProduct(singleProduct))
     } catch (err) {
-      console.log(err)
+      console.error(err)
+    }
+  }
+}
+
+export const deleteProduct = id => {
+  return async dispatch => {
+    try {
+      await axios.delete(`/api/products/${id}`)
+      dispatch(getProducts())
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const updateProduct = (id, update) => {
+  return async dispatch => {
+    try {
+      await axios.put(`/api/products/${id}`, update)
+      dispatch(getProducts())
+    } catch (error) {
+      console.error(error)
     }
   }
 }

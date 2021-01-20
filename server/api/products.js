@@ -10,8 +10,7 @@ router.get('/', async (req, res, next) => {
         stock: {
           [Op.ne]: 0
         }
-      },
-      attributes: {exclude: ['stock', 'description']}
+      }
     })
     res.send(items)
   } catch (error) {

@@ -1,4 +1,4 @@
-# Stick n' Pins
+# STICK & PIN
 
 E-commerce web application to sell stickers and pins!
 

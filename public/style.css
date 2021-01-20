@@ -4,8 +4,24 @@ body {
   color: rgb(53, 52, 52);
 }
 
+html {
+  height: auto;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  margin-top: 5em;
+  padding-bottom: 10em;
+  min-height: 65vh;
+}
+
 a {
   text-decoration: none;
+  color: black;
   margin: 0;
 }
 
@@ -24,7 +40,7 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
+  margin: 0em 1em;
 }
 
 form div {
@@ -37,11 +53,9 @@ form {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
 }
 
-/* animation code to be used */
-
-/* div {
+.fade {
   animation: fadeIn ease 1s;
-} */
+}
 
 .auth-container {
   display: flex;
@@ -63,7 +77,8 @@ form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 4em;
+  margin-top: 7em;
+  min-height: 65vh;
 }
 
 #inner-cart-container {
@@ -116,12 +131,18 @@ form {
 }
 
 .remove-add-button {
-  border: 2px solid grey;
+  background-color: #468faf;
+  color: white;
+  border: 1px solid #5796b1;
   border-radius: 12px;
   width: 23px;
   height: 23px;
   margin: 0 5px 0 5px;
   text-align: center;
+}
+
+.remove-add-button:active {
+  background-color: #5796b1;
 }
 
 #remove {
@@ -139,6 +160,7 @@ form {
   text-align: center;
   margin-top: 6em;
   color: lightgrey;
+  min-height: 65vh;
 }
 
 #big-cart-icon {
@@ -224,7 +246,7 @@ button:focus {
 
 .main-container {
   position: sticky;
-  background-color: white;
+  background-color: #f8f8f8;
   top: 0;
   z-index: 10;
 }
@@ -232,31 +254,47 @@ button:focus {
 .nav-bar-container {
   display: flex;
   justify-content: space-between;
+  padding: 1em 1.5em 0em 1.5em;
+  background-color: #f8f8f8;
+}
+
+#main-title {
+  margin: 0.5em 0;
 }
 
 .nav-bar-routes {
+  border-bottom: 0px solid black;
   transition: border-bottom 0.15s;
 }
 
 .nav-bar-routes:hover {
   border-bottom: 2px solid black;
+  transition: border-bottom 0.15s;
 }
 
 .nav-bar-routes-container {
   display: flex;
 }
+
 #navPins,
 #navStickers {
   font-family: 'DawningofaNewDay';
-  font-size: 20px;
+  font-size: 25px;
+  margin: 0em 0.5em;
 }
+
 @font-face {
   font-family: 'DawningofaNewDay';
   src: url(/fonts/DawningofaNewDay.ttf);
 }
+
 .nav-bar-container h1 {
   font-family: 'DawningofaNewDay';
-  font-size: 31px;
+  font-size: 40px;
+}
+
+hr {
+  margin: 0em 1em;
 }
 
 .oauth-container {
@@ -323,7 +361,7 @@ button:focus {
 .single-product-container {
   display: flex;
   justify-content: center;
-  margin: 2em 0 2em 0;
+  min-height: 65vh;
   flex-wrap: wrap;
   opacity: 0;
   position: relative;
@@ -343,7 +381,6 @@ button:focus {
 .single-product-img {
   height: 25em;
   width: 25em;
-  margin: 4em 0 2em 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -358,10 +395,10 @@ button:focus {
 
 .single-product-name {
   color: black;
-  font-size: 2em;
-  font-weight: 50;
-  margin: 2em 0 0vh 0;
-  height: 3em;
+  font-size: 3em;
+  /* font-weight: 50; */
+  margin: 0;
+  height: 2em;
 }
 
 .single-product-description {
@@ -388,7 +425,7 @@ label .star {
   float: left;
 }
 
-input[type='radio'] {
+.hidden-radio {
   display: none;
 }
 
@@ -403,7 +440,7 @@ input[type='radio'] {
 .allproducts-container {
   display: flex;
   justify-content: center;
-  margin-top: 3em;
+  min-height: 65vh;
 }
 
 .flex-container {
@@ -459,12 +496,6 @@ input[type='radio'] {
 #price {
   margin-top: 10px;
   padding-left: 5px;
-}
-
-/***Product Card***/
-#stickersH1 {
-  text-align: center;
-  font-size: 60px;
 }
 
 /***UserHome***/
@@ -549,6 +580,7 @@ input[type='radio'] {
   margin: 15px 0 0 15px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -564,9 +596,32 @@ input[type='radio'] {
   height: 35px;
 }
 
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(53, 52, 52);
+  bottom: 0;
+  height: 4em;
+  padding: 0.8em 0em;
+  width: 100%;
+}
+
+#github-icon {
+  height: 2em;
+  width: 2em;
+  color: #468faf;
+  transition: height 0.3s, width 0.3s;
+}
+
+#github-icon:hover {
+  height: 2.1em;
+  width: 2.1em;
+  transition: height 0.15s, width 0.15s;
+}
+
 .parallax {
   height: 1000px;
-
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -589,6 +644,7 @@ input[type='radio'] {
   background-image: url('/img1.jpg');
   min-height: 100%;
 }
+
 .caption {
   font: 400 15px/1.8 'Lato', sans-serif;
   position: absolute;
@@ -598,6 +654,7 @@ input[type='radio'] {
   text-align: center;
   color: #000;
 }
+
 .border {
   font: 400 15px/1.8 'Lato', sans-serif;
   text-align: center;
@@ -611,7 +668,6 @@ input[type='radio'] {
 #div1 {
   font: 400 15px/1.8 'Lato', sans-serif;
   color: #777;
-  background-color: white;
   padding: 50px 80px;
   text-align: justify;
   z-index: -1;
@@ -691,6 +747,79 @@ input[type='radio'] {
   padding: 50px 80px;
   text-align: justify;
 }
+
 .strikethrough {
   text-decoration: line-through;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.content {
+  margin-top: 8em;
+}
+
+.admins-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2%;
+}
+
+.admins-filter {
+  display: flex;
+  width: 20vw;
+  justify-content: space-around;
+}
+
+.user-card {
+  margin: 15px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
+  padding: 15px;
+}
+
+.user-radio-input {
+  display: inline;
+}
+
+.admin-product-card {
+  display: flex;
+  border: 1px solid black;
+  margin: 0 0 10px 0;
+  padding: 0 10px 0 10px;
+  align-items: center;
+}
+
+.admin-product-card > img {
+  height: 50px;
+  width: 50px;
+}
+
+.admin-product-card > div {
+  display: flex;
+  margin: 0 10px 0 10px;
+  width: 50vw;
+}
+
+.admin-product-card > div > p {
+  padding: 0 10px 0 10px;
+}
+
+.admin-product-card > button {
+  height: 20px;
+  width: 20px;
+  border-radius: 100px;
+  background-color: red;
+}
+
+.product-update {
+  display: flex;
+  flex-direction: column;
+
+#inner-orders-container {
+  border: 2px solid black;
 }
