@@ -33,9 +33,11 @@ class Orders extends Component {
                   .join('')
                   .substr(0, 10)}
               </h5>
-              {x.map(y => {
+              {x.filter(a => a.description).map(y => {
                 return (
                   <div key={y.id} className="purchasedItems">
+                    <h5>{y.name && y.name}</h5>
+                    <h5>qty: {y.item && y.item.quantity}</h5>
                     <img src={y.imageUrl ? y.imageUrl : null} />
                     <h5>
                       <a>Name:</a> {y.name && y.name}
