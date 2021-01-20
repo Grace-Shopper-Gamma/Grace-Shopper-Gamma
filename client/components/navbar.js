@@ -10,15 +10,15 @@ import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined'
 
 const NavBar = ({handleClick, isLoggedIn, isAdmin}) => {
   return (
-<div className="main-container">
+    <div className="main-container">
       <div className="nav-bar-container">
         <Link to="/">
           <h1 id="main-title">Stick & Pin</h1>
         </Link>
         <nav className="nav-bar-routes-container center">
           {isAdmin && (
-            <Link className="nav-bar-routes" to="/admin">
-              Admins
+            <Link className="nav-bar-routes" to="/admin" id="navAdmin">
+              Admin
             </Link>
           )}
           <Link className="nav-bar-routes" to="/pins" id="navPins">
