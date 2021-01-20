@@ -503,6 +503,7 @@ label .star {
 #userWelcome {
   text-align: center;
 }
+
 #loggedInAs {
   text-align: center;
 }
@@ -519,6 +520,7 @@ label .star {
 #userProfileNavBar li {
   display: inline;
 }
+
 #userProfileNavBar a {
   display: inline;
 }
@@ -535,9 +537,11 @@ label .star {
   width: 50%;
   border: 5px solid #000000;
 }
+
 #mailingInfoDiv label {
   padding-bottom: 10px;
 }
+
 #mailingInfoDiv button {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -545,6 +549,7 @@ label .star {
   width: 25%;
   align-items: center;
 }
+
 #currentInfoDiv {
   display: flex;
   flex-direction: column;
@@ -558,10 +563,12 @@ label .star {
   height: 500px;
   border: 5px solid #000000;
 }
+
 .flex-container-User {
   display: flex;
   flex-direction: row;
 }
+
 .flex-left {
   width: 50%;
   height: 100vh;
@@ -570,6 +577,7 @@ label .star {
 .flex-right {
   width: 50%;
 }
+
 #currentInfoTitle {
   text-align: center;
 }
@@ -787,12 +795,21 @@ label .star {
   display: inline;
 }
 
+.admin-product-container {
+  display: flex;
+  align-items: center;
+}
+
 .admin-product-card {
   display: flex;
   border: 1px solid black;
-  margin: 0 0 10px 0;
+  margin: 10px 0 5px 15px;
   padding: 0 10px 0 10px;
   align-items: center;
+}
+
+.admin-product-card:hover {
+  background-color: #35d4e6;
 }
 
 .admin-product-card > img {
@@ -810,16 +827,16 @@ label .star {
   padding: 0 10px 0 10px;
 }
 
-.admin-product-card > button {
-  height: 20px;
-  width: 20px;
-  border-radius: 100px;
+.admin-product-card + button {
   background-color: red;
+  margin-left: 15px;
 }
 
 .product-update {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 10px 0 5px 15px;
 }
 
 #inner-orders-container {

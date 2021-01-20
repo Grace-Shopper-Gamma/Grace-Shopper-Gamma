@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import FormButton from './FormButton'
-import {updateProduct} from '../store/products'
+import {updateProduct, addProduct} from '../store/products'
 
 const defaultState = {
+  name: '',
   description: 'Much product, much wow!',
   imageUrl:
     'https://www.flaticon.com/svg/vstatic/svg/1274/1274860.svg?token=exp=1610559388~hmac=85e15df3cecccc2b4e65ba64d09a2b97',
@@ -13,7 +14,7 @@ const defaultState = {
   category: 'Pins'
 }
 
-class UpdateProduct extends Component {
+class ProductForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -27,13 +28,16 @@ class UpdateProduct extends Component {
       loaded: false
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
   }
 
   componentDidMount() {
-    const {
-      product: {name, description, imageUrl, msrp, rating, stock, category}
-    } = this.props
+    const {name, description, imageUrl, msrp, rating, stock, category} = this
+      .props.update
+      ? this.props.product
+      : defaultState
+
     this.setState({
       name,
       description,
@@ -52,9 +56,14 @@ class UpdateProduct extends Component {
     })
   }
 
-  handleSubmit(event) {
+  handleUpdate(event) {
     event.preventDefault()
     this.props.updateProduct(this.props.product.id, this.state)
+  }
+
+  handleAdd(event) {
+    event.preventDefault()
+    this.props.addProduct(this.state)
   }
 
   render() {
@@ -78,6 +87,7 @@ class UpdateProduct extends Component {
             className="form-input input"
             name="name"
             onChange={this.handleChange}
+            placeholder="Name"
             value={name}
           />
           imageUrl:
@@ -86,6 +96,7 @@ class UpdateProduct extends Component {
             className="form-input input"
             name="imageUrl"
             onChange={this.handleChange}
+            placeholder="imageUrl"
             value={imageUrl}
           />
           MSRP:
@@ -95,6 +106,7 @@ class UpdateProduct extends Component {
             min={0}
             name="msrp"
             onChange={this.handleChange}
+            placeholder="MSRP"
             value={msrp}
           />
           Rating:
@@ -105,6 +117,7 @@ class UpdateProduct extends Component {
             max={5}
             name="rating"
             onChange={this.handleChange}
+            placeholder="Rating"
             value={rating}
           />
           Stock:
@@ -114,25 +127,34 @@ class UpdateProduct extends Component {
             min={0}
             name="stock"
             onChange={this.handleChange}
+            placeholder="Stock"
             value={stock}
           />
           Category
-          <input
-            type="text"
+          <select
             className="form-input input"
             name="category"
             onChange={this.handleChange}
-            value={category}
-          />
+            placeholder="Category"
+          >
+            <option value="Pins">Pins</option>
+            <option value="Stickers">Stickers</option>
+          </select>
           Description:
           <input
             type="text"
             className="form-input input"
             name="description"
             onChange={this.handleChange}
+            placeholder="Description"
             value={description}
           />
-          <FormButton displayName="Update" handleSubmit={this.handleSubmit} />
+          <FormButton
+            displayName={(this.props.update ? 'Update' : 'Add') + ' Product'}
+            handleSubmit={
+              this.props.update ? this.handleUpdate : this.handleAdd
+            }
+          />
         </div>
       )
     )
@@ -140,7 +162,8 @@ class UpdateProduct extends Component {
 }
 
 const mapDispatch = dispatch => ({
-  updateProduct: (id, update) => dispatch(updateProduct(id, update))
+  updateProduct: (id, update) => dispatch(updateProduct(id, update)),
+  addProduct: product => dispatch(addProduct(product))
 })
 
-export default connect(null, mapDispatch)(UpdateProduct)
+export default connect(null, mapDispatch)(ProductForm)
