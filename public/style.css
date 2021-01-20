@@ -634,7 +634,7 @@ label .star {
 }
 
 .parallax {
-  height: 1000px;
+  height: auto;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -655,7 +655,7 @@ label .star {
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('/img1.jpg');
-  min-height: 100%;
+  min-height: 1000px;
 }
 
 .caption {
