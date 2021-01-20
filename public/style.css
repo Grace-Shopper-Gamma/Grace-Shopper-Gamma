@@ -265,11 +265,6 @@ button:focus {
   margin: 0.5em 0;
 }
 
-.nav-bar-routes {
-  border-bottom: 0px solid black;
-  transition: border-bottom 0.15s;
-}
-
 .nav-bar-routes:hover {
   border-bottom: 2px solid black;
   transition: border-bottom 0.15s;
@@ -790,37 +785,57 @@ label .star {
   margin-right: 2%;
 }
 
-.admins-filter {
-  display: flex;
-  width: 20vw;
-  justify-content: space-around;
+.admins-filter > p {
+  width: 8vw;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: border-bottom 0.15s;
+}
+
+.admins-filter > p:hover {
+  border-bottom: 2px solid black;
 }
 
 .user-card {
   margin: 15px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
   padding: 15px;
+  width: 100%;
 }
 
-.user-radio-input {
-  display: inline;
+.user-card > p {
+  margin-top: 5px;
+}
+
+.user-radio {
+  display: flex;
+  align-items: center;
+}
+
+.user-radio > label {
+  margin-left: 10px;
 }
 
 .admin-product-container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.admin-product-container > div {
+  display: flex;
 }
 
 .admin-product-card {
   display: flex;
   border: 1px solid black;
-  margin: 10px 0 5px 15px;
+  margin: 10px 0 15px 15px;
   padding: 0 10px 0 10px;
   align-items: center;
 }
 
 .admin-product-card:hover {
-  background-color: #35d4e6;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
+  transition: all ease 0.5s;
 }
 
 .admin-product-card > img {
@@ -838,9 +853,15 @@ label .star {
   padding: 0 10px 0 10px;
 }
 
-.admin-product-card + button {
+.delete-product {
   background-color: red;
-  margin-left: 15px;
+  margin-top: 15px;
+  height: 30px;
+}
+
+.delete-product:hover {
+  background-color: #ffa8a8;
+  transition: all ease 0.75s;
 }
 
 .product-update {
