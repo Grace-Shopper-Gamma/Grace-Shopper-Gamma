@@ -607,6 +607,7 @@ label .star {
   height: 2.1em;
   width: 2.1em;
   transition: height 0.15s, width 0.15s;
+}
 
 .parallax {
   height: 1000px;
