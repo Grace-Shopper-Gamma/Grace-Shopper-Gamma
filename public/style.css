@@ -276,9 +276,7 @@ button:focus {
 
 #navPins,
 #navStickers,
-
 #navAdmin {
-
   font-family: 'DawningofaNewDay';
   font-size: 25px;
   margin: 0em 0.5em;
@@ -564,13 +562,11 @@ label .star {
   border: 5px solid #000000;
 }
 
-
 #user-page-container {
   margin: auto;
   min-width: 35em;
   max-width: 70em;
 }
-
 
 .flex-container-User {
   display: flex;
@@ -874,8 +870,6 @@ label .star {
 
   width: 100%;
   margin: 10px 0 5px 15px;
-
-
 }
 
 #inner-orders-container {
