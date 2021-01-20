@@ -8,14 +8,19 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined'
 
-const NavBar = ({handleClick, isLoggedIn}) => {
+const NavBar = ({handleClick, isLoggedIn, isAdmin}) => {
   return (
-    <div className="main-container">
+<div className="main-container">
       <div className="nav-bar-container">
         <Link to="/">
           <h1 id="main-title">Stick & Pin</h1>
         </Link>
         <nav className="nav-bar-routes-container center">
+          {isAdmin && (
+            <Link className="nav-bar-routes" to="/admin">
+              Admins
+            </Link>
+          )}
           <Link className="nav-bar-routes" to="/pins" id="navPins">
             Pins
           </Link>
@@ -52,7 +57,8 @@ const NavBar = ({handleClick, isLoggedIn}) => {
  * CONTAINER
  */
 const mapState = state => ({
-  isLoggedIn: !!state.user.id
+  isLoggedIn: !!state.user.id,
+  isAdmin: state.user.isAdmin
 })
 
 const mapDispatch = dispatch => ({
