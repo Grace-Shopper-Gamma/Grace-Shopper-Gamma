@@ -281,9 +281,7 @@ button:focus {
 
 #navPins,
 #navStickers,
-
 #navAdmin {
-
   font-family: 'DawningofaNewDay';
   font-size: 25px;
   margin: 0em 0.5em;
@@ -507,6 +505,7 @@ label .star {
 /***UserHome***/
 #userWelcome {
   text-align: center;
+  margin-top: 0;
 }
 
 #loggedInAs {
@@ -534,7 +533,6 @@ label .star {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 50px;
@@ -558,17 +556,13 @@ label .star {
 #currentInfoDiv {
   display: flex;
   flex-direction: column;
-  margin: auto;
-
-  /*   padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 50px;
-  padding-right: 50px; */
-  width: 45%;
-  height: 500px;
+  margin-top: 40px;
+  margin-left: 103px;
+  align-self: flex-start;
+  width: 40%;
+  height: 265px;
   border: 5px solid #000000;
 }
-
 
 #user-page-container {
   margin: auto;
@@ -576,21 +570,27 @@ label .star {
   max-width: 70em;
 }
 
-
 .flex-container-User {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   min-width: 35em;
   max-width: 70em;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.35);
 }
 
 .flex-left {
-  width: 50%;
+  width: 40%;
   height: 100vh;
 }
 
 .flex-right {
-  width: 50%;
+  width: 60%;
+}
+
+.no-shadow {
+  padding: 40px 0;
+  box-shadow: 0px 0px 0px 0px white;
 }
 
 #currentInfoTitle {
@@ -639,9 +639,9 @@ label .star {
 }
 
 #github-icon:hover {
-  height: 2.1em;
-  width: 2.1em;
-  transition: height 0.15s, width 0.15s;
+  height: 2.2em;
+  width: 2.2em;
+  transition: height 0.3s, width 0.3s;
 }
 
 .parallax {
@@ -853,8 +853,6 @@ label .star {
 
   width: 100%;
   margin: 10px 0 5px 15px;
-
-
 }
 
 #inner-orders-container {

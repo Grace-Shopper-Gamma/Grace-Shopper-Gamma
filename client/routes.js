@@ -13,7 +13,7 @@ import {
   AllProducts,
   SingleProduct,
   AdminsPage,
-  Orders,
+  Orders
 } from './components'
 import {me} from './store'
 import {getProducts} from './store/products'
@@ -27,7 +27,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn, cartItems} = this.props
+    const {isLoggedIn} = this.props
 
     return (
       <Switch>
