@@ -5,6 +5,12 @@ import {Link} from 'react-router-dom'
 
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined'
 
+setInterval(function() {
+  alert(
+    'Are you still there? Head to checkout to get your amazing stickers and pins!'
+  )
+}, 600000)
+
 class Cart extends Component {
   render() {
     const {cartItems} = this.props
