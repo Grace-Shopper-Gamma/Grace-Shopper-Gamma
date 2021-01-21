@@ -19,6 +19,28 @@ html {
   min-height: 65vh;
 }
 
+@font-face {
+  font-family: 'DawningofaNewDay';
+  src: url(/fonts/DawningofaNewDay.ttf);
+}
+
+#navPins,
+#navStickers,
+#navAdmin {
+  font-family: 'DawningofaNewDay';
+  font-size: 25px;
+  margin: 0em 0.5em;
+}
+
+.nav-bar-container h1 {
+  font-family: 'DawningofaNewDay';
+  font-size: 40px;
+}
+
+#title {
+  font-family: 'DawningofaNewDay';
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -265,31 +287,18 @@ button:focus {
   margin: 0.5em 0;
 }
 
+.nav-bar-routes {
+  margin: 0 12.5px;
+}
+
 .nav-bar-routes:hover {
   border-bottom: 2px solid black;
   transition: border-bottom 0.15s;
+  margin: 0 12.5px;
 }
 
 .nav-bar-routes-container {
   display: flex;
-}
-
-#navPins,
-#navStickers,
-#navAdmin {
-  font-family: 'DawningofaNewDay';
-  font-size: 25px;
-  margin: 0em 0.5em;
-}
-
-@font-face {
-  font-family: 'DawningofaNewDay';
-  src: url(/fonts/DawningofaNewDay.ttf);
-}
-
-.nav-bar-container h1 {
-  font-family: 'DawningofaNewDay';
-  font-size: 40px;
 }
 
 hr {
@@ -645,10 +654,6 @@ label .star {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-#title {
-  font-family: 'DawningofaNewDay';
 }
 
 .bgimg-1 {
