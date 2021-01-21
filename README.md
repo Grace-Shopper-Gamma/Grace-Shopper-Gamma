@@ -1,5 +1,7 @@
 # STICK & PIN
 
+* [GitHub Repo](https://github.com/Grace-Shopper-Gamma/Grace-Shopper-Gamma)
+
 E-commerce web application to sell stickers and pins!
 
 This was a seven work day project dedicated to establishing a team based work flow as well as showing mastery in React, Redux, Express, and Sequelize.

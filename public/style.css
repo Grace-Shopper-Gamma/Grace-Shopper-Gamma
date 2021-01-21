@@ -883,6 +883,7 @@ label .star {
 
 #inner-orders-container {
   border: 2px solid black;
+  width: 100%;
 }
 
 /**Order History**/
@@ -905,6 +906,8 @@ label .star {
   display: flex;
   flex-direction: row;
   text-align: center;
+
+  margin: 15px;
 }
 
 .purchasedItems img {
@@ -914,4 +917,31 @@ label .star {
 }
 .purchasedItems a {
   text-decoration: underline;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 100%;
+  flex: 3;
+}
+
+.subColumn1 {
+  margin-right: 28%;
+}
+
+.subColumn2 {
+  position: relative;
+}
+
+.subColumn3 {
+  margin-left: 33%;
+  position: relative;
 }
