@@ -9,7 +9,7 @@ setInterval(function() {
   alert(
     'Are you still there? Head to checkout to get your amazing stickers and pins!'
   )
-}, 1000000)
+}, 600000)
 
 class Cart extends Component {
   render() {
