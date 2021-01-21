@@ -36,12 +36,25 @@ class Orders extends Component {
               {x.filter(a => a.description).map(y => {
                 return (
                   <div key={y.id} className="purchasedItems">
-                    <h5>{y.name && y.name}</h5>
-                    <h5>qty: {y.item && y.item.quantity}</h5>
-                    <img src={y.imageUrl ? y.imageUrl : null} />
-                    <h5>
-                      <a>Name:</a> {y.name && y.name}
-                    </h5>
+                    <div className="row">
+                      <div className="column">
+                        <div className="subColumn1">
+                          <img src={y.imageUrl ? y.imageUrl : null} />
+                        </div>
+                        <div className="column">
+                          <div className="subColumn2">
+                            <h5>
+                              <a>Name:</a> {y.name && y.name}
+                            </h5>
+                          </div>
+                        </div>
+                        <div className="column">
+                          <div className="subColumn3">
+                            <h5>Quantity: {y.item.quantity}</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )
               })}
