@@ -1,5 +1,6 @@
 # STICK & PIN
 
+* [Deployed Site](https://sticknpin.herokuapp.com/)
 * [GitHub Repo](https://github.com/Grace-Shopper-Gamma/Grace-Shopper-Gamma)
 
 E-commerce web application to sell stickers and pins!
